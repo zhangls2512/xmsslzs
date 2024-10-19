@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "修改邮箱",
+  "usingComponents": {
+    "mp-form": "weui-miniprogram/form/form",
+    "mp-msg": "weui-miniprogram/msg/msg"
+  }
+}

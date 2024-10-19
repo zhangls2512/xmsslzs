@@ -1,0 +1,28 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{qx==false}}'>
+	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+	<view class='a'>1.请前往域名DNS解析控制台添加以下DNS解析记录，记录类型为TXT。</view>
+	<view class='a'>2.添加后建议先等待大约10分钟，再点击“提交验证”按钮提交给CA验证。</view>
+	<view class='a'>3.如果存在多个相同的主机记录，请逐个添加、提交验证。在上一个验证结束后添加、提交验证下一个。</view>
+	<button bindtap='sx' class='button'>刷新</button>
+	<block wx:for='{{lb}}'>
+		<view class='kuang'>
+			<view class='a'>主机记录：<text bindtap='fz' data-id='{{item.name}}' style='color:#576b95'>{{item.name}}</text></view>
+			<view class='a'>记录值：<text bindtap='fz' data-id='{{item.value}}' style='color:#576b95'>{{item.value}}</text></view>
+			<view class='a'>验证截止时间：{{item.enddate}}</view>
+			<view class='a'>
+				<text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.zt=="pending"}}'>待验证</text>
+				<text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.zt=="processing"}}'>验证中</text>
+				<text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.zt=="valid"}}'>验证通过</text>
+				<text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.zt=="invalid"}}'>验证失败</text>
+			</view>
+			<view class='bpbutton'>
+				<view wx:if='{{item.zt=="invalid"}}' data-id='{{item.errmsg}}' bindtap='reason' class='item1'>原因</view>
+				<view wx:if='{{item.zt=="pending"}}' data-id='{{index}}' bindtap='tj' class='item1' style='color:rgb(26,173,25)'>提交验证</view>
+			</view>
+		</view>
+	</block>
+	<view class='listwz6'>——·——</view>
+</view>

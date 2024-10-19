@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/tg/tg",
+    "pages/gxrz/gxrz",
+    "pages/guanyu/guanyu",
+    "pages/zzgs/zzgs",
+    "pages/tscj/tscj",
+    "pages/login/login",
+    "pages/setting/setting",
+    "pages/help/help",
+    "pages/grxxqd/grxxqd",
+    "pages/qxsyqd/qxsyqd",
+    "pages/netzd/netzd",
+    "pages/lj/lj",
+    "pages/zxzh/zxzh",
+    "pages/xgmm/xgmm",
+    "pages/mailset/mailset",
+    "pages/zccz/zccz",
+    "pages/dns/dns",
+    "pages/xgmail/xgmail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00B42A",
+    "navigationBarTitleText": "轩铭SSL证书",
+    "navigationBarTextStyle": "white",
+    "initialRenderingCache": "static"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "@select",
+    "backgroundColor": "@background",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/house.png",
+        "selectedIconPath": "image/shouse.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/person.png",
+        "selectedIconPath": "image/sperson.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "resizable": false,
+  "frameset": false,
+  "darkmode": true,
+  "themeLocation": "theme.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,106 @@
+.page-container {
+  padding: 5px;
+}
+
+.listwz6 {
+  color: rgb(169, 169, 169);
+  font-weight: bold;
+  margin: 5px;
+  text-align: center;
+}
+
+.button,
+.xzbutton,
+.helpbutton {
+  border-radius: 20px;
+}
+
+.max-title,
+.medium-title,
+.small-title {
+  font-weight: bold;
+  margin: 5px;
+  text-align: center;
+}
+
+.max-title {
+  font-size: calc(20px + 0.5 * (1rem - 16px));
+}
+
+.medium-title {
+  font-size: calc(18px + 0.5 * (1rem - 16px));
+}
+
+.new-title {
+  font-size: calc(18px + 0.5 * (1rem - 16px));
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.a,
+.b,
+.c,
+.cc,
+.d,
+.kuang,
+.button,
+.bpbutton,
+.helpbutton {
+  margin: 5px;
+  word-break: break-all;
+}
+
+.bpbutton {
+  display: flex;
+  justify-content: center;
+}
+
+.kuang {
+  border: 1px solid rgb(169, 169, 169);
+  border-radius: 10px;
+  height: auto;
+  padding: 5px;
+  width: auto;
+}
+
+.b,
+.c {
+  text-align: center;
+}
+
+.c,
+.cc {
+  color: rgb(169, 169, 169);
+}
+
+.d {
+  font-weight: bold;
+}
+
+.syzt {
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.item,
+.item1 {
+  border: solid rgb(169, 169, 169);
+  border-radius: 5px;
+  font-size: 16px;
+  height: 20px;
+  padding: 0 5px 5px 5px;
+  text-align: center;
+  width: auto;
+}
+
+.item {
+  margin-right: 10px;
+}
+
+.tag {
+  background-color: #7BC0FC;
+  border-radius: 5px;
+  margin: 2px;
+  padding-left: 1px;
+  padding-right: 1px;
+}

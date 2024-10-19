@@ -1,0 +1,7 @@
+<page-meta root-font-size='system'></page-meta>
+<view class='page-container'>
+	<view class='c'>暂不支持在本小程序中访问此链接，请将其复制粘贴到浏览器中访问</view>
+	<view class='b'>{{lj}}</view>
+	<button bindtap='fz' class='button' type='primary'>复制</button>
+	<button bindtap='fh' class='button'>返回</button>
+</view>

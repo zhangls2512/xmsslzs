@@ -1,0 +1,31 @@
+<page-meta root-font-size='system'></page-meta>
+
+<mp-cells title='账号' wx:if='{{dl==true}}' data-weui-theme='{{theme}}'>
+	<mp-cell bindtap='xgmail' link hover value='修改邮箱'></mp-cell>
+	<mp-cell bindtap='xgmm' link hover value='修改密码'></mp-cell>
+	<mp-cell bindtap='qhzh' link hover value='切换账号'></mp-cell>
+	<mp-cell bindtap='zxzh' link hover value='注销账号' style='color:rgb(250,81,81)'></mp-cell>
+</mp-cells>
+
+<mp-cells wx:if='{{dl==true}}' data-weui-theme='{{theme}}'>
+	<mp-cell bindtap='mailset' link hover value='邮件接收设置'></mp-cell>
+</mp-cells>
+
+<mp-cells title='隐私' data-weui-theme='{{theme}}'>
+	<mp-cell bindtap='qxsyqd' link hover value='权限使用清单'></mp-cell>
+	<mp-cell bindtap='grxxqd' link hover value='个人信息收集清单'></mp-cell>
+	<mp-cell bindtap='dsfqd' link hover value='第三方信息共享清单'></mp-cell>
+	<mp-cell bindtap='dsfsdk' link hover value='接入第三方SDK目录'></mp-cell>
+	<mp-cell bindtap='yszcwj' link hover value='隐私政策文件'></mp-cell>
+</mp-cells>
+
+<mp-cells data-weui-theme='{{theme}}'>
+	<mp-cell bindtap='guanyu' link hover value='关于轩铭SSL证书'></mp-cell>
+	<mp-cell bindtap='help' link hover value='帮助与反馈'></mp-cell>
+</mp-cells>
+
+<mp-cells data-weui-theme='{{theme}}'>
+	<mp-cell bindtap='tc' style='text-align:center' hover value='退出'></mp-cell>
+</mp-cells>
+
+<view class='listwz6'>——·——</view>

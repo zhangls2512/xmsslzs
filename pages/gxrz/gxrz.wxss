@@ -1,0 +1,36 @@
+.cc,
+.dd,
+.ee {
+  font-size: calc(18px + 0.5 * (1rem - 16px));
+  font-weight: bold;
+  margin: 10px 5px 0 5px;
+}
+
+.cc {
+  color: rgb(228, 105, 138);
+}
+
+.dd {
+  color: rgb(120, 194, 136);
+}
+
+.ee {
+  color: rgb(157, 138, 133);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px 0 5px;
+  min-height: 100vh;
+}
+
+.middle {
+  flex-grow: 1;
+}
+
+.lja {
+  color: #576b95;
+  margin-bottom: 10px;
+  text-align: center;
+}

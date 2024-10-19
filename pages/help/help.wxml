@@ -1,0 +1,19 @@
+<page-meta root-font-size='system'></page-meta>
+<view class='container'>
+	<view class='kuang'>
+		<view class='a'>获取客服帮助</view>
+		<button class='helpbutton' style='width:100%' open-type='contact' type='primary'>客服会话</button>
+	</view>
+	<view class='kuang'>
+		<view class='a'>获取文字帮助</view>
+		<button bindtap='cjwt' class='helpbutton' style='width:100%' type='default'>常见问题</button>
+	</view>
+	<view class='kuang'>
+		<view class='a'>获取长期跟进</view>
+		<button bindtap='sq' class='helpbutton' style='width:100%'>反馈社区</button>
+	</view>
+	<view class='kuang'>
+		<view class='a'>反馈功能异常、产品建议</view>
+		<button class='helpbutton' style='width:100%' open-type='feedback'>反馈与投诉</button>
+	</view>
+</view>

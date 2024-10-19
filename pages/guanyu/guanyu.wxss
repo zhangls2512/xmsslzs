@@ -1,0 +1,32 @@
+.tx {
+  height: 100px;
+  margin: 30px 0 25px 0;
+  width: 100px;
+}
+
+.cell {
+  padding: 20px;
+}
+
+.lj {
+  color: #576b95;
+  margin: 5px;
+  text-align: center;
+}
+
+.lj-end {
+  color: #576b95;
+  margin: 5px 5px 10px 5px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 5px 0 5px;
+}
+
+.middle {
+  flex-grow: 1;
+}

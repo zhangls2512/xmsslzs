@@ -1,0 +1,59 @@
+<page-meta root-font-size='system'></page-meta>
+<view class='page-container'>
+  <view class='a'>ICP备案：<text bindtap='ck1' class='lj'>黑ICP备2024023054号-6X</text></view>
+  <view class='a'>产品备案：<text bindtap='myblj' data-id='铭懿博品备7WX号' class='lj'>铭懿博品备7WX号</text></view>
+  <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-1Z' class='lj'>铭懿博版备7WX号-1Z</text></view>
+  <view class='small-title'>特殊场景适配备案</view>
+  <view class='table-container'>
+    <view class='row'>
+      <view class='cella'>特殊场景</view>
+      <view class='cell'>备案号</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>关怀模式</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-1E' class='cellb'>铭懿博适备7WX号-1E</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>无障碍</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-2Z' class='cellb'>铭懿博适备7WX号-2Z</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>深色模式</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-3D' class='cellb'>铭懿博适备7WX号-3D</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>无网环境</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-4W' class='cellb'>铭懿博适备7WX号-4W</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>弱网环境</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-5W' class='cellb'>铭懿博适备7WX号-5W</view>
+    </view>
+    <view class='endrow'>
+      <view bindtap='ck3' class='cellc'>移动数据（流量）网络环境</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-6W' class='cellb'>铭懿博适备7WX号-6W</view>
+    </view>
+  </view>
+  <view class='small-title'>隐私安全备案</view>
+  <view class='table-container'>
+    <view class='row'>
+      <view class='cella'>内容</view>
+      <view class='cell'>备案号</view>
+    </view>
+    <view class='endrow'>
+      <view class='cella'>有隐私相关功能，包括但不限于权限使用清单、个人信息收集清单、第三方信息共享清单、接入第三方SDK目录、隐私政策文件</view>
+      <view bindtap='myblj' data-id='铭懿博私安备7WX号-1' class='cellb'>铭懿博私安备7WX号-1</view>
+    </view>
+  </view>
+  <view class='small-title'>更新日志备案</view>
+  <view class='table-container'>
+    <view class='row'>
+      <view class='cella'>内容</view>
+      <view class='cell'>备案号</view>
+    </view>
+    <view class='endrow'>
+      <view class='cella'>上线第一版本</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-1A' class='cellb'>铭懿博新备7WX号-1A</view>
+    </view>
+  </view>
+</view>

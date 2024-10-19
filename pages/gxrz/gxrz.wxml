@@ -1,0 +1,9 @@
+<page-meta root-font-size='system'></page-meta>
+<view class='container'>
+	<view class='cc'>版本升级</view>
+	<view class='a'>1.上线第一版本。</view>
+	<view class='middle'></view>
+	<view>
+		<view bindtap='gxrz' class='lja'>历史版本更新日志</view>
+	</view>
+</view>

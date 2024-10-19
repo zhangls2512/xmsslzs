@@ -1,0 +1,30 @@
+<page-meta root-font-size='system'></page-meta>
+<view class='page-container'>
+	<view class='d'>请求地址：https://api.dqmybkj.com/test</view>
+	<view class='small-title'>请求结果</view>
+	<view class='a'>错误码：{{data.code}}</view>
+	<view class='a'>错误信息：{{data.msg}}</view>
+	<view class='a'>请求IP：{{data.ip}}</view>
+	<view class='a'>请求时间戳：{{data.timestamp}}</view>
+	<view class='small-title'>请求详细信息</view>
+	<view class='a'>HTTP状态码：{{statuscode}}</view>
+	<view class='a'>耗时：{{hs}}ms</view>
+	<view class='a'>评估当前网络下载：{{profile.downstreamThroughputKbpsEstimate}}kbps</view>
+	<view class='a'>评估的网络状态：{{profile.estimate_nettype}}</view>
+	<view class='a'>当次请求连接过程中实时rtt：{{profile.rtt}}</view>
+	<view class='a'>协议层根据多个请求评估当前网络的rtt：{{profile.httpRttEstimate}}</view>
+	<view class='a'>传输层根据多个请求评估的当前网络的rtt：{{profile.transportRttEstimate}}</view>
+	<view class='a'>当前请求的IP：{{profile.peerIP}}</view>
+	<view class='a'>当前请求的端口：{{profile.port}}</view>
+	<view class='a'>使用协议类型：{{profile.protocol}}</view>
+	<view class='a'>发送的字节数：{{profile.sendBytesCount}}</view>
+	<view class='a'>收到字节数：{{profile.receivedBytedCount}}</view>
+	<view class='a'>是否复用连接：{{profile.socketReused}}</view>
+	<view class='a'>是否走到了高性能模式：{{profile.usingHighPerformanceMode}}</view>
+	<button class='button' bindtap='start' loading='{{load}}' disabled='{{ky}}'>{{bwz}}</button>
+	<view class='d'>提示：</view>
+	<view class='a'>1.需在联网环境下检测。</view>
+	<view class='a'>2.检测过程中请勿切后台、离开此页面。</view>
+	<view class='a'>3.检测使用测试数据，轩铭SSL证书不会收集个人信息、检测结果。</view>
+	<view class='a'>4.检测使用的测试数据与真实数据在大小等方面存在差异，可能导致检测结果与真实情况存在差异，仅供参考。</view>
+</view>

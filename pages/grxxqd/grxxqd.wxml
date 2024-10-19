@@ -1,0 +1,35 @@
+<page-meta root-font-size='system'></page-meta>
+<view class='page-container'>
+	<view class='kuang'>
+		<view class='small-title'>邮箱</view>
+		<view class='a'><text style='font-weight:bold'>内容：</text>{{email}}</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“小人”图标-设置-修改邮箱/注销账号，在修改邮箱、注销账号页面管理</view>
+		<view class='d'>场景、目的</view>
+		<view class='a'>发送验证码：给邮箱发送验证码、验证邮箱</view>
+		<view class='a'>注册账号：完成账号注册</view>
+		<view class='a'>修改邮箱：修改账号邮箱</view>
+	</view>
+	<view class='kuang'>
+		<view class='small-title'>密码</view>
+		<view class='a'><text style='font-weight:bold'>内容：</text>（密码属于敏感隐私信息，此处不展示）</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“小人”图标-（登录-注册账号 | 重置密码）/设置-修改密码/注销账号/（切换账号-注册账号 | 重置密码），在注册账号 | 重置密码、修改密码、注销账号页面管理</view>
+		<view class='d'>场景、目的</view>
+		<view class='a'>注册账号：完成账号注册</view>
+		<view class='a'>重置密码：重置账号密码</view>
+		<view class='a'>修改密码：修改账号密码</view>
+	</view>
+	<view class='kuang'>
+		<view class='small-title'>设置信息</view>
+		<view class='a'><text style='font-weight:bold'>内容：</text>进入首页，依次点击右下角“小人”图标-设置-邮件接收设置，在邮件接收设置页面查看</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“小人”图标-设置-邮件接收设置，在邮件接收设置页面管理</view>
+		<view class='d'>场景、目的</view>
+		<view class='a'>邮件接收设置：保存邮件接收设置</view>
+	</view>
+	<view class='kuang'>
+		<view class='small-title'>申请信息</view>
+		<view class='a'><text style='font-weight:bold'>内容：</text>在首页查看</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>在首页管理</view>
+		<view class='d'>场景、目的</view>
+		<view class='a'>新增申请：新增申请</view>
+	</view>
+</view>

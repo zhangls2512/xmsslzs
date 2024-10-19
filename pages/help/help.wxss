@@ -1,0 +1,14 @@
+.container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.kuang {
+	display: flex;
+	flex-direction: column;
+	padding: 0 5px 0 5px;
+}
+
+.helpbutton {
+	margin-top: auto;
+}

@@ -1,0 +1,10 @@
+{
+  "light": {
+    "select": "#000000",
+    "background": "#ffffff"
+  },
+  "dark": {
+    "select": "#ffffff",
+    "background": "#000000"
+  }
+}

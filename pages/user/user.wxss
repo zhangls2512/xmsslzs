@@ -1,0 +1,15 @@
+.image {
+  width: 20%;
+}
+
+.nc {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.tb-wz {
+  align-items: center;
+  display: flex;
+  margin: 10px;
+  text-align: center;
+}

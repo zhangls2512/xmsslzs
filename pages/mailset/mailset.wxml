@@ -1,0 +1,28 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{xs==false}}'>
+	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
+</view>
+<view wx:if='{{xs==true}}' class='page-container'>
+	<view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
+		<view class='weui-cells weui-cells_form'>
+			<view class='weui-cell weui-cell_active weui-cell_switch'>
+				<view class='weui-cell__bd'>申请状态变更通知</view>
+				<view class='weui-cell__ft'>
+					<label class='weui-switch-cp'>
+						<switch bindchange='sqztbg' class='weui-switch-cp__input' checked='{{sqztbg}}' />
+						<view class='weui-switch-cp__box'></view>
+					</label>
+				</view>
+			</view>
+			<view class='weui-cell weui-cell_active weui-cell_switch'>
+				<view class='weui-cell__bd'>证书即将到期提醒</view>
+				<view class='weui-cell__ft'>
+					<label class='weui-switch-cp'>
+						<switch bindchange='zsdq' class='weui-switch-cp__input' checked='{{zsdq}}' />
+						<view class='weui-switch-cp__box'></view>
+					</label>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
