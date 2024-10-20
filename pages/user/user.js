@@ -1,6 +1,7 @@
 Page({
     data: {
         tx: '/image/tx.png',
+        theme: '',
         nc: '未登录用户',
         tsa: '',
         tsb: '',
@@ -23,8 +24,7 @@ Page({
         isSupported: '',
         version: '',
         reason: '',
-        wza: '',
-        theme: ''
+        wza: ''
     },
     onShow() {
         var that = this

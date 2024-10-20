@@ -11,7 +11,14 @@
 					<input model:value='{{email}}' class='weui-input' focus placeholder='请输入新邮箱' placeholder-class='weui-input__placeholder' />
 				</view>
 			</view>
+			<view class='weui-cell weui-cell_active'>
+				<view class='weui-cell__hd'><label class='weui-label'>验证码</label></view>
+				<view class='weui-cell__bd'>
+					<input maxlength='6' model:value='{{yzm}}' class='weui-input' type='number' placeholder='请输入验证码' placeholder-class='weui-input__placeholder' />
+				</view>
+			</view>
 		</view>
 	</view>
+	<button class='button' type='default' bindtap='fs'>发送验证码</button>
 	<button bindtap='tj' class='button' type='primary'>修改</button>
 </view>

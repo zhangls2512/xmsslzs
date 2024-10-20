@@ -3,14 +3,18 @@
 	<view class='d'>一、关怀模式</view>
 	<view class='a'>字体跟随微信关怀模式设置放大1.4倍。</view>
 	<view class='d'>二、无障碍</view>
-	<view class='a'>尽可能多地使用界面由微信绘制的（原生）接口组件，以最大化地利用微信内置的无障碍特性。</view>
+	<view class='a'>尽可能多地使用微信小程序基础库中的组件、API，以最大化地利用微信小程序内置的无障碍特性。</view>
 	<view class='d'>三、深色模式</view>
 	<view class='a'>界面跟随微信深色模式设置改变颜色主题。</view>
-	<view class='d'>四、无网环境</view>
+	<view class='d'>四、大小屏</view>
+	<view class='a'>适配PC分栏模式。</view>
+	<view class='d'>五、多语言</view>
+	<view class='a'>尽可能多地使用微信小程序基础库中的组件、API，以最大化地利用微信小程序内置的全局翻译功能。</view>
+	<view class='d'>六、无网环境</view>
 	<view class='a'>1.阻止调用需网API并弹窗提示。</view>
 	<view class='a'>2.网络断开时弹窗提示。</view>
-	<view class='d'>五、弱网环境</view>
+	<view class='d'>七、弱网环境</view>
 	<view class='a'>弹窗提示。</view>
-	<view class='d'>六、移动数据（流量）网络环境</view>
+	<view class='d'>八、移动数据（流量）网络环境</view>
 	<view class='a'>切换到/使用移动数据（流量）联网时弹窗提示。</view>
 </view>

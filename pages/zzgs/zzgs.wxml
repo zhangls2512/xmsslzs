@@ -3,6 +3,17 @@
   <view class='a'>ICP备案：<text bindtap='ck1' class='lj'>黑ICP备2024023054号-6X</text></view>
   <view class='a'>产品备案：<text bindtap='myblj' data-id='铭懿博品备7WX号' class='lj'>铭懿博品备7WX号</text></view>
   <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-1Z' class='lj'>铭懿博版备7WX号-1Z</text></view>
+  <view class='small-title'>许可</view>
+  <view class='table-container'>
+    <view class='row'>
+      <view class='cella'>类型</view>
+      <view class='cell'>许可号</view>
+    </view>
+    <view class='endrow'>
+      <view class='cella'>敏感信息（账号密码）收集处理服务</view>
+      <view bindtap='myblj' data-id='铭懿博许7WX号-1M' class='cellb'>铭懿博许7WX号-1M</view>
+    </view>
+  </view>
   <view class='small-title'>特殊场景适配备案</view>
   <view class='table-container'>
     <view class='row'>
@@ -20,6 +31,14 @@
     <view class='row'>
       <view bindtap='ck3' class='cellc'>深色模式</view>
       <view bindtap='myblj' data-id='铭懿博适备7WX号-3D' class='cellb'>铭懿博适备7WX号-3D</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>大小屏</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-7S' class='cellb'>铭懿博适备7WX号-7S</view>
+    </view>
+    <view class='row'>
+      <view bindtap='ck3' class='cellc'>多语言</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-8L' class='cellb'>铭懿博适备7WX号-8L</view>
     </view>
     <view class='row'>
       <view bindtap='ck3' class='cellc'>无网环境</view>

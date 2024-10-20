@@ -1,8 +1,8 @@
 Page({
 	data: {
+		jl: 0,
 		theme: '',
-		xs: false,
-		jl: 0
+		xs: false
 	},
 	xs() {
 		var that = this
