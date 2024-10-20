@@ -6,7 +6,6 @@ Page({
         ym: '',
         suanfa: '',
         array: ['RSA（2048位）', 'RSA（3072位）', 'RSA（4096位）', 'ECDSA（P-256）', 'ECDSA（P-384）'],
-        suanfa: '',
         sf: '请选择'
     },
     onShow() {
@@ -95,7 +94,6 @@ Page({
             })
             return
         }
-
         var app = getApp()
         if (app.globalData.network == 'none') {
             wx.showToast({
@@ -113,7 +111,7 @@ Page({
             method: 'POST',
             data: {
                 email: wx.getStorageSync('user').email,
-                password: wx.getStorageSync('user').password,
+                password: require('../../password').token(),
                 yuming: t.yuming,
                 suanfa: t.suanfa
             },

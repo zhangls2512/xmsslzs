@@ -52,7 +52,7 @@ Page({
         method: 'POST',
         data: {
           email: wx.getStorageSync('user').email,
-          password: wx.getStorageSync('user').password,
+          password: require('../../password').token(),
           startnumber: 0,
           zt: that.data.zt
         },
@@ -117,7 +117,7 @@ Page({
         method: 'POST',
         data: {
           email: wx.getStorageSync('user').email,
-          password: wx.getStorageSync('user').password,
+          password: require('../../password').token(),
           startnumber: that.data.lb.length,
           zt: that.data.zt
         },
@@ -218,7 +218,7 @@ Page({
             method: 'POST',
             data: {
               email: wx.getStorageSync('user').email,
-              password: wx.getStorageSync('user').password,
+              password: require('../../password').token(),
               id: id
             },
             useHighPerformanceMode: true,
@@ -277,7 +277,7 @@ Page({
           method: 'POST',
           data: {
             email: wx.getStorageSync('user').email,
-            password: wx.getStorageSync('user').password,
+            password: require('../../password').token(),
             id: id,
             lx: index
           },
@@ -403,7 +403,7 @@ Page({
             method: 'POST',
             data: {
               email: wx.getStorageSync('user').email,
-              password: wx.getStorageSync('user').password,
+              password: require('../../password').token(),
               id: id,
               reason: reason
             },
@@ -486,7 +486,7 @@ Page({
             method: 'POST',
             data: {
               email: wx.getStorageSync('user').email,
-              password: wx.getStorageSync('user').password,
+              password: require('../../password').token(),
               id: id
             },
             useHighPerformanceMode: true,

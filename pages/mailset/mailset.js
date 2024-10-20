@@ -34,7 +34,7 @@ Page({
         method: 'POST',
         data: {
           email: wx.getStorageSync('user').email,
-          password: wx.getStorageSync('user').password
+          password: require('../../password').token()
         },
         useHighPerformanceMode: true,
         enableHttp2: true,
@@ -84,7 +84,7 @@ Page({
       method: 'POST',
       data: {
         email: wx.getStorageSync('user').email,
-        password: wx.getStorageSync('user').password,
+        password: require('../../password').token(),
         mailsqztbg: t.sqztbg,
         mailzsdq: t.zsdq
       },

@@ -125,5 +125,10 @@ Page({
         }
       }
     })
+  },
+  tz() {
+    this.router.navigateTo({
+      url: '../zccz/zccz'
+    })
   }
 })

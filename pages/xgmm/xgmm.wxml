@@ -24,6 +24,9 @@
 				</view>
 			</view>
 		</view>
+		<view class='weui-cells__tips'>
+			<view bindtap='tz' class='weui-link'>忘记原密码？</view>
+		</view>
 	</view>
 	<button bindtap='tj' class='button' type='primary'>修改</button>
 </view>

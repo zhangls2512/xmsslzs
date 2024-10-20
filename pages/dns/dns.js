@@ -50,7 +50,7 @@ Page({
         method: 'POST',
         data: {
           email: wx.getStorageSync('user').email,
-          password: wx.getStorageSync('user').password,
+          password: require('../../password').token(),
           id: that.data.id
         },
         useHighPerformanceMode: true,
@@ -118,7 +118,7 @@ Page({
             method: 'POST',
             data: {
               email: wx.getStorageSync('user').email,
-              password: wx.getStorageSync('user').password,
+              password: require('../../password').token(),
               id: that.data.id,
               index: id
             },

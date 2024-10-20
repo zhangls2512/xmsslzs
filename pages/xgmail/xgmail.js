@@ -115,7 +115,7 @@ Page({
       method: 'POST',
       data: {
         email: wx.getStorageSync('user').email,
-        password: wx.getStorageSync('user').password,
+        password: require('../../password').token(),
         newemail: t.email,
         id: t.id,
         yzm: t.yzm

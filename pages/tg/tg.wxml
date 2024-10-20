@@ -27,5 +27,7 @@
 		<text class='tag' wx:for='{{yuming}}'>{{item}} <text data-id='{{item}}' bindtap='sc' style='color:red'>×</text></text>
 	</view>
 	<button bindtap='tg' class='button' type='primary'>新增</button>
-	<view class='a'>提示：域名支持通配符，如*.example.com。向CA提交证书签发请求时第一个域名将作为主域名，其余作为附加域名。</view>
+	<view class='d'>提示：</view>
+	<view class='a'>1.域名支持通配符，如*.example.com。</view>
+	<view class='a'>2.向CA提交证书签发请求时第一个域名将作为主域名，其余作为附加域名。</view>
 </view>

@@ -34,23 +34,23 @@
     </view>
     <view class='row'>
       <view bindtap='ck3' class='cellc'>大小屏</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-7S' class='cellb'>铭懿博适备7WX号-7S</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-4S' class='cellb'>铭懿博适备7WX号-4S</view>
     </view>
     <view class='row'>
       <view bindtap='ck3' class='cellc'>多语言</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-8L' class='cellb'>铭懿博适备7WX号-8L</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-5L' class='cellb'>铭懿博适备7WX号-5L</view>
     </view>
     <view class='row'>
       <view bindtap='ck3' class='cellc'>无网环境</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-4W' class='cellb'>铭懿博适备7WX号-4W</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-6W' class='cellb'>铭懿博适备7WX号-6W</view>
     </view>
     <view class='row'>
       <view bindtap='ck3' class='cellc'>弱网环境</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-5W' class='cellb'>铭懿博适备7WX号-5W</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-7W' class='cellb'>铭懿博适备7WX号-7W</view>
     </view>
     <view class='endrow'>
       <view bindtap='ck3' class='cellc'>移动数据（流量）网络环境</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-6W' class='cellb'>铭懿博适备7WX号-6W</view>
+      <view bindtap='myblj' data-id='铭懿博适备7WX号-8W' class='cellb'>铭懿博适备7WX号-8W</view>
     </view>
   </view>
   <view class='small-title'>隐私安全备案</view>

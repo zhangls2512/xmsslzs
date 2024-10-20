@@ -67,7 +67,7 @@ Page({
 							data: {
 								zt: true,
 								email: t.email,
-								password: pinjieclose
+								password: passwordhash
 							}
 						})
 						setTimeout(() => {
