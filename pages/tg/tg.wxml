@@ -24,7 +24,7 @@
 		</view>
 	</view>
 	<view class='a'>
-		<text class='tag' wx:for='{{yuming}}'>{{item}} <text data-id='{{item}}' bindtap='sc' style='color:red'>×</text></text>
+		<text class='tag' wx:for='{{yuming}}'>{{item}} <text data-index='{{index}}' bindtap='sc' style='color:red'>×</text></text>
 	</view>
 	<button bindtap='tg' class='button' type='primary'>新增</button>
 	<view class='d'>提示：</view>

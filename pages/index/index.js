@@ -198,7 +198,7 @@ Page({
     var id = e.currentTarget.dataset.id, that = this;
     wx.showModal({
       title: '提示',
-      content: '请确认所有DNS解析记录验证均已验证通过。提交成功后无法撤回，确定提交？',
+      content: '请确认所有授权状态均已通过。提交成功后无法撤回，确定提交？',
       success(res) {
         if (res.confirm) {
           var app = getApp()

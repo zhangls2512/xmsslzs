@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "DNS",
+  "navigationBarTitleText": "验证",
   "usingComponents": {
     "mp-msg": "weui-miniprogram/msg/msg"
   }

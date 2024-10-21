@@ -38,8 +38,7 @@ Page({
         }
     },
     sc(e) {
-        var id = e.currentTarget.dataset.id, yuming = this.data.yuming;
-        const index = yuming.indexOf(id)
+        var index = e.currentTarget.dataset.index, yuming = this.data.yuming;
         yuming.splice(index, 1)
         this.setData({
             yuming: yuming

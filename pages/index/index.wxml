@@ -41,7 +41,7 @@
 				<text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.zt=="5"}}'>已过期</text>
 			</view>
 			<view class='bpbutton'>
-				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='dns' class='item'>DNS</view>
+				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='dns' class='item'>验证</view>
 				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='tj' class='item' style='color:rgb(26,173,25)'>提交</view>
 				<view wx:if='{{item.zt=="2"}}' data-id='{{item._id}}' data-ym='{{item.yuming}}' bindtap='xz' class='item' style='color:rgb(26,173,25)'>下载</view>
 				<view wx:if='{{item.zt=="2"}}' data-id='{{item._id}}' bindtap='dxa' class='item1' style='color:rgb(250,81,81)'>吊销</view>

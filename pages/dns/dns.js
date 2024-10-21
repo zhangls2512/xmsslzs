@@ -98,7 +98,7 @@ Page({
     var id = e.currentTarget.dataset.id, that = this;
     wx.showModal({
       title: '提示',
-      content: '请确认已添加DNS解析记录。仅有一次验证机会，确定提交验证？',
+      content: '仅有一次验证机会，确定提交验证？',
       success(res) {
         if (res.confirm) {
           var app = getApp()
