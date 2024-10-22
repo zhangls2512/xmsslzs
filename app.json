@@ -19,7 +19,8 @@
     "pages/mailset/mailset",
     "pages/zccz/zccz",
     "pages/dns/dns",
-    "pages/xgmail/xgmail"
+    "pages/xgmail/xgmail",
+    "pages/qxgl/qxgl"
   ],
   "window": {
     "backgroundTextStyle": "light",

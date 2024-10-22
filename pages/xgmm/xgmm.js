@@ -19,7 +19,7 @@ Page({
     }
   },
   tj() {
-    var t = this.data
+    var t = this.data, that = this;
     if (t.ma == '') {
       wx.showToast({
         title: '请填写原密码',
@@ -52,6 +52,34 @@ Page({
       wx.showToast({
         title: '两次输入的新密码不一致',
         icon: 'none'
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwq != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwqd != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限的“修改密码”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“修改密码”场景。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
       })
       return
     }

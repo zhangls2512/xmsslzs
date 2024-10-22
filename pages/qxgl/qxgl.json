@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "权限管理",
+  "usingComponents": {
+    "mp-form": "weui-miniprogram/form/form"
+  }
+}

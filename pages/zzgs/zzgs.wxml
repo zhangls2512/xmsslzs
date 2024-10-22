@@ -60,7 +60,7 @@
       <view class='cell'>备案号</view>
     </view>
     <view class='endrow'>
-      <view class='cella'>有隐私相关功能，包括但不限于权限使用清单、个人信息收集清单、第三方信息共享清单、接入第三方SDK目录、隐私政策文件</view>
+      <view class='cella'>有隐私相关功能，包括但不限于权限管理、权限使用清单、个人信息收集清单、第三方信息共享清单、接入第三方SDK目录、隐私政策文件</view>
       <view bindtap='myblj' data-id='铭懿博私安备7WX号-1' class='cellb'>铭懿博私安备7WX号-1</view>
     </view>
   </view>

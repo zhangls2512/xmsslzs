@@ -77,9 +77,15 @@
   font-weight: bold;
 }
 
-.syzt {
+.syzt,
+.zyzt {
   border-radius: 2px;
   padding: 5px;
+}
+
+.zyzt {
+  margin: 5px;
+  text-align: center;
 }
 
 .item,

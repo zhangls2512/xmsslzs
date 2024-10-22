@@ -27,6 +27,48 @@ Page({
       })
       return
     }
+    if (wx.getStorageSync('qxsetting').yja != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“接收邮件”权限的“验证码”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“接收邮件”权限的“验证码”场景。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwq != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwqa != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限的“发送验证码”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“发送验证码”场景。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
     var app = getApp()
     if (app.globalData.network == 'none') {
       wx.showToast({
@@ -76,7 +118,7 @@ Page({
     })
   },
   tj() {
-    var t = this.data
+    var t = this.data, that = this;
     if (t.email == '') {
       wx.showToast({
         title: '请填写邮箱',
@@ -95,6 +137,34 @@ Page({
       wx.showToast({
         title: '请填写验证码',
         icon: 'error'
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwq != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwqc != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限的“修改邮箱”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“修改邮箱”场景。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
       })
       return
     }

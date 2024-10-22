@@ -26,7 +26,7 @@
 			<view class='a'>验证截止时间：{{item.enddate}}</view>
 			<view class='bpbutton'>
 				<view wx:if='{{item.yzzt=="invalid"}}' data-id='{{item.errmsg}}' bindtap='reason' class='item1'>原因</view>
-				<view wx:if='{{item.sqzt=="pending"}}' data-id='{{index}}' bindtap='tj' class='item1' style='color:rgb(26,173,25)'>提交验证</view>
+				<view wx:if='{{item.sqzt=="pending"}}' data-id='{{item.hash}}' bindtap='tj' class='item1' style='color:rgb(26,173,25)'>提交验证</view>
 			</view>
 		</view>
 	</block>

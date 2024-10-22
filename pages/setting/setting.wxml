@@ -12,6 +12,7 @@
 </mp-cells>
 
 <mp-cells title='隐私' data-weui-theme='{{theme}}'>
+	<mp-cell bindtap='qxgl' link hover value='权限管理'></mp-cell>
 	<mp-cell bindtap='qxsyqd' link hover value='权限使用清单'></mp-cell>
 	<mp-cell bindtap='grxxqd' link hover value='个人信息收集清单'></mp-cell>
 	<mp-cell bindtap='dsfqd' link hover value='第三方信息共享清单'></mp-cell>

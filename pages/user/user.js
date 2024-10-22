@@ -124,12 +124,40 @@ Page({
     },
     qchc() {
         var that = this
-        wx.clearStorage({
-            success() {
-                wx.showToast({
-                    title: '清除成功'
-                })
-                that.onShow()
+        wx.showActionSheet({
+            itemList: ['登录态', '授权设置', '全部'],
+            success(res) {
+                if (res.tapIndex == 0) {
+                    wx.removeStorage({
+                        key: 'user',
+                        success() {
+                            wx.showToast({
+                                title: '清除成功'
+                            })
+                            that.onShow()
+                        }
+                    })
+                }
+                if (res.tapIndex == 1) {
+                    wx.removeStorage({
+                        key: 'qxsetting',
+                        success() {
+                            wx.showToast({
+                                title: '清除成功'
+                            })
+                        }
+                    })
+                }
+                if (res.tapIndex == 2) {
+                    wx.clearStorage({
+                        success() {
+                            wx.showToast({
+                                title: '清除成功'
+                            })
+                            that.onShow()
+                        }
+                    })
+                }
             }
         })
     },

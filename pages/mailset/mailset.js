@@ -66,7 +66,38 @@ Page({
     }
   },
   onUnload() {
-    var t = this.data
+    var t = this.data, that = this;
+    if (wx.getStorageSync('user').zt != true) {
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwq != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
+    if (wx.getStorageSync('qxsetting').scfwqe != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“上传数据并将其存储在服务器”权限的“邮件接收设置”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“邮件接收设置”场景。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
     var app = getApp()
     if (app.globalData.network == 'none') {
       wx.showToast({

@@ -40,6 +40,11 @@ Page({
       url: '../mailset/mailset'
     })
   },
+  qxgl() {
+    this.router.navigateTo({
+      url: '../qxgl/qxgl'
+    })
+  },
   qxsyqd() {
     this.router.navigateTo({
       url: '../qxsyqd/qxsyqd'

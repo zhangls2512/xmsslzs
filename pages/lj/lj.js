@@ -19,6 +19,20 @@ Page({
       })
       return
     }
+    if (wx.getStorageSync('qxsetting').xrjtb != true) {
+      wx.showModal({
+        title: '提示',
+        content: '“写入数据到剪贴板”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“写入数据到剪贴板”权限。',
+        success(res) {
+          if (res.confirm) {
+            that.router.navigateTo({
+              url: '../qxgl/qxgl'
+            })
+          }
+        }
+      })
+      return
+    }
     wx.setClipboardData({
       data: that.data.lj
     })

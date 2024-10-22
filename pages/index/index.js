@@ -201,6 +201,34 @@ Page({
       content: '请确认所有授权状态均已通过。提交成功后无法撤回，确定提交？',
       success(res) {
         if (res.confirm) {
+          if (wx.getStorageSync('qxsetting').scfwq != true) {
+            wx.showModal({
+              title: '提示',
+              content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+              success(res) {
+                if (res.confirm) {
+                  that.router.navigateTo({
+                    url: '../qxgl/qxgl'
+                  })
+                }
+              }
+            })
+            return
+          }
+          if (wx.getStorageSync('qxsetting').scfwqg != true) {
+            wx.showModal({
+              title: '提示',
+              content: '“上传数据并将其存储在服务器”权限的“申请管理”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“申请管理”场景。',
+              success(res) {
+                if (res.confirm) {
+                  that.router.navigateTo({
+                    url: '../qxgl/qxgl'
+                  })
+                }
+              }
+            })
+            return
+          }
           var app = getApp()
           if (app.globalData.network == 'none') {
             wx.showToast({
@@ -255,11 +283,39 @@ Page({
     })
   },
   xz(e) {
-    var id = e.currentTarget.dataset.id, yuming = e.currentTarget.dataset.ym;
+    var id = e.currentTarget.dataset.id, yuming = e.currentTarget.dataset.ym, that = this;
     wx.showActionSheet({
       itemList: ['证书', '私钥'],
       success(res) {
         const index = res.tapIndex
+        if (wx.getStorageSync('qxsetting').scfwq != true) {
+          wx.showModal({
+            title: '提示',
+            content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+            success(res) {
+              if (res.confirm) {
+                that.router.navigateTo({
+                  url: '../qxgl/qxgl'
+                })
+              }
+            }
+          })
+          return
+        }
+        if (wx.getStorageSync('qxsetting').scfwqg != true) {
+          wx.showModal({
+            title: '提示',
+            content: '“上传数据并将其存储在服务器”权限的“申请管理”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“申请管理”场景。',
+            success(res) {
+              if (res.confirm) {
+                that.router.navigateTo({
+                  url: '../qxgl/qxgl'
+                })
+              }
+            }
+          })
+          return
+        }
         var app = getApp()
         if (app.globalData.network == 'none') {
           wx.showToast({
@@ -386,6 +442,34 @@ Page({
       content: '吊销后无法恢复。确定吊销？',
       success(res) {
         if (res.confirm) {
+          if (wx.getStorageSync('qxsetting').scfwq != true) {
+            wx.showModal({
+              title: '提示',
+              content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
+              success(res) {
+                if (res.confirm) {
+                  that.router.navigateTo({
+                    url: '../qxgl/qxgl'
+                  })
+                }
+              }
+            })
+            return
+          }
+          if (wx.getStorageSync('qxsetting').scfwqg != true) {
+            wx.showModal({
+              title: '提示',
+              content: '“上传数据并将其存储在服务器”权限的“申请管理”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“申请管理”场景。',
+              success(res) {
+                if (res.confirm) {
+                  that.router.navigateTo({
+                    url: '../qxgl/qxgl'
+                  })
+                }
+              }
+            })
+            return
+          }
           var app = getApp()
           if (app.globalData.network == 'none') {
             wx.showToast({
