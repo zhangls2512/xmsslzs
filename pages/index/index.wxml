@@ -30,7 +30,7 @@
 				<text wx:if='{{item.suanfa=="ecdsap256"}}'>ECDSA（P-256）</text>
 				<text wx:if='{{item.suanfa=="ecdsap384"}}'>ECDSA（P-384）</text>
 			</view>
-			<view wx:if='{{item.zt=="0"}}' class='a'>申请截止时间：{{item.orderenddate}}</view>
+			<view wx:if='{{item.zt=="0"}}' class='a'>提交截止时间：{{item.orderenddate}}</view>
 			<view wx:if='{{item.zt=="2"}}' class='a'>证书到期时间：{{item.zsenddate}}</view>
 			<view class='a'>
 				<text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.zt=="0"}}'>待提交</text>

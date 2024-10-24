@@ -12,7 +12,7 @@
 				</label>
 			</view>
 		</view>
-		<view class='weui-cell weui-cell_active weui-cell_switch'>
+		<view wx:if='{{xs==true}}' class='weui-cell weui-cell_active weui-cell_switch'>
 			<view class='weui-cell__bd'>- 申请状态变更通知</view>
 			<view class='weui-cell__ft'>
 				<label class='weui-switch-cp'>
@@ -21,7 +21,7 @@
 				</label>
 			</view>
 		</view>
-		<view class='weui-cell weui-cell_active weui-cell_switch'>
+		<view wx:if='{{xs==true}}' class='weui-cell weui-cell_active weui-cell_switch'>
 			<view class='weui-cell__bd'>- 证书即将到期提醒</view>
 			<view class='weui-cell__ft'>
 				<label class='weui-switch-cp'>
@@ -31,7 +31,7 @@
 			</view>
 		</view>
 	</view>
-	<view class='weui-cells__tips'>
+	<view wx:if='{{xs==true}}' class='weui-cells__tips'>
 		<view bindtap='tz' class='weui-link'>前往邮件接收设置页面管理禁用项</view>
 	</view>
 </view>

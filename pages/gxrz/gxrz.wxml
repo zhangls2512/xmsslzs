@@ -1,7 +1,9 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
-	<view class='cc'>版本升级</view>
-	<view class='a'>1.上线第一版本。</view>
+	<view class='dd'>特性更新</view>
+	<view class='a'>1.优化了一些页面的细节体验。</view>
+	<view class='ee'>问题修复</view>
+	<view class='a'>1.修复了一些已知的问题。</view>
 	<view class='middle'></view>
 	<view>
 		<view bindtap='gxrz' class='lja'>历史版本更新日志</view>

@@ -1,6 +1,7 @@
 Page({
   data: {
     theme: '',
+    xs: false,
     yja: false,
     yjb: false,
     yjc: false,
@@ -18,6 +19,7 @@ Page({
     var that = this
     that.setData({
       theme: wx.getAppBaseInfo().theme,
+      xs: false,
       yja: false,
       yjb: false,
       yjc: false,
@@ -54,6 +56,9 @@ Page({
     if (wx.getStorageSync('user').zt != true) {
       return
     }
+    that.setData({
+      xs: true
+    })
     var app = getApp()
     if (app.globalData.network == 'none') {
       wx.showToast({
