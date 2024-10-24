@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "注册账号 | 重置密码",
   "usingComponents": {
-    "mp-form": "weui-miniprogram/form/form",
-    "mp-msg": "weui-miniprogram/msg/msg"
+    "mp-form-page": "weui-miniprogram/form-page/form-page",
+    "mp-form": "weui-miniprogram/form/form"
   }
 }

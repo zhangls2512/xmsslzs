@@ -22,7 +22,7 @@ Page({
     var t = this.data, that = this;
     if (t.email == '') {
       wx.showToast({
-        title: '请填写邮箱',
+        title: '请填写新邮箱',
         icon: 'error'
       })
       return
@@ -121,7 +121,7 @@ Page({
     var t = this.data, that = this;
     if (t.email == '') {
       wx.showToast({
-        title: '请填写邮箱',
+        title: '请填写新邮箱',
         icon: 'error'
       })
       return

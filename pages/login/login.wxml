@@ -1,7 +1,10 @@
 <page-meta root-font-size='system'></page-meta>
-<mp-msg title='登录' data-weui-theme='{{theme}}'>
-	<view slot='handle'>
-		<view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
+<view class='weui-form' data-weui-theme='{{theme}}'>
+	<view class='weui-form__text-area'>
+		<view class='weui-form__title'>登录</view>
+	</view>
+	<view class='weui-form__control-area'>
+		<view class='weui-cells__group weui-cells__group_form'>
 			<view class='weui-cells weui-cells_form'>
 				<view class='weui-cell weui-cell_active'>
 					<view class='weui-cell__hd'><label class='weui-label'>邮箱</label></view>
@@ -17,7 +20,15 @@
 				</view>
 			</view>
 		</view>
-		<button class='button' type='primary' bindtap='dl'>登录</button>
-		<view class='b' style='color:#576b95' bindtap='zccz'>注册账号 | 重置密码</view>
 	</view>
-</mp-msg>
+	<view class='weui-form__opr-area'>
+		<button class='button' type='primary' bindtap='dl'>登录</button>
+	</view>
+	<view class='weui-form__extra-area'>
+		<view class='weui-footer'>
+			<view class='weui-footer__links'>
+				<view bindtap='zccz' class='weui-footer__link' style='color:#576b95'>注册账号 | 重置密码</view>
+			</view>
+		</view>
+	</view>
+</view>
