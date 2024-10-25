@@ -11,6 +11,12 @@ Page({
         xcx1: '',
         xcx2: '',
         xcx3: '',
+        jnw: '',
+        jnh: '',
+        jnt: '',
+        jnr: '',
+        jnb: '',
+        jnl: '',
         ua: '',
         wdxcx: '',
         cd: '',
@@ -24,7 +30,8 @@ Page({
         isSupported: '',
         version: '',
         reason: '',
-        wza: ''
+        wza: '',
+        hevc: ''
     },
     onShow() {
         var that = this
@@ -37,12 +44,25 @@ Page({
             tse: wx.getAppBaseInfo(),
             xcx1: wx.getAccountInfoSync().miniProgram.appId,
             xcx2: wx.getAccountInfoSync().miniProgram.envVersion,
-            xcx3: wx.getAccountInfoSync().miniProgram.version
+            xcx3: wx.getAccountInfoSync().miniProgram.version,
+            jnw: wx.getMenuButtonBoundingClientRect().width,
+            jnh: wx.getMenuButtonBoundingClientRect().height,
+            jnt: wx.getMenuButtonBoundingClientRect().top,
+            jnr: wx.getMenuButtonBoundingClientRect().right,
+            jnb: wx.getMenuButtonBoundingClientRect().bottom,
+            jnl: wx.getMenuButtonBoundingClientRect().left
         })
         wx.getDeviceBenchmarkInfo({
             success(res) {
                 that.setData({
                     tsc: res
+                })
+            }
+        })
+        wx.checkDeviceSupportHevc({
+            success(res) {
+                that.setData({
+                    hevc: res.supportHevc
                 })
             }
         })

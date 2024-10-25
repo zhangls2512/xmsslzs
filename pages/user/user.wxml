@@ -25,6 +25,7 @@
 	<view class='a'>设备内存大小：{{tsb.memorySize}}MB</view>
 	<view class='a'>设备性能等级：{{tsc.benchmarkLevel}}</view>
 	<view class='a'>设备机型档位：{{tsc.modelLevel}}</view>
+	<view class='a'>设备是否支持H.265编码：{{hevc}}</view>
 	<view class='a'>电量：{{dl}}</view>
 	<view class='a'>是否正在充电中：{{cd}}</view>
 	<view class='a'>是否开启视觉无障碍功能（iOS辅助功能旁白，安卓talkback）：{{wza}}</view>
@@ -40,6 +41,12 @@
 	<view class='a'>可使用窗口高度：{{tsd.windowHeight}}px</view>
 	<view class='a'>状态栏的高度：{{tsd.statusBarHeight}}px</view>
 	<view class='a'>窗口上边缘的y值：{{tsd.screenTop}}</view>
+	<view class='a'>胶囊宽度：{{jnw}}px</view>
+	<view class='a'>胶囊高度：{{jnh}}px</view>
+	<view class='a'>胶囊上边界坐标：{{jnt}}px</view>
+	<view class='a'>胶囊右边界坐标：{{jnr}}px</view>
+	<view class='a'>胶囊下边界坐标：{{jnb}}px</view>
+	<view class='a'>胶囊左边界坐标：{{jnl}}px</view>
 	<view class='a'>屏幕亮度：{{ld}}</view>
 	<view class='a'>客户端基础库版本：{{tse.SDKVersion}}</view>
 	<view class='a'>是否已打开调试：{{tse.enableDebug}}</view>
