@@ -75,7 +75,7 @@
       <view bindtap='myblj' data-id='铭懿博新备7WX号-4U' class='cellb'>铭懿博新备7WX号-4U</view>
     </view>
     <view class='row'>
-      <view class='cella'>调试信息新增设备是否支持H.265编码、菜单按钮（右上角胶囊按钮）布局位置信息</view>
+      <view class='cella'>调试信息新增设备是否支持H.265编码、胶囊布局位置信息</view>
       <view bindtap='myblj' data-id='铭懿博新备7WX号-5U' class='cellb'>铭懿博新备7WX号-5U</view>
     </view>
     <view class='endrow'>
