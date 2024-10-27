@@ -70,9 +70,17 @@
       <view class='cella'>内容</view>
       <view class='cell'>备案号</view>
     </view>
-    <view class='endrow'>
-      <view class='cella'>调试信息新增设备是否支持H.265编码、菜单按钮（右上角胶囊按钮）布局位置信息</view>
+    <view class='row'>
+      <view class='cella'>个人中心新增申请额度</view>
       <view bindtap='myblj' data-id='铭懿博新备7WX号-4U' class='cellb'>铭懿博新备7WX号-4U</view>
+    </view>
+    <view class='row'>
+      <view class='cella'>调试信息新增设备是否支持H.265编码、菜单按钮（右上角胶囊按钮）布局位置信息</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-5U' class='cellb'>铭懿博新备7WX号-5U</view>
+    </view>
+    <view class='endrow'>
+      <view class='cella'>优化了一些页面的细节体验</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-6U' class='cellb'>铭懿博新备7WX号-6U</view>
     </view>
   </view>
 </view>

@@ -2,14 +2,17 @@
   width: 20%;
 }
 
+.nc,
+.tb-wz {
+  margin: 10px;
+}
+
 .nc {
   font-weight: bold;
-  margin: 10px;
 }
 
 .tb-wz {
   align-items: center;
   display: flex;
-  margin: 10px;
   text-align: center;
 }

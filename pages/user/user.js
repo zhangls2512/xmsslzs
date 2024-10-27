@@ -31,13 +31,24 @@ Page({
         version: '',
         reason: '',
         wza: '',
-        hevc: ''
+        hevc: '',
+        total: 0,
+        used: 0,
+        left: 0
+    },
+    ljed() {
+        this.pageRouter.navigateTo({
+            url: '../lj/lj?id=' + encodeURIComponent('https://docs.qq.com/doc/p/5230c73197bb2e4fd53c88ba22fe3f2ed8210c06')
+        })
     },
     onShow() {
         var that = this
         that.setData({
             theme: wx.getAppBaseInfo().theme,
             nc: '未登录用户',
+            total: 0,
+            used: 0,
+            left: 0,
             tsa: wx.getSystemSetting(),
             tsb: wx.getDeviceInfo(),
             tsd: wx.getWindowInfo(),
@@ -124,6 +135,53 @@ Page({
         if (wx.getStorageSync('user').zt == true) {
             that.setData({
                 nc: wx.getStorageSync('user').email
+            })
+            var app = getApp()
+            if (app.globalData.network == 'none') {
+                wx.showToast({
+                    title: '无网络',
+                    icon: 'error'
+                })
+                return
+            }
+            wx.showLoading({
+                title: '加载中',
+                mask: true
+            })
+            wx.request({
+                url: 'https://api.dqmybkj.com/sslgetuserset',
+                method: 'POST',
+                data: {
+                    email: wx.getStorageSync('user').email,
+                    password: require('../../password').token()
+                },
+                useHighPerformanceMode: true,
+                enableHttp2: true,
+                enableProfile: false,
+                enableQuic: true,
+                success(res) {
+                    wx.hideLoading()
+                    if (res.statusCode == 200) {
+                        if (res.data.code == 0) {
+                            that.setData({
+                                total: res.data.sqed.total,
+                                used: res.data.sqed.used,
+                                left: res.data.sqed.left
+                            })
+                        } else {
+                            wx.showModal({
+                                title: '接口调用失败',
+                                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                                showCancel: false
+                            })
+                        }
+                    } else {
+                        wx.showToast({
+                            title: 'HTTP请求失败，错误码：' + res.statusCode,
+                            icon: 'none'
+                        })
+                    }
+                }
             })
         }
     },

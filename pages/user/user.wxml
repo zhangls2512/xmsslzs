@@ -3,6 +3,12 @@
 	<image bindtap='xsts' class='image' mode='widthFix' src='{{tx}}' show-menu-by-longpress />
 	<view class='nc'>{{nc}}</view>
 </view>
+<view wx:if='{{nc!="未登录用户"}}' class='a'>
+	<view class='d'>申请额度<text bindtap='ljed' style='margin-left:10px;color:#576b95'>了解 ></text></view>
+	<view class='a'>总：{{total}}</view>
+	<view class='a'>已用：{{used}}</view>
+	<view class='a'>剩余：{{left}}</view>
+</view>
 <button wx:if='{{nc=="未登录用户"}}' class='button' bindtap='dl' type='primary'>登录</button>
 <mp-cells data-weui-theme='{{theme}}'>
 	<mp-cell bindtap='setting' link hover value='设置'>

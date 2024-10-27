@@ -45,8 +45,8 @@ Page({
           if (res.statusCode == 200) {
             if (res.data.code == 0) {
               that.setData({
-                sqztbg: res.data.data.mailsqztbg,
-                zsdq: res.data.data.mailzsdq
+                sqztbg: res.data.setting.mailsqztbg,
+                zsdq: res.data.setting.mailzsdq
               })
             } else {
               wx.showModal({

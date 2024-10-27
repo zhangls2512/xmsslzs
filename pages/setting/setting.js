@@ -128,14 +128,12 @@ Page({
             })
           }
           if (res.tapIndex == 1) {
-            wx.clearStorage()
             wx.exitMiniProgram()
           }
         }
       })
       return
     }
-    wx.clearStorage()
     wx.exitMiniProgram()
   }
 })

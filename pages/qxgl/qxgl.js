@@ -87,8 +87,8 @@ Page({
         if (res.statusCode == 200) {
           if (res.data.code == 0) {
             that.setData({
-              yjb: res.data.data.mailsqztbg,
-              yjc: res.data.data.mailzsdq
+              yjb: res.data.setting.mailsqztbg,
+              yjc: res.data.setting.mailzsdq
             })
           } else {
             wx.showModal({
