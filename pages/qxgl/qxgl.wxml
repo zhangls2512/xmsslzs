@@ -13,6 +13,15 @@
 			</view>
 		</view>
 		<view wx:if='{{xs==true}}' class='weui-cell weui-cell_active weui-cell_switch'>
+			<view class='weui-cell__bd'>- 申请额度变更通知</view>
+			<view class='weui-cell__ft'>
+				<label class='weui-switch-cp'>
+					<switch class='weui-switch-cp__input' checked='{{yjd}}' disabled />
+					<view class='weui-switch-cp__box'></view>
+				</label>
+			</view>
+		</view>
+		<view wx:if='{{xs==true}}' class='weui-cell weui-cell_active weui-cell_switch'>
 			<view class='weui-cell__bd'>- 申请状态变更通知</view>
 			<view class='weui-cell__ft'>
 				<label class='weui-switch-cp'>

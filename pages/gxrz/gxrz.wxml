@@ -1,9 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
 	<view class='dd'>特性更新</view>
-	<view class='a'>1.个人中心新增申请额度。</view>
-	<view class='a'>2.调试信息新增设备是否支持H.265编码、胶囊布局位置信息。</view>
-	<view class='a'>3.优化了一些页面的细节体验。</view>
+	<view class='a'>1.邮件接收设置新增申请额度变更通知。</view>
 	<view class='middle'></view>
 	<view>
 		<view bindtap='gxrz' class='lja'>历史版本更新日志</view>

@@ -5,6 +5,7 @@ Page({
     yja: false,
     yjb: false,
     yjc: false,
+    yjd: false,
     xrjtb: false,
     scfwq: false,
     scfwqa: false,
@@ -23,6 +24,7 @@ Page({
       yja: false,
       yjb: false,
       yjc: false,
+      yjd: false,
       xrjtb: false,
       scfwq: false,
       scfwqa: false,
@@ -88,7 +90,8 @@ Page({
           if (res.data.code == 0) {
             that.setData({
               yjb: res.data.setting.mailsqztbg,
-              yjc: res.data.setting.mailzsdq
+              yjc: res.data.setting.mailzsdq,
+              yjd: res.data.setting.mailsqedbg
             })
           } else {
             wx.showModal({

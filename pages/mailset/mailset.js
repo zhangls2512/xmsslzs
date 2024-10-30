@@ -2,6 +2,7 @@ Page({
   data: {
     xs: false,
     theme: '',
+    sqedbg: false,
     sqztbg: false,
     zsdq: false
   },
@@ -10,6 +11,7 @@ Page({
     that.setData({
       xs: false,
       theme: wx.getAppBaseInfo().theme,
+      sqedbg: false,
       sqztbg: false,
       zsdq: false
     })
@@ -45,6 +47,7 @@ Page({
           if (res.statusCode == 200) {
             if (res.data.code == 0) {
               that.setData({
+                sqedbg: res.data.setting.mailsqedbg,
                 sqztbg: res.data.setting.mailsqztbg,
                 zsdq: res.data.setting.mailzsdq
               })
@@ -116,6 +119,7 @@ Page({
       data: {
         email: wx.getStorageSync('user').email,
         password: require('../../password').token(),
+        mailsqedbg: t.sqedbg,
         mailsqztbg: t.sqztbg,
         mailzsdq: t.zsdq
       },
@@ -144,6 +148,11 @@ Page({
           })
         }
       }
+    })
+  },
+  sqedbg(e) {
+    this.setData({
+      sqedbg: e.detail.value
     })
   },
   sqztbg(e) {
