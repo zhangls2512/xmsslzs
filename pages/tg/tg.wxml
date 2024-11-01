@@ -21,6 +21,15 @@
 					</picker>
 				</view>
 			</view>
+			<view class='weui-cell weui-cell_active weui-cell_switch'>
+				<view class='weui-cell__bd'>使用ISRG Root X2作为证书链的根证书</view>
+				<view class='weui-cell__ft'>
+					<label class='weui-switch-cp'>
+						<switch bindchange='kg' class='weui-switch-cp__input' checked='{{usex2}}' />
+						<view class='weui-switch-cp__box'></view>
+					</label>
+				</view>
+			</view>
 		</view>
 	</view>
 	<view class='a'>
@@ -30,4 +39,5 @@
 	<view class='d'>提示：</view>
 	<view class='a'>1.域名支持通配符，如*.example.com。</view>
 	<view class='a'>2.向CA提交证书签发请求时第一个域名将作为主域名，其余作为附加域名。</view>
+	<view class='a'>3.目前仅支持ECDSA加密算法选择使用ISRG Root X2作为证书链的根证书。选择RSA加密算法时“使用ISRG Root X2作为证书链的根证书”开关不生效，强制使用默认的ISRG Root X1作为证书链的根证书。</view>
 </view>

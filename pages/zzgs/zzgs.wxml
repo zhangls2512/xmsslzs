@@ -2,7 +2,7 @@
 <view class='page-container'>
   <view class='a'>ICP备案：<text bindtap='ck1' class='lj'>黑ICP备2024023054号-6X</text></view>
   <view class='a'>产品备案：<text bindtap='myblj' data-id='铭懿博品备7WX号' class='lj'>铭懿博品备7WX号</text></view>
-  <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-4Z' class='lj'>铭懿博版备7WX号-4Z</text></view>
+  <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-5Z' class='lj'>铭懿博版备7WX号-5Z</text></view>
   <view class='small-title'>许可</view>
   <view class='table-container'>
     <view class='row'>
@@ -71,8 +71,8 @@
       <view class='cell'>备案号</view>
     </view>
     <view class='endrow'>
-      <view class='cella'>邮件接收设置新增申请额度变更通知</view>
-      <view bindtap='myblj' data-id='铭懿博新备7WX号-7U' class='cellb'>铭懿博新备7WX号-7U</view>
+      <view class='cella'>支持选择使用ISRG Root X2作为证书链的根证书</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-8U' class='cellb'>铭懿博新备7WX号-8U</view>
     </view>
   </view>
 </view>

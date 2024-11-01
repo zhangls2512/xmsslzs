@@ -6,7 +6,8 @@ Page({
         ym: '',
         suanfa: '',
         array: ['RSA（2048位）', 'RSA（3072位）', 'RSA（4096位）', 'ECDSA（P-256）', 'ECDSA（P-384）'],
-        sf: '请选择'
+        sf: '请选择',
+        usex2: false
     },
     onShow() {
         var that = this
@@ -93,6 +94,11 @@ Page({
             })
             return
         }
+        let usex2a = t.usex2
+        const array = ['ecdsap256', 'ecdsap384']
+        if (array.includes(t.suanfa) == false) {
+            usex2a = false
+        }
         if (wx.getStorageSync('qxsetting').scfwq != true) {
             wx.showModal({
                 title: '提示',
@@ -140,7 +146,8 @@ Page({
                 email: wx.getStorageSync('user').email,
                 password: require('../../password').token(),
                 yuming: t.yuming,
-                suanfa: t.suanfa
+                suanfa: t.suanfa,
+                usex2: usex2a
             },
             useHighPerformanceMode: true,
             enableHttp2: true,
@@ -178,6 +185,12 @@ Page({
                     })
                 }
             }
+        })
+    },
+    kg(e) {
+        var a = e.detail.value
+        this.setData({
+            usex2: a
         })
     }
 })
