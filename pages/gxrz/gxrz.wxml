@@ -1,7 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
 	<view class='dd'>特性更新</view>
-	<view class='a'>1.支持选择使用ISRG Root X2作为证书链的根证书。</view>
+	<view class='a'>1.优化了帮助与反馈页面的细节体验。</view>
 	<view class='middle'></view>
 	<view>
 		<view bindtap='gxrz' class='lja'>历史版本更新日志</view>
