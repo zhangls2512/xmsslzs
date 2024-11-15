@@ -133,6 +133,24 @@
 				</label>
 			</view>
 		</view>
+		<view class='weui-cell weui-cell_active weui-cell_switch'>
+			<view class='weui-cell__bd'>- 修改申请</view>
+			<view class='weui-cell__ft'>
+				<label class='weui-switch-cp'>
+					<switch bindchange='scfwqh' class='weui-switch-cp__input' checked='{{scfwqh}}' />
+					<view class='weui-switch-cp__box'></view>
+				</label>
+			</view>
+		</view>
+		<view class='weui-cell weui-cell_active weui-cell_switch'>
+			<view class='weui-cell__bd'>- 新增、修改域名模板</view>
+			<view class='weui-cell__ft'>
+				<label class='weui-switch-cp'>
+					<switch bindchange='scfwqi' class='weui-switch-cp__input' checked='{{scfwqi}}' />
+					<view class='weui-switch-cp__box'></view>
+				</label>
+			</view>
+		</view>
 	</view>
 </view>
 <view class='listwz6'>——·——</view>

@@ -20,7 +20,10 @@
     "pages/zccz/zccz",
     "pages/dns/dns",
     "pages/xgmail/xgmail",
-    "pages/qxgl/qxgl"
+    "pages/qxgl/qxgl",
+    "pages/xgsq/xgsq",
+    "pages/ymmblb/ymmblb",
+    "pages/zgymmb/zgymmb"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,19 +33,27 @@
     "initialRenderingCache": "static"
   },
   "tabBar": {
-    "color": "#000000",
-    "selectedColor": "@select",
+    "color": "@default",
+    "selectedColor": "#00B42A",
     "backgroundColor": "@background",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "image/house.png",
-        "selectedIconPath": "image/shouse.png"
+        "iconPath": "image/sq.png",
+        "selectedIconPath": "image/ssq.png",
+        "text": "申请"
+      },
+      {
+        "pagePath": "pages/ymmblb/ymmblb",
+        "iconPath": "image/ymmb.png",
+        "selectedIconPath": "image/symmb.png",
+        "text": "域名模板"
       },
       {
         "pagePath": "pages/user/user",
         "iconPath": "image/person.png",
-        "selectedIconPath": "image/sperson.png"
+        "selectedIconPath": "image/sperson.png",
+        "text": "个人中心"
       }
     ]
   },

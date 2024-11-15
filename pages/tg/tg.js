@@ -7,19 +7,80 @@ Page({
         suanfa: '',
         array: ['RSA（2048位）', 'RSA（3072位）', 'RSA（4096位）', 'ECDSA（P-256）', 'ECDSA（P-384）'],
         sf: '请选择',
-        usex2: false
+        usex2: false,
+        lb: []
     },
     onShow() {
         var that = this
         that.setData({
             xs: false,
-            theme: wx.getAppBaseInfo().theme
+            theme: wx.getAppBaseInfo().theme,
+            lb: []
         })
         if (wx.getStorageSync('user').zt == true) {
             that.setData({
                 xs: true
             })
+            var app = getApp()
+            if (app.globalData.network == 'none') {
+                wx.showToast({
+                    title: '无网络',
+                    icon: 'error'
+                })
+                return
+            }
+            wx.showLoading({
+                title: '获取域名模板',
+                mask: true
+            })
+            wx.request({
+                url: 'https://api.dqmybkj.com/sslgetymmblb',
+                method: 'POST',
+                data: {
+                    email: wx.getStorageSync('user').email,
+                    password: require('../../password').token()
+                },
+                useHighPerformanceMode: true,
+                enableHttp2: true,
+                enableProfile: false,
+                enableQuic: true,
+                success(res) {
+                    wx.hideLoading()
+                    if (res.statusCode == 200) {
+                        if (res.data.code == 0) {
+                            if (res.data.data == '') {
+                                return
+                            }
+                            that.setData({
+                                lb: res.data.data
+                            })
+                        } else {
+                            wx.showModal({
+                                title: '接口调用失败',
+                                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                                showCancel: false
+                            })
+                        }
+                    } else {
+                        wx.showToast({
+                            title: 'HTTP请求失败，错误码：' + res.statusCode,
+                            icon: 'none'
+                        })
+                    }
+                }
+            })
         }
+    },
+    gb() {
+        this.setData({
+            lb: []
+        })
+    },
+    tr(e) {
+        var id = e.currentTarget.dataset.id
+        this.setData({
+            yuming: id
+        })
     },
     ym() {
         if (this.data.ym != '') {

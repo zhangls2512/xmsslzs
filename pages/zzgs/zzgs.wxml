@@ -2,7 +2,7 @@
 <view class='page-container'>
   <view class='a'>ICP备案：<text bindtap='ck1' class='lj'>黑ICP备2024023054号-6X</text></view>
   <view class='a'>产品备案：<text bindtap='myblj' data-id='铭懿博品备7WX号' class='lj'>铭懿博品备7WX号</text></view>
-  <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-6Z' class='lj'>铭懿博版备7WX号-6Z</text></view>
+  <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-7Z' class='lj'>铭懿博版备7WX号-7Z</text></view>
   <view class='small-title'>许可</view>
   <view class='table-container'>
     <view class='row'>
@@ -70,9 +70,17 @@
       <view class='cella'>内容</view>
       <view class='cell'>备案号</view>
     </view>
+    <view class='row'>
+      <view class='cella'>新增域名模板</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-10A' class='cellb'>铭懿博新备7WX号-10A</view>
+    </view>
+    <view class='row'>
+      <view class='cella'>支持域名搜索申请</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-11U' class='cellb'>铭懿博新备7WX号-11U</view>
+    </view>
     <view class='endrow'>
-      <view class='cella'>优化了帮助与反馈页面的细节体验</view>
-      <view bindtap='myblj' data-id='铭懿博新备7WX号-9U' class='cellb'>铭懿博新备7WX号-9U</view>
+      <view class='cella'>支持修改“待提交”状态的申请</view>
+      <view bindtap='myblj' data-id='铭懿博新备7WX号-12U' class='cellb'>铭懿博新备7WX号-12U</view>
     </view>
   </view>
 </view>

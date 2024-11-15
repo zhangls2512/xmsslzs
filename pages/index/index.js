@@ -3,10 +3,20 @@ Page({
     lb: [],
     qx: false,
     theme: '',
-    dhltitle: '默认标题',
     options: ['全部', '待提交', '签发中', '已签发', '签发失败', '已吊销', '已过期'],
     zt: '全部',
-    value: 0
+    value: 0,
+    yuming: ''
+  },
+  sr(e) {
+    this.setData({
+      yuming: e.detail.value
+    })
+  },
+  qk() {
+    this.setData({
+      yuming: ''
+    })
   },
   sx(e) {
     var t = e.detail.value
@@ -14,46 +24,101 @@ Page({
       this.setData({
         zt: '全部'
       })
-      this.onShow()
+      this.hq()
     } else {
       this.setData({
         zt: String(Number(t) - 1)
       })
-      this.onShow()
+      this.hq()
     }
   },
   onShow() {
     var that = this
     that.setData({
       lb: [],
+      yuming: '',
       qx: false,
-      theme: wx.getAppBaseInfo().theme,
-      dhltitle: '默认标题'
+      theme: wx.getAppBaseInfo().theme
     })
     if (wx.getStorageSync('user').zt == true) {
       that.setData({
-        qx: true,
-        dhltitle: '申请管理'
+        qx: true
       })
-      var app = getApp()
-      if (app.globalData.network == 'none') {
-        wx.showToast({
-          title: '无网络',
-          icon: 'error'
-        })
-        return
-      }
-      wx.showLoading({
-        title: '获取数据中',
-        mask: true
+      that.hq()
+    }
+  },
+  hq() {
+    var app = getApp(), that = this;
+    that.setData({
+      lb: []
+    })
+    if (app.globalData.network == 'none') {
+      wx.showToast({
+        title: '无网络',
+        icon: 'error'
       })
+      return
+    }
+    wx.showLoading({
+      title: '获取数据中',
+      mask: true
+    })
+    if (that.data.yuming == '') {
       wx.request({
         url: 'https://api.dqmybkj.com/sslgetsqlb',
         method: 'POST',
         data: {
           email: wx.getStorageSync('user').email,
           password: require('../../password').token(),
-          startnumber: 0,
+          zt: that.data.zt
+        },
+        useHighPerformanceMode: true,
+        enableHttp2: true,
+        enableProfile: false,
+        enableQuic: true,
+        success(res) {
+          wx.hideLoading()
+          if (res.statusCode == 200) {
+            if (res.data.code == 0) {
+              if (res.data.data == '') {
+                wx.showToast({
+                  title: '无数据',
+                  icon: 'error'
+                })
+                return
+              }
+              const moment = require('moment-timezone')
+              var array = res.data.data.map(item => ({
+                ...item,
+                zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
+                orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
+              }))
+              that.setData({
+                lb: array
+              })
+            } else {
+              wx.showModal({
+                title: '接口调用失败',
+                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                showCancel: false
+              })
+            }
+          } else {
+            wx.showToast({
+              title: 'HTTP请求失败，错误码：' + res.statusCode,
+              icon: 'none'
+            })
+          }
+        }
+      })
+    } else {
+      wx.request({
+        url: 'https://api.dqmybkj.com/sslgetsqlb',
+        method: 'POST',
+        data: {
+          email: wx.getStorageSync('user').email,
+          password: require('../../password').token(),
+          yuming: that.data.yuming,
           zt: that.data.zt
         },
         useHighPerformanceMode: true,
@@ -112,54 +177,106 @@ Page({
         title: '获取更多数据',
         mask: true
       })
-      wx.request({
-        url: 'https://api.dqmybkj.com/sslgetsqlb',
-        method: 'POST',
-        data: {
-          email: wx.getStorageSync('user').email,
-          password: require('../../password').token(),
-          startnumber: that.data.lb.length,
-          zt: that.data.zt
-        },
-        useHighPerformanceMode: true,
-        enableHttp2: true,
-        enableProfile: false,
-        enableQuic: true,
-        success(res) {
-          wx.hideLoading()
-          if (res.statusCode == 200) {
-            if (res.data.code == 0) {
-              if (res.data.data == '') {
-                wx.showToast({
-                  title: '没有更多数据啦~',
-                  icon: 'none'
+      if (that.data.yuming == '') {
+        wx.request({
+          url: 'https://api.dqmybkj.com/sslgetsqlb',
+          method: 'POST',
+          data: {
+            email: wx.getStorageSync('user').email,
+            password: require('../../password').token(),
+            startnumber: that.data.lb.length,
+            zt: that.data.zt
+          },
+          useHighPerformanceMode: true,
+          enableHttp2: true,
+          enableProfile: false,
+          enableQuic: true,
+          success(res) {
+            wx.hideLoading()
+            if (res.statusCode == 200) {
+              if (res.data.code == 0) {
+                if (res.data.data == '') {
+                  wx.showToast({
+                    title: '没有更多数据啦~',
+                    icon: 'none'
+                  })
+                  return
+                }
+                const moment = require('moment-timezone')
+                var array = res.data.data.map(item => ({
+                  ...item,
+                  zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
+                  orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
+                }))
+                that.setData({
+                  lb: that.data.lb.concat(array)
                 })
-                return
+              } else {
+                wx.showModal({
+                  title: '接口调用失败',
+                  content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                  showCancel: false
+                })
               }
-              const moment = require('moment-timezone')
-              var array = res.data.data.map(item => ({
-                ...item,
-                zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
-                orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
-              }))
-              that.setData({
-                lb: that.data.lb.concat(array)
-              })
             } else {
-              wx.showModal({
-                title: '接口调用失败',
-                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                showCancel: false
+              wx.showToast({
+                title: 'HTTP请求失败，错误码：' + res.statusCode,
+                icon: 'none'
               })
             }
-          } else {
-            wx.showToast({
-              title: 'HTTP请求失败，错误码：' + res.statusCode,
-              icon: 'none'
-            })
           }
-        }
-      })
+        })
+      } else {
+        wx.request({
+          url: 'https://api.dqmybkj.com/sslgetsqlb',
+          method: 'POST',
+          data: {
+            email: wx.getStorageSync('user').email,
+            password: require('../../password').token(),
+            startnumber: that.data.lb.length,
+            yuming: that.data.yuming,
+            zt: that.data.zt
+          },
+          useHighPerformanceMode: true,
+          enableHttp2: true,
+          enableProfile: false,
+          enableQuic: true,
+          success(res) {
+            wx.hideLoading()
+            if (res.statusCode == 200) {
+              if (res.data.code == 0) {
+                if (res.data.data == '') {
+                  wx.showToast({
+                    title: '没有更多数据啦~',
+                    icon: 'none'
+                  })
+                  return
+                }
+                const moment = require('moment-timezone')
+                var array = res.data.data.map(item => ({
+                  ...item,
+                  zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
+                  orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
+                }))
+                that.setData({
+                  lb: that.data.lb.concat(array)
+                })
+              } else {
+                wx.showModal({
+                  title: '接口调用失败',
+                  content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                  showCancel: false
+                })
+              }
+            } else {
+              wx.showToast({
+                title: 'HTTP请求失败，错误码：' + res.statusCode,
+                icon: 'none'
+              })
+            }
+          }
+        })
+      }
       return
     }
     this.pageRouter.navigateTo({
@@ -173,14 +290,8 @@ Page({
     }
   },
   tg() {
-    if (wx.getStorageSync('user').zt == true) {
-      this.pageRouter.navigateTo({
-        url: '../tg/tg'
-      })
-      return
-    }
     this.pageRouter.navigateTo({
-      url: '../login/login'
+      url: '../tg/tg'
     })
   },
   dl() {
@@ -192,6 +303,12 @@ Page({
     var id = e.currentTarget.dataset.id
     this.pageRouter.navigateTo({
       url: '../dns/dns?id=' + id
+    })
+  },
+  xg(e) {
+    var id = e.currentTarget.dataset.id
+    this.pageRouter.navigateTo({
+      url: '../xgsq/xgsq?id=' + id
     })
   },
   tj(e) {

@@ -1,5 +1,7 @@
 {
+  "navigationBarTitleText": "申请",
   "usingComponents": {
-    "mp-msg": "weui-miniprogram/msg/msg"
+    "mp-msg": "weui-miniprogram/msg/msg",
+    "mp-searchbar": "weui-miniprogram/searchbar/searchbar"
   }
 }

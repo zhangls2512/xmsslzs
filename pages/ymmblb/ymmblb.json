@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "域名模板",
+  "usingComponents": {
+    "mp-msg": "weui-miniprogram/msg/msg"
+  }
+}

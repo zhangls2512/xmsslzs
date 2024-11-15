@@ -14,7 +14,9 @@ Page({
     scfwqd: false,
     scfwqe: false,
     scfwqf: false,
-    scfwqg: false
+    scfwqg: false,
+    scfwqh: false,
+    scfwqi: false
   },
   onShow() {
     var that = this
@@ -33,7 +35,9 @@ Page({
       scfwqd: false,
       scfwqe: false,
       scfwqf: false,
-      scfwqg: false
+      scfwqg: false,
+      scfwqh: false,
+      scfwqi: false
     })
     if (wx.getStorageSync('qxsetting').lx == 'qx') {
       wx.getStorage({
@@ -50,7 +54,9 @@ Page({
             scfwqd: t.scfwqd,
             scfwqe: t.scfwqe,
             scfwqf: t.scfwqf,
-            scfwqg: t.scfwqg
+            scfwqg: t.scfwqg,
+            scfwqh: t.scfwqh,
+            scfwqi: t.scfwqi
           })
         }
       })
@@ -124,7 +130,9 @@ Page({
         scfwqd: t.scfwqd,
         scfwqe: t.scfwqe,
         scfwqf: t.scfwqf,
-        scfwqg: t.scfwqg
+        scfwqg: t.scfwqg,
+        scfwqh: t.scfwqh,
+        scfwqi: t.scfwqi
       }
     })
   },
@@ -219,6 +227,18 @@ Page({
     var a = e.detail.value
     this.setData({
       scfwqg: a
+    })
+  },
+  scfwqh(e) {
+    var a = e.detail.value
+    this.setData({
+      scfwqh: a
+    })
+  },
+  scfwqi(e) {
+    var a = e.detail.value
+    this.setData({
+      scfwqi: a
     })
   }
 })

@@ -3,7 +3,7 @@
 	<view class='kuang'>
 		<view class='small-title'>接收邮件</view>
 		<view class='a'><text style='font-weight:bold'>描述：</text>开启此权限，将允许服务器给邮箱发送邮件</view>
-		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“小人”图标-设置-邮件接收设置/权限管理，在邮件接收设置、权限管理页面管理</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-邮件接收设置/权限管理，在邮件接收设置、权限管理页面管理</view>
 		<view class='d'>场景、目的</view>
 		<view class='a'>验证码：发送验证码邮件，让用户知晓验证码</view>
 		<view class='a'>申请额度变更通知：发送申请额度变更通知邮件，让用户及时知晓其账号的申请额度发生变更</view>
@@ -13,14 +13,14 @@
 	<view class='kuang'>
 		<view class='small-title'>写入数据到剪贴板</view>
 		<view class='a'><text style='font-weight:bold'>描述：</text>开启此权限，将允许程序写入数据到剪贴板</view>
-		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“小人”图标-设置-权限管理，在权限管理页面管理</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-权限管理，在权限管理页面管理</view>
 		<view class='d'>场景、目的</view>
 		<view class='a'>写入数据到剪贴板：写入隐私政策文件链接、备案号查验链接等数据到剪贴板，便于在外部环境（如浏览器）使用数据（如粘贴到浏览器地址栏查看隐私政策文件、查验备案号）</view>
 	</view>
 	<view class='kuang'>
 		<view class='small-title'>上传数据并将其存储在服务器</view>
 		<view class='a'><text style='font-weight:bold'>描述：</text>开启此权限，将允许程序上传数据并将其存储在服务器</view>
-		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“小人”图标-设置-权限管理，在权限管理页面管理</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-权限管理，在权限管理页面管理</view>
 		<view class='d'>场景、目的</view>
 		<view class='a'>发送验证码：上传邮箱并将其存储在服务器</view>
 		<view class='a'>注册账号：上传邮箱、密码并将其存储在服务器</view>
@@ -30,5 +30,7 @@
 		<view class='a'>邮件接收设置：上传邮件接收设置信息并将其存储在服务器</view>
 		<view class='a'>新增申请：上传新增的申请信息并将其存储在服务器</view>
 		<view class='a'>申请管理：修改申请信息以变更其状态</view>
+		<view class='a'>修改申请：上传修改的申请信息并将其存储在服务器</view>
+		<view class='a'>新增、修改域名模板：上传新增、修改的域名模板信息并将其存储在服务器</view>
 	</view>
 </view>

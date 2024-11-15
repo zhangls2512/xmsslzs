@@ -1,6 +1,4 @@
-<page-meta root-font-size='system'>
-	<navigation-bar title='{{dhltitle}}' />
-</page-meta>
+<page-meta root-font-size='system'></page-meta>
 <official-account></official-account>
 <view wx:if='{{qx==false}}'>
 	<mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
@@ -18,6 +16,8 @@
 			</view>
 		</picker>
 	</view>
+	<mp-searchbar bindinput='sr' bindclear='qk' data-weui-theme='{{theme}}'></mp-searchbar>
+	<button bindtap='hq' class='button'>刷新</button>
 	<block wx:for='{{lb}}'>
 		<view class='kuang'>
 			<view class='a'>
@@ -44,6 +44,7 @@
 			<view class='bpbutton'>
 				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='dns' class='item'>验证</view>
 				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='tj' class='item' style='color:rgb(26,173,25)'>提交</view>
+				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='xg' class='item'>修改</view>
 				<view wx:if='{{item.zt=="2"}}' data-id='{{item._id}}' data-ym='{{item.yuming}}' bindtap='xz' class='item' style='color:rgb(26,173,25)'>下载</view>
 				<view wx:if='{{item.zt=="2"}}' data-id='{{item._id}}' bindtap='dxa' class='item1' style='color:rgb(250,81,81)'>吊销</view>
 				<view wx:if='{{item.zt!="1"&&item.zt!="2"}}' data-id='{{item._id}}' bindtap='sc' class='item1' style='color:rgb(250,81,81)'>删除</view>

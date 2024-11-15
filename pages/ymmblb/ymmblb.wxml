@@ -1,0 +1,24 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{qx==false}}'>
+	<mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
+		<view slot='handle'>
+			<button class='button' bindtap='dl' type='primary'>登录</button>
+		</view>
+	</mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+	<button bindtap='tg' class='button' type='primary'>新增</button>
+	<block wx:for='{{lb}}'>
+		<view class='kuang'>
+			<view class='a'>
+				<text class='tag' wx:for='{{item.yuming}}'>{{item}}</text>
+			</view>
+			<view class='a'>备注：{{item.bz}}</view>
+			<view class='bpbutton'>
+				<view data-id='{{item._id}}' bindtap='xg' class='item'>修改</view>
+				<view data-id='{{item._id}}' bindtap='sc' class='item1' style='color:rgb(250,81,81)'>删除</view>
+			</view>
+		</view>
+	</block>
+	<view class='listwz6'>——·——</view>
+</view>

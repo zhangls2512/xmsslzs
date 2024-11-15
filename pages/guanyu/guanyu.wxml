@@ -2,7 +2,7 @@
 <view class='container'>
   <image bindtap='xs' class='tx' style='margin-left:{{jl}}px;margin-right:{{jl}}px' mode='widthFix' show-menu-by-longpress src='/image/tx.png'></image>
   <view class='max-title'>轩铭SSL证书</view>
-  <view class='medium-title'>Version 1.0.5<text wx:if='{{xs==true}}'>（60）</text></view>
+  <view class='medium-title'>Version 1.1.0<text wx:if='{{xs==true}}'>（70）</text></view>
   <mp-cells class='cell' data-weui-theme='{{theme}}'>
     <mp-cell bindtap='gxrz' link hover value='更新介绍' />
     <mp-cell bindtap='zzgs' link hover value='证照信息' />
