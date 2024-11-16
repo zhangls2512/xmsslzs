@@ -43,6 +43,15 @@
 					</label>
 				</view>
 			</view>
+			<view class='weui-cell weui-cell_active weui-cell_switch'>
+				<view class='weui-cell__bd'>新增成功后添加域名到域名模板</view>
+				<view class='weui-cell__ft'>
+					<label class='weui-switch-cp'>
+						<switch bindchange='kga' class='weui-switch-cp__input' checked='{{xzymmb}}' />
+						<view class='weui-switch-cp__box'></view>
+					</label>
+				</view>
+			</view>
 		</view>
 	</view>
 	<view class='a'>

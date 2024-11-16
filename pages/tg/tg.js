@@ -8,6 +8,7 @@ Page({
         array: ['RSA（2048位）', 'RSA（3072位）', 'RSA（4096位）', 'ECDSA（P-256）', 'ECDSA（P-384）'],
         sf: '请选择',
         usex2: false,
+        xzymmb: false,
         lb: []
     },
     onShow() {
@@ -188,6 +189,20 @@ Page({
             })
             return
         }
+        if (t.xzymmb == true && wx.getStorageSync('qxsetting').scfwqi != true) {
+            wx.showModal({
+                title: '提示',
+                content: '“上传数据并将其存储在服务器”权限的“新增、修改域名模板”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“新增、修改域名模板”场景。',
+                success(res) {
+                    if (res.confirm) {
+                        that.router.navigateTo({
+                            url: '../qxgl/qxgl'
+                        })
+                    }
+                }
+            })
+            return
+        }
         var app = getApp()
         if (app.globalData.network == 'none') {
             wx.showToast({
@@ -218,6 +233,42 @@ Page({
                 wx.hideLoading()
                 if (res.statusCode == 200) {
                     if (res.data.code == 0) {
+                        if (t.xzymmb == true) {
+                            wx.request({
+                                url: 'https://api.dqmybkj.com/sslzgymmb',
+                                method: 'POST',
+                                data: {
+                                    email: wx.getStorageSync('user').email,
+                                    password: require('../../password').token(),
+                                    yuming: t.yuming
+                                },
+                                useHighPerformanceMode: true,
+                                enableHttp2: true,
+                                enableProfile: false,
+                                enableQuic: true,
+                                success(res) {
+                                    if (res.statusCode == 200) {
+                                        if (res.data.code == 0) {
+                                            wx.showToast({
+                                                title: '新增域名模板成功',
+                                                icon: 'none'
+                                            })
+                                        } else {
+                                            wx.showModal({
+                                                title: '接口调用失败',
+                                                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                                                showCancel: false
+                                            })
+                                        }
+                                    } else {
+                                        wx.showToast({
+                                            title: 'HTTP请求失败，错误码：' + res.statusCode,
+                                            icon: 'none'
+                                        })
+                                    }
+                                }
+                            })
+                        }
                         wx.showToast({
                             title: '新增成功'
                         })
@@ -252,6 +303,12 @@ Page({
         var a = e.detail.value
         this.setData({
             usex2: a
+        })
+    },
+    kga(e) {
+        var a = e.detail.value
+        this.setData({
+            xzymmb: a
         })
     }
 })
