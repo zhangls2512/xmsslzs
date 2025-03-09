@@ -4,6 +4,11 @@ App({
   },
   onLaunch() {
     var that = this
+    wx.login({
+      success(res) {
+        console.log(res)
+      }
+    })
     wx.getNetworkType({
       success(res) {
         that.globalData.network = res.networkType

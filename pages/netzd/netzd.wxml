@@ -13,7 +13,7 @@
 	<view class='a'>评估的网络状态：{{profile.estimate_nettype}}</view>
 	<view class='a'>当次请求连接过程中实时rtt：{{profile.rtt}}</view>
 	<view class='a'>协议层根据多个请求评估当前网络的rtt：{{profile.httpRttEstimate}}</view>
-	<view class='a'>传输层根据多个请求评估的当前网络的rtt：{{profile.transportRttEstimate}}</view>
+	<view class='a'>传输层根据多个请求评估当前网络的rtt：{{profile.transportRttEstimate}}</view>
 	<view class='a'>当前请求的IP：{{profile.peerIP}}</view>
 	<view class='a'>当前请求的端口：{{profile.port}}</view>
 	<view class='a'>使用协议类型：{{profile.protocol}}</view>
