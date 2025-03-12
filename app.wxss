@@ -64,6 +64,10 @@
   border-radius: 20px;
 }
 
+.helpbutton {
+  margin-top: auto;
+}
+
 .bpbutton {
   display: flex;
   justify-content: center;

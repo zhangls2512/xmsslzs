@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "申请",
+  "navigationBarTitleText": "订单",
   "usingComponents": {
     "mp-msg": "weui-miniprogram/msg/msg",
     "mp-searchbar": "weui-miniprogram/searchbar/searchbar"

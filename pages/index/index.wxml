@@ -3,51 +3,42 @@
 <view wx:if='{{qx==false}}'>
 	<mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
 		<view slot='handle'>
-			<button class='button' bindtap='dl' type='primary'>登录</button>
+			<button class='button' type='primary' bindtap='dl'>登录</button>
 		</view>
 	</mp-msg>
 </view>
 <view wx:if='{{qx==true}}'>
 	<view class='xzsx'>
-		<view class='xz'><button bindtap='tg' class='xzbutton' style='width:100%' type='primary'>新增</button></view>
-		<picker range='{{options}}' bindchange='sx' model:value='{{value}}' class='sx'>
+		<view class='xz'><button class='xzbutton' style='width:100%' type='primary' bindtap='add'>新增</button></view>
+		<picker class='sx' model:value='{{value}}' range='{{options}}' bindchange='sx'>
 			<view class='sx'>
 				<image src='/image/sx.svg' class='tb'></image>
 			</view>
 		</picker>
 	</view>
 	<mp-searchbar bindinput='sr' bindclear='qk' data-weui-theme='{{theme}}'></mp-searchbar>
-	<button bindtap='hq' class='button'>刷新</button>
+	<button class='button' bindtap='hq'>刷新</button>
 	<block wx:for='{{lb}}'>
 		<view class='kuang'>
 			<view class='a'>
-				<text class='tag' wx:for='{{item.yuming}}'>{{item}}</text>
+				<text class='tag' wx:for='{{item.domains}}'>{{item}}</text>
 			</view>
-			<view class='a'>加密算法：
-				<text wx:if='{{item.suanfa=="rsa2048"}}'>RSA（2048位）</text>
-				<text wx:if='{{item.suanfa=="rsa3072"}}'>RSA（3072位）</text>
-				<text wx:if='{{item.suanfa=="rsa4096"}}'>RSA（4096位）</text>
-				<text wx:if='{{item.suanfa=="ecdsap256"}}'>ECDSA（P-256）</text>
-				<text wx:if='{{item.suanfa=="ecdsap384"}}'>ECDSA（P-384）</text>
-			</view>
-			<view class='a'>根证书：{{item.rootcer}}</view>
-			<view wx:if='{{item.zt=="0"}}' class='a'>提交截止时间：{{item.orderenddate}}</view>
-			<view wx:if='{{item.zt=="2"}}' class='a'>证书到期时间：{{item.zsenddate}}</view>
+			<view class='a'>备注：{{item.desc}}</view>
+			<view class='a'>创建时间：{{item.createDate}}</view>
 			<view class='a'>
-				<text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.zt=="0"}}'>待提交</text>
-				<text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.zt=="1"}}'>签发中</text>
-				<text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.zt=="2"}}'>已签发</text>
-				<text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.zt=="3"}}'>签发失败</text>
-				<text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.zt=="4"}}'>已吊销</text>
-				<text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.zt=="5"}}'>已过期</text>
+				<text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.status=="pending"}}'>待授权</text>
+				<text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.status=="ready"}}'>待提交</text>
+				<text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="invalid"}}'>已失效</text>
+				<text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.status=="processing"}}'>签发中</text>
+				<text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.status=="valid"}}'>已签发</text>
+				<text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.status=="expired"}}'>已过期</text>
 			</view>
 			<view class='bpbutton'>
-				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='dns' class='item'>验证</view>
-				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='tj' class='item' style='color:rgb(26,173,25)'>提交</view>
-				<view wx:if='{{item.zt=="0"}}' data-id='{{item._id}}' bindtap='xg' class='item'>修改</view>
-				<view wx:if='{{item.zt=="2"}}' data-id='{{item._id}}' data-ym='{{item.yuming}}' bindtap='xz' class='item' style='color:rgb(26,173,25)'>下载</view>
-				<view wx:if='{{item.zt=="2"}}' data-id='{{item._id}}' bindtap='dxa' class='item1' style='color:rgb(250,81,81)'>吊销</view>
-				<view wx:if='{{item.zt!="1"&&item.zt!="2"}}' data-id='{{item._id}}' bindtap='sc' class='item1' style='color:rgb(250,81,81)'>删除</view>
+				<view class='item' bindtap='info' data-id='{{item._id}}'>详情</view>
+				<view class='item' bindtap='auth' data-id='{{item._id}}'>授权</view>
+				<view wx:if='{{item.status=="ready"}}' class='item' style='color:rgb(26,173,25)' bindtap='tj' data-id='{{item._id}}'>提交</view>
+				<view wx:if='{{item.status!="invalid"&&item.status!="expired"&&item.isAutoNewOrder==false}}' class='item' bindtap='xg' data-id='{{item._id}}'>修改</view>
+				<view wx:if='{{item.status!="processing"}}' class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item._id}}'>删除</view>
 			</view>
 		</view>
 	</block>

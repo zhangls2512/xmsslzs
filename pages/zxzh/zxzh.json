@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "注销账号",
-  "usingComponents": {
-    "mp-msg": "weui-miniprogram/msg/msg"
-  }
-}

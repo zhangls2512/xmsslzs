@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "新增申请",
-  "usingComponents": {
-    "mp-form": "weui-miniprogram/form/form",
-    "mp-msg": "weui-miniprogram/msg/msg"
-  }
-}

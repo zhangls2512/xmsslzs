@@ -2,7 +2,9 @@ Page({
     data: {
         tx: '/image/tx.png',
         theme: '',
-        nc: '未登录用户',
+        email: '',
+        production: '',
+        staging: '',
         tsa: '',
         tsb: '',
         tsc: '',
@@ -17,38 +19,28 @@ Page({
         jnr: '',
         jnb: '',
         jnl: '',
-        ua: '',
-        wdxcx: '',
-        cd: '',
-        ld: '',
+        hevc: '',
+        wza: '',
         dl: '',
-        tsxs: false,
+        cd: '',
+        sd: '',
         wllx: '',
-        xhqr: 0,
+        xhqr: '',
         wldl: '',
         rw: '',
         isSupported: '',
         version: '',
         reason: '',
-        wza: '',
-        hevc: '',
-        total: 0,
-        used: 0,
-        left: 0
-    },
-    ljed() {
-        this.pageRouter.navigateTo({
-            url: '../lj/lj?id=' + encodeURIComponent('https://docs.qq.com/doc/p/5230c73197bb2e4fd53c88ba22fe3f2ed8210c06')
-        })
+        ld: '',
+        wdxcx: '',
+        ua: '',
+        tsxs: false
     },
     onShow() {
         var that = this
         that.setData({
             theme: wx.getAppBaseInfo().theme,
-            nc: '未登录用户',
-            total: 0,
-            used: 0,
-            left: 0,
+            email: '',
             tsa: wx.getSystemSetting(),
             tsb: wx.getDeviceInfo(),
             tsd: wx.getWindowInfo(),
@@ -81,7 +73,8 @@ Page({
             success(res) {
                 that.setData({
                     dl: res.level,
-                    cd: String(res.isCharging)
+                    cd: String(res.isCharging),
+                    sd: String(res.isLowPowerModeEnabled)
                 })
             }
         })
@@ -132,9 +125,9 @@ Page({
                 })
             }
         })
-        if (wx.getStorageSync('user').zt == true) {
+        if (wx.getStorageSync('user').accesstoken) {
             that.setData({
-                nc: wx.getStorageSync('user').email
+                email: wx.getStorageSync('user').email
             })
             var app = getApp()
             if (app.globalData.network == 'none') {
@@ -149,38 +142,44 @@ Page({
                 mask: true
             })
             wx.request({
-                url: 'https://api.dqmybkj.com/sslgetuserset',
+                url: 'https://api.zhangls2512.cn/product/getUserInfo',
                 method: 'POST',
                 data: {
-                    email: wx.getStorageSync('user').email,
-                    password: require('../../password').token()
+                    accessToken: wx.getStorageSync('user').accesstoken,
+                    product: 'ssl'
                 },
-                useHighPerformanceMode: true,
                 enableHttp2: true,
-                enableProfile: false,
                 enableQuic: true,
+                useHighPerformanceMode: true,
+                enableProfile: false,
                 success(res) {
                     wx.hideLoading()
                     if (res.statusCode == 200) {
-                        if (res.data.code == 0) {
+                        if (res.data.errCode == 0) {
                             that.setData({
-                                total: res.data.sqed.total,
-                                used: res.data.sqed.used,
-                                left: res.data.sqed.left
+                                production: res.data.data.productionLimit,
+                                staging: res.data.data.stagingLimit
                             })
                         } else {
                             wx.showModal({
                                 title: '接口调用失败',
-                                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                                content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
                                 showCancel: false
                             })
                         }
                     } else {
                         wx.showToast({
-                            title: 'HTTP请求失败，错误码：' + res.statusCode,
+                            title: '请求失败，错误码：' + res.statusCode,
                             icon: 'none'
                         })
                     }
+                },
+                fail(res) {
+                    wx.hideLoading()
+                    wx.showToast({
+                        title: '请求失败，错误信息：' + res.errMsg,
+                        icon: 'none'
+                    })
                 }
             })
         }
@@ -212,7 +211,9 @@ Page({
                             wx.showToast({
                                 title: '清除成功'
                             })
-                            that.onShow()
+                            setTimeout(() => {
+                                that.onShow()
+                            }, 1500)
                         }
                     })
                 }
@@ -232,7 +233,9 @@ Page({
                             wx.showToast({
                                 title: '清除成功'
                             })
-                            that.onShow()
+                            setTimeout(() => {
+                                that.onShow()
+                            }, 1500)
                         }
                     })
                 }

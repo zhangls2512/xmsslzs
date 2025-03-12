@@ -3,44 +3,69 @@ Page({
     lb: [],
     qx: false,
     theme: '',
-    options: ['全部', '待提交', '签发中', '已签发', '签发失败', '已吊销', '已过期'],
-    zt: '全部',
-    value: 0,
-    yuming: ''
+    domain: '',
+    options: ['全部', '待授权', '待提交', '已失效', '签发中', '已签发', '已过期'],
+    status: '全部',
+    value: 0
   },
   sr(e) {
     this.setData({
-      yuming: e.detail.value
+      domain: e.detail.value
     })
   },
   qk() {
     this.setData({
-      yuming: ''
+      domain: ''
     })
   },
   sx(e) {
     var t = e.detail.value
     if (t == '0') {
       this.setData({
-        zt: '全部'
+        status: '全部'
       })
-      this.hq()
-    } else {
-      this.setData({
-        zt: String(Number(t) - 1)
-      })
-      this.hq()
     }
+    if (t == '1') {
+      this.setData({
+        status: 'pending'
+      })
+    }
+    if (t == '2') {
+      this.setData({
+        status: 'ready'
+      })
+    }
+    if (t == '3') {
+      this.setData({
+        status: 'invalid'
+      })
+    }
+    if (t == '4') {
+      this.setData({
+        status: 'processing'
+      })
+    }
+    if (t == '5') {
+      this.setData({
+        status: 'valid'
+      })
+    }
+    if (t == '6') {
+      this.setData({
+        status: 'expired'
+      })
+    }
+    this.hq()
   },
   onShow() {
     var that = this
     that.setData({
       lb: [],
-      yuming: '',
+      domain: '',
       qx: false,
       theme: wx.getAppBaseInfo().theme
     })
-    if (wx.getStorageSync('user').zt == true) {
+    if (wx.getStorageSync('user').accesstoken) {
       that.setData({
         qx: true
       })
@@ -63,604 +88,216 @@ Page({
       title: '获取数据中',
       mask: true
     })
-    if (that.data.yuming == '') {
-      wx.request({
-        url: 'https://api.dqmybkj.com/sslgetsqlb',
-        method: 'POST',
-        data: {
-          email: wx.getStorageSync('user').email,
-          password: require('../../password').token(),
-          zt: that.data.zt
-        },
-        useHighPerformanceMode: true,
-        enableHttp2: true,
-        enableProfile: false,
-        enableQuic: true,
-        success(res) {
-          wx.hideLoading()
-          if (res.statusCode == 200) {
-            if (res.data.code == 0) {
-              if (res.data.data == '') {
-                wx.showToast({
-                  title: '无数据',
-                  icon: 'error'
-                })
-                return
-              }
-              const moment = require('moment-timezone')
-              var array = res.data.data.map(item => ({
-                ...item,
-                zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
-                orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
-              }))
-              that.setData({
-                lb: array
+    wx.request({
+      url: 'https://api.zhangls2512.cn/ssl/getOrderList',
+      method: 'POST',
+      data: {
+        accessToken: wx.getStorageSync('user').accesstoken,
+        domain: that.data.domain,
+        status: that.data.status
+      },
+      enableHttp2: true,
+      enableQuic: true,
+      useHighPerformanceMode: true,
+      enableProfile: false,
+      success(res) {
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          if (res.data.errCode == 0) {
+            if (res.data.data.length == 0) {
+              wx.showToast({
+                title: '无数据',
+                icon: 'error'
               })
-            } else {
-              wx.showModal({
-                title: '接口调用失败',
-                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                showCancel: false
-              })
+              return
             }
+            const moment = require('moment-timezone')
+            that.setData({
+              lb: res.data.data.map(item => ({
+                ...item,
+                createDate: moment(item.createDate).format('YYYY-MM-DD HH:mm:ss')
+              }))
+            })
           } else {
-            wx.showToast({
-              title: 'HTTP请求失败，错误码：' + res.statusCode,
-              icon: 'none'
+            wx.showModal({
+              title: '接口调用失败',
+              content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+              showCancel: false
             })
           }
+        } else {
+          wx.showToast({
+            title: '请求失败，错误码：' + res.statusCode,
+            icon: 'none'
+          })
         }
-      })
-    } else {
-      wx.request({
-        url: 'https://api.dqmybkj.com/sslgetsqlb',
-        method: 'POST',
-        data: {
-          email: wx.getStorageSync('user').email,
-          password: require('../../password').token(),
-          yuming: that.data.yuming,
-          zt: that.data.zt
-        },
-        useHighPerformanceMode: true,
-        enableHttp2: true,
-        enableProfile: false,
-        enableQuic: true,
-        success(res) {
-          wx.hideLoading()
-          if (res.statusCode == 200) {
-            if (res.data.code == 0) {
-              if (res.data.data == '') {
-                wx.showToast({
-                  title: '无数据',
-                  icon: 'error'
-                })
-                return
-              }
-              const moment = require('moment-timezone')
-              var array = res.data.data.map(item => ({
-                ...item,
-                zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
-                orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
-              }))
-              that.setData({
-                lb: array
-              })
-            } else {
-              wx.showModal({
-                title: '接口调用失败',
-                content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                showCancel: false
-              })
-            }
-          } else {
-            wx.showToast({
-              title: 'HTTP请求失败，错误码：' + res.statusCode,
-              icon: 'none'
-            })
-          }
-        }
-      })
-    }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败，错误信息：' + res.errMsg,
+          icon: 'none'
+        })
+      }
+    })
   },
   onReachBottom() {
     var that = this
-    if (wx.getStorageSync('user').zt == true) {
-      var app = getApp()
-      if (app.globalData.network == 'none') {
-        wx.showToast({
-          title: '无网络',
-          icon: 'error'
-        })
-        return
-      }
-      wx.showLoading({
-        title: '获取更多数据',
-        mask: true
+    var app = getApp()
+    if (app.globalData.network == 'none') {
+      wx.showToast({
+        title: '无网络',
+        icon: 'error'
       })
-      if (that.data.yuming == '') {
-        wx.request({
-          url: 'https://api.dqmybkj.com/sslgetsqlb',
-          method: 'POST',
-          data: {
-            email: wx.getStorageSync('user').email,
-            password: require('../../password').token(),
-            startnumber: that.data.lb.length,
-            zt: that.data.zt
-          },
-          useHighPerformanceMode: true,
-          enableHttp2: true,
-          enableProfile: false,
-          enableQuic: true,
-          success(res) {
-            wx.hideLoading()
-            if (res.statusCode == 200) {
-              if (res.data.code == 0) {
-                if (res.data.data == '') {
-                  wx.showToast({
-                    title: '没有更多数据啦~',
-                    icon: 'none'
-                  })
-                  return
-                }
-                const moment = require('moment-timezone')
-                var array = res.data.data.map(item => ({
-                  ...item,
-                  zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
-                  orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
-                }))
-                that.setData({
-                  lb: that.data.lb.concat(array)
-                })
-              } else {
-                wx.showModal({
-                  title: '接口调用失败',
-                  content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                  showCancel: false
-                })
-              }
-            } else {
-              wx.showToast({
-                title: 'HTTP请求失败，错误码：' + res.statusCode,
-                icon: 'none'
-              })
-            }
-          }
-        })
-      } else {
-        wx.request({
-          url: 'https://api.dqmybkj.com/sslgetsqlb',
-          method: 'POST',
-          data: {
-            email: wx.getStorageSync('user').email,
-            password: require('../../password').token(),
-            startnumber: that.data.lb.length,
-            yuming: that.data.yuming,
-            zt: that.data.zt
-          },
-          useHighPerformanceMode: true,
-          enableHttp2: true,
-          enableProfile: false,
-          enableQuic: true,
-          success(res) {
-            wx.hideLoading()
-            if (res.statusCode == 200) {
-              if (res.data.code == 0) {
-                if (res.data.data == '') {
-                  wx.showToast({
-                    title: '没有更多数据啦~',
-                    icon: 'none'
-                  })
-                  return
-                }
-                const moment = require('moment-timezone')
-                var array = res.data.data.map(item => ({
-                  ...item,
-                  zsenddate: moment(item.zsenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss'),
-                  orderenddate: moment(item.orderenddate).tz('Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss')
-                }))
-                that.setData({
-                  lb: that.data.lb.concat(array)
-                })
-              } else {
-                wx.showModal({
-                  title: '接口调用失败',
-                  content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                  showCancel: false
-                })
-              }
-            } else {
-              wx.showToast({
-                title: 'HTTP请求失败，错误码：' + res.statusCode,
-                icon: 'none'
-              })
-            }
-          }
-        })
-      }
       return
     }
-    this.pageRouter.navigateTo({
-      url: '../login/login'
+    wx.showLoading({
+      title: '获取更多数据',
+      mask: true
+    })
+    wx.request({
+      url: 'https://api.zhangls2512.cn/ssl/getOrderList',
+      method: 'POST',
+      data: {
+        accessToken: wx.getStorageSync('user').accesstoken,
+        domain: that.data.domain,
+        status: that.data.status,
+        skip: that.data.lb.length
+      },
+      enableHttp2: true,
+      enableQuic: true,
+      useHighPerformanceMode: true,
+      enableProfile: false,
+      success(res) {
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          if (res.data.errCode == 0) {
+            if (res.data.data.length == 0) {
+              wx.showToast({
+                title: '没有更多数据啦~',
+                icon: 'none'
+              })
+              return
+            }
+            that.setData({
+              lb: that.data.lb.concat(res.data.data.map(item => ({
+                ...item,
+                createDate: moment(item.createDate).format('YYYY-MM-DD HH:mm:ss')
+              })))
+            })
+          } else {
+            wx.showModal({
+              title: '接口调用失败',
+              content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+              showCancel: false
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '请求失败，错误码：' + res.statusCode,
+            icon: 'none'
+          })
+        }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败，错误信息：' + res.errMsg,
+          icon: 'none'
+        })
+      }
     })
   },
   onShareAppMessage() {
     return {
-      title: '轩铭SSL证书，简单、便捷地申请DV SSL证书。',
+      title: '轩铭SSL证书，简单、便捷地申请免费DV SSL证书。',
       imageUrl: '../../image/fxfm.png'
     }
-  },
-  tg() {
-    this.pageRouter.navigateTo({
-      url: '../tg/tg'
-    })
   },
   dl() {
     this.pageRouter.navigateTo({
       url: '../login/login'
     })
   },
-  dns(e) {
+  add() {
+    this.pageRouter.navigateTo({
+      url: '../neworder/neworder'
+    })
+  },
+  info(e) {
     var id = e.currentTarget.dataset.id
     this.pageRouter.navigateTo({
-      url: '../dns/dns?id=' + id
+      url: '../orderinfo/orderinfo?id=' + id
+    })
+  },
+  auth(e) {
+    var id = e.currentTarget.dataset.id
+    this.pageRouter.navigateTo({
+      url: '../authorization/authorization?id=' + id
+    })
+  },
+  tj(e) {
+    var id = e.currentTarget.dataset.id, that = this;
+    var app = getApp()
+    if (app.globalData.network == 'none') {
+      wx.showToast({
+        title: '无网络',
+        icon: 'error'
+      })
+      return
+    }
+    wx.showLoading({
+      title: '提交中',
+      mask: true
+    })
+    wx.request({
+      url: 'https://api.zhangls2512.cn/ssl/submitOrder',
+      method: 'POST',
+      data: {
+        accessToken: wx.getStorageSync('user').accesstoken,
+        id: id
+      },
+      enableHttp2: true,
+      enableQuic: true,
+      useHighPerformanceMode: true,
+      enableProfile: false,
+      success(res) {
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          if (res.data.errCode == 0) {
+            wx.showToast({
+              title: '提交成功'
+            })
+            setTimeout(() => {
+              that.onShow()
+            }, 1500)
+          } else {
+            wx.showModal({
+              title: '接口调用失败',
+              content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+              showCancel: false
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '请求失败，错误码：' + res.statusCode,
+            icon: 'none'
+          })
+        }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败，错误信息：' + res.errMsg,
+          icon: 'none'
+        })
+      }
     })
   },
   xg(e) {
     var id = e.currentTarget.dataset.id
     this.pageRouter.navigateTo({
-      url: '../xgsq/xgsq?id=' + id
-    })
-  },
-  tj(e) {
-    var id = e.currentTarget.dataset.id, that = this;
-    wx.showModal({
-      title: '提示',
-      content: '请确认所有授权状态均已通过。提交成功后无法撤回，确定提交？',
-      success(res) {
-        if (res.confirm) {
-          if (wx.getStorageSync('qxsetting').scfwq != true) {
-            wx.showModal({
-              title: '提示',
-              content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
-              success(res) {
-                if (res.confirm) {
-                  that.router.navigateTo({
-                    url: '../qxgl/qxgl'
-                  })
-                }
-              }
-            })
-            return
-          }
-          if (wx.getStorageSync('qxsetting').scfwqg != true) {
-            wx.showModal({
-              title: '提示',
-              content: '“上传数据并将其存储在服务器”权限的“申请管理”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“申请管理”场景。',
-              success(res) {
-                if (res.confirm) {
-                  that.router.navigateTo({
-                    url: '../qxgl/qxgl'
-                  })
-                }
-              }
-            })
-            return
-          }
-          var app = getApp()
-          if (app.globalData.network == 'none') {
-            wx.showToast({
-              title: '无网络',
-              icon: 'error'
-            })
-            return
-          }
-          wx.showLoading({
-            title: '提交中',
-            mask: true
-          })
-          wx.request({
-            url: 'https://api.dqmybkj.com/sslsqqf',
-            method: 'POST',
-            data: {
-              email: wx.getStorageSync('user').email,
-              password: require('../../password').token(),
-              id: id
-            },
-            useHighPerformanceMode: true,
-            enableHttp2: true,
-            enableProfile: false,
-            enableQuic: true,
-            success(res) {
-              wx.hideLoading()
-              if (res.statusCode == 200) {
-                if (res.data.code == 0) {
-                  wx.showToast({
-                    title: '提交成功'
-                  })
-                  setTimeout(() => {
-                    that.onShow()
-                  }, 1500)
-                } else {
-                  wx.showModal({
-                    title: '接口调用失败',
-                    content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                    showCancel: false
-                  })
-                }
-              } else {
-                wx.showToast({
-                  title: 'HTTP请求失败，错误码：' + res.statusCode,
-                  icon: 'none'
-                })
-              }
-            }
-          })
-        }
-      }
-    })
-  },
-  xz(e) {
-    var id = e.currentTarget.dataset.id, yuming = e.currentTarget.dataset.ym, that = this;
-    wx.showActionSheet({
-      itemList: ['证书', '私钥'],
-      success(res) {
-        const index = res.tapIndex
-        if (wx.getStorageSync('qxsetting').scfwq != true) {
-          wx.showModal({
-            title: '提示',
-            content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
-            success(res) {
-              if (res.confirm) {
-                that.router.navigateTo({
-                  url: '../qxgl/qxgl'
-                })
-              }
-            }
-          })
-          return
-        }
-        if (wx.getStorageSync('qxsetting').scfwqg != true) {
-          wx.showModal({
-            title: '提示',
-            content: '“上传数据并将其存储在服务器”权限的“申请管理”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“申请管理”场景。',
-            success(res) {
-              if (res.confirm) {
-                that.router.navigateTo({
-                  url: '../qxgl/qxgl'
-                })
-              }
-            }
-          })
-          return
-        }
-        var app = getApp()
-        if (app.globalData.network == 'none') {
-          wx.showToast({
-            title: '无网络',
-            icon: 'error'
-          })
-          return
-        }
-        wx.showLoading({
-          title: '加载中',
-          mask: true
-        })
-        wx.request({
-          url: 'https://api.dqmybkj.com/sslxz',
-          method: 'POST',
-          data: {
-            email: wx.getStorageSync('user').email,
-            password: require('../../password').token(),
-            id: id,
-            lx: index
-          },
-          useHighPerformanceMode: true,
-          enableHttp2: true,
-          enableProfile: false,
-          enableQuic: true,
-          success(res) {
-            wx.hideLoading()
-            if (res.statusCode == 200) {
-              if (res.data.code == 0) {
-                let hz = ''
-                if (index == 0) {
-                  hz = '.crt'
-                }
-                if (index == 1) {
-                  hz = '.key'
-                }
-                wx.showLoading({
-                  title: '下载中',
-                  mask: true
-                })
-                const filepath = wx.env.USER_DATA_PATH + '/' + id + '-' + yuming[0] + hz
-                wx.downloadFile({
-                  url: res.data.url,
-                  useHighPerformanceMode: true,
-                  enableHttp2: true,
-                  enableProfile: false,
-                  enableQuic: true,
-                  success(res) {
-                    wx.hideLoading()
-                    if (res.statusCode == 200) {
-                      wx.saveFileToDisk({
-                        filePath: res.tempFilePath,
-                        success() {
-                          wx.showToast({
-                            title: '保存成功'
-                          })
-                        },
-                        fail() {
-                          const fm = wx.getFileSystemManager()
-                          fm.saveFile({
-                            tempFilePath: res.tempFilePath,
-                            filePath: filepath,
-                            success(res) {
-                              const path = res.savedFilePath
-                              wx.showActionSheet({
-                                alertText: '将文件',
-                                itemList: ['转发到聊天', '添加到微信收藏'],
-                                success(res) {
-                                  if (res.tapIndex == 0) {
-                                    wx.shareFileMessage({
-                                      filePath: path,
-                                      success() {
-                                        fm.removeSavedFile(path)
-                                      }
-                                    })
-                                  }
-                                  if (res.tapIndex == 1) {
-                                    wx.addFileToFavorites({
-                                      filePath: path,
-                                      success() {
-                                        wx.showToast({
-                                          title: '添加成功'
-                                        })
-                                        fm.removeSavedFile(path)
-                                      }
-                                    })
-                                  }
-                                }
-                              })
-                            }
-                          })
-                        }
-                      })
-                    } else {
-                      wx.showToast({
-                        title: 'HTTP请求失败，错误码：' + res.statusCode,
-                        icon: 'none'
-                      })
-                    }
-                  }
-                })
-              } else {
-                wx.showModal({
-                  title: '接口调用失败',
-                  content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                  showCancel: false
-                })
-              }
-            } else {
-              wx.showToast({
-                title: 'HTTP请求失败，错误码：' + res.statusCode,
-                icon: 'none'
-              })
-            }
-          }
-        })
-      }
-    })
-  },
-  dx(id, reason) {
-    var that = this
-    wx.showModal({
-      title: '提示',
-      content: '吊销后无法恢复。确定吊销？',
-      success(res) {
-        if (res.confirm) {
-          if (wx.getStorageSync('qxsetting').scfwq != true) {
-            wx.showModal({
-              title: '提示',
-              content: '“上传数据并将其存储在服务器”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限。',
-              success(res) {
-                if (res.confirm) {
-                  that.router.navigateTo({
-                    url: '../qxgl/qxgl'
-                  })
-                }
-              }
-            })
-            return
-          }
-          if (wx.getStorageSync('qxsetting').scfwqg != true) {
-            wx.showModal({
-              title: '提示',
-              content: '“上传数据并将其存储在服务器”权限的“申请管理”场景未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“上传数据并将其存储在服务器”权限的“申请管理”场景。',
-              success(res) {
-                if (res.confirm) {
-                  that.router.navigateTo({
-                    url: '../qxgl/qxgl'
-                  })
-                }
-              }
-            })
-            return
-          }
-          var app = getApp()
-          if (app.globalData.network == 'none') {
-            wx.showToast({
-              title: '无网络',
-              icon: 'error'
-            })
-            return
-          }
-          wx.showLoading({
-            title: '加载中',
-            mask: true
-          })
-          wx.request({
-            url: 'https://api.dqmybkj.com/ssldx',
-            method: 'POST',
-            data: {
-              email: wx.getStorageSync('user').email,
-              password: require('../../password').token(),
-              id: id,
-              reason: reason
-            },
-            useHighPerformanceMode: true,
-            enableHttp2: true,
-            enableProfile: false,
-            enableQuic: true,
-            success(res) {
-              wx.hideLoading()
-              if (res.statusCode == 200) {
-                if (res.data.code == 0) {
-                  wx.showToast({
-                    title: '提交证书吊销申请成功',
-                    icon: 'none'
-                  })
-                  setTimeout(() => {
-                    that.onShow()
-                  }, 1500)
-                } else {
-                  wx.showModal({
-                    title: '接口调用失败',
-                    content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
-                    showCancel: false
-                  })
-                }
-              } else {
-                wx.showToast({
-                  title: 'HTTP请求失败，错误码：' + res.statusCode,
-                  icon: 'none'
-                })
-              }
-            }
-          })
-        }
-      }
-    })
-  },
-  dxa(e) {
-    var id = e.currentTarget.dataset.id, that = this;
-    wx.showActionSheet({
-      alertText: '请选择吊销原因',
-      itemList: ['私钥已被泄露', '被新证书取代', '证书不再使用', '其他'],
-      success(res) {
-        if (res.tapIndex == 0) {
-          that.dx(id, 1)
-        }
-        if (res.tapIndex == 1) {
-          that.dx(id, 4)
-        }
-        if (res.tapIndex == 2) {
-          that.dx(id, 5)
-        }
-        if (res.tapIndex == 3) {
-          that.dx(id, 0)
-        }
-      }
+      url: '../updateorder/updateorder?id=' + id
     })
   },
   sc(e) {
@@ -683,21 +320,20 @@ Page({
             mask: true
           })
           wx.request({
-            url: 'https://api.dqmybkj.com/sslsc',
+            url: 'https://api.zhangls2512.cn/ssl/deleteOrder',
             method: 'POST',
             data: {
-              email: wx.getStorageSync('user').email,
-              password: require('../../password').token(),
+              accessToken: wx.getStorageSync('user').accesstoken,
               id: id
             },
-            useHighPerformanceMode: true,
             enableHttp2: true,
-            enableProfile: false,
             enableQuic: true,
+            useHighPerformanceMode: true,
+            enableProfile: false,
             success(res) {
               wx.hideLoading()
               if (res.statusCode == 200) {
-                if (res.data.code == 0) {
+                if (res.data.errCode == 0) {
                   wx.showToast({
                     title: '删除成功'
                   })
@@ -707,16 +343,23 @@ Page({
                 } else {
                   wx.showModal({
                     title: '接口调用失败',
-                    content: '错误码：' + res.data.code + '；错误信息：' + res.data.msg,
+                    content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
                     showCancel: false
                   })
                 }
               } else {
                 wx.showToast({
-                  title: 'HTTP请求失败，错误码：' + res.statusCode,
+                  title: '请求失败，错误码：' + res.statusCode,
                   icon: 'none'
                 })
               }
+            },
+            fail(res) {
+              wx.hideLoading()
+              wx.showToast({
+                title: '请求失败，错误信息：' + res.errMsg,
+                icon: 'none'
+              })
             }
           })
         }

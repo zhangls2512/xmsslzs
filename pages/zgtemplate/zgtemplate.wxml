@@ -1,0 +1,33 @@
+<page-meta root-font-size='system'>
+	<navigation-bar title='{{wz}}模板' />
+</page-meta>
+<view wx:if='{{xs==false}}'>
+	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
+</view>
+<view wx:if='{{xs==true}}' class='page-container'>
+	<view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
+		<view class='weui-cells weui-cells_form'>
+			<view class='weui-cell weui-cell_active'>
+				<view class='weui-cell__hd'><label class='weui-label'>域名</label></view>
+				<view class='weui-cell__bd'>
+					<input model:value='{{domain}}' class='weui-input' focus='{{focus}}' bindblur='tj' placeholder='请输入域名/IP地址' placeholder-class='weui-input__placeholder' />
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
+		<view class='weui-cells__title'>备注（可选）</view>
+		<view class='weui-cells weui-cells_form'>
+			<view class='weui-cell'>
+				<view class='weui-cell__bd'>
+					<textarea model:value='{{desc}}' class='weui-textarea' auto-height maxlength='20' bindinput='desc' placeholder='请输入备注' placeholder-class='weui-input__placeholder'></textarea>
+					<view class='weui-textarea-counter'>{{count}}/20</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class='a'>
+		<text wx:for='{{domains}}' class='tag'>{{item}} <text style='color:red' bindtap='sc' data-index='{{index}}'>×</text></text>
+	</view>
+	<button class='button' type='primary' bindtap='add'>{{wz}}</button>
+</view>

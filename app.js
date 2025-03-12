@@ -4,10 +4,8 @@ App({
   },
   onLaunch() {
     var that = this
-    wx.login({
-      success(res) {
-        console.log(res)
-      }
+    wx.cloud.init({
+      env: 'zhangls2512-5ggbio7hc46f4036'
     })
     wx.getNetworkType({
       success(res) {
@@ -79,7 +77,75 @@ App({
         icon: 'error'
       })
     })
-    if (wx.getStorageSync('user').zt == true) {
+    if (wx.getStorageSync('user').accesstoken) {
+      if (wx.getStorageSync('user').enddate <= Date.now()) {
+        wx.removeStorageSync('user')
+        wx.showToast({
+          title: '登录态过期，请重新登录',
+          mask: true
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '/pages/login/login'
+          })
+        }, 1500)
+        return
+      }
+      if (that.globalData.network == 'none') {
+        wx.showToast({
+          title: '无网络',
+          icon: 'error'
+        })
+        return
+      }
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      wx.request({
+        url: 'https://api.zhangls2512.cn/account/getAccountInfo',
+        method: 'POST',
+        data: {
+          accessToken: wx.getStorageSync('user').accesstoken
+        },
+        enableHttp2: true,
+        enableQuic: true,
+        useHighPerformanceMode: true,
+        enableProfile: false,
+        success(res) {
+          wx.hideLoading()
+          if (res.statusCode == 200) {
+            if (res.data.errCode == 0) {
+              wx.setStorage({
+                key: 'user',
+                data: {
+                  accesstoken: wx.getStorageSync('user').accesstoken,
+                  enddate: res.data.endDate,
+                  email: wx.getStorageSync('user').email
+                }
+              })
+            } else {
+              wx.showModal({
+                title: '接口调用失败',
+                content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                showCancel: false
+              })
+            }
+          } else {
+            wx.showToast({
+              title: '请求失败，错误码：' + res.statusCode,
+              icon: 'none'
+            })
+          }
+        },
+        fail(res) {
+          wx.hideLoading()
+          wx.showToast({
+            title: '请求失败，错误信息：' + res.errMsg,
+            icon: 'none'
+          })
+        }
+      })
       return
     }
     wx.navigateTo({
@@ -91,8 +157,8 @@ App({
       title: '提示',
       content: '发生错误，错误信息：' + res,
       confirmText: '反馈',
-      success(res) {
-        if (res.confirm) {
+      success(resa) {
+        if (resa.confirm) {
           wx.navigateTo({
             url: '/pages/help/help'
           })

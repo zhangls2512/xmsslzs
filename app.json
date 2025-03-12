@@ -2,28 +2,27 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
-    "pages/tg/tg",
-    "pages/gxrz/gxrz",
     "pages/guanyu/guanyu",
+    "pages/gxrz/gxrz",
     "pages/zzgs/zzgs",
     "pages/tscj/tscj",
     "pages/login/login",
     "pages/setting/setting",
-    "pages/help/help",
+    "pages/qxgl/qxgl",
     "pages/grxxqd/grxxqd",
     "pages/qxsyqd/qxsyqd",
+    "pages/help/help",
     "pages/netzd/netzd",
     "pages/lj/lj",
-    "pages/zxzh/zxzh",
-    "pages/xgmm/xgmm",
-    "pages/mailset/mailset",
-    "pages/zccz/zccz",
-    "pages/dns/dns",
-    "pages/xgmail/xgmail",
-    "pages/qxgl/qxgl",
-    "pages/xgsq/xgsq",
-    "pages/ymmblb/ymmblb",
-    "pages/zgymmb/zgymmb"
+    "pages/noticeset/noticeset",
+    "pages/functionset/functionset",
+    "pages/neworder/neworder",
+    "pages/orderinfo/orderinfo",
+    "pages/authorization/authorization",
+    "pages/templatelist/templatelist",
+    "pages/zgtemplate/zgtemplate",
+    "pages/bindaccount/bindaccount",
+    "pages/updateorder/updateorder"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,15 +38,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "image/sq.png",
-        "selectedIconPath": "image/ssq.png",
-        "text": "申请"
+        "iconPath": "image/order.png",
+        "selectedIconPath": "image/sorder.png",
+        "text": "订单"
       },
       {
-        "pagePath": "pages/ymmblb/ymmblb",
-        "iconPath": "image/ymmb.png",
-        "selectedIconPath": "image/symmb.png",
-        "text": "域名模板"
+        "pagePath": "pages/templatelist/templatelist",
+        "iconPath": "image/template.png",
+        "selectedIconPath": "image/stemplate.png",
+        "text": "模板"
       },
       {
         "pagePath": "pages/user/user",
@@ -58,8 +57,6 @@
     ]
   },
   "style": "v2",
-  "resizable": false,
-  "frameset": false,
   "darkmode": true,
   "themeLocation": "theme.json",
   "useExtendedLib": {

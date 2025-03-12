@@ -1,23 +1,18 @@
 Page({
-	ck1() {
+	icp() {
 		this.pageRouter.navigateTo({
 			url: '../lj/lj?id=' + encodeURIComponent('https://beian.miit.gov.cn/#/Integrated/recordQuery')
 		})
 	},
-	ck2() {
-		this.pageRouter.navigateTo({
-			url: '../lj/lj?id=' + encodeURIComponent('https://beian.mps.gov.cn/#/query/appletSearch')
-		})
-	},
-	ck3() {
+	tscj() {
 		this.pageRouter.navigateTo({
 			url: '../tscj/tscj'
 		})
 	},
-	myblj(e) {
+	xmbaxk(e) {
 		var t = e.currentTarget.dataset.id
 		this.pageRouter.navigateTo({
-			url: '../lj/lj?id=' + encodeURIComponent('https://www.dqmybkj.com/#/jqcx?id=' + t)
+			url: '../lj/lj?id=' + encodeURIComponent('https://www.zhangls2512.cn/product/baxk/jqcx?baxknumber=' + t)
 		})
 	}
 })

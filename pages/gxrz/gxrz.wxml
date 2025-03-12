@@ -1,12 +1,11 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
 	<view class='cc'>版本升级</view>
-	<view class='a'>1.新增域名模板。</view>
+	<view class='a'>1.更新了若干功能。</view>
 	<view class='dd'>特性更新</view>
-	<view class='a'>1.支持域名搜索申请。</view>
-	<view class='a'>2.支持修改“待提交”状态的申请。</view>
+	<view class='a'>1.优化了一些页面的细节体验。</view>
 	<view class='middle'></view>
 	<view>
-		<view bindtap='gxrz' class='lja'>历史版本更新日志</view>
+		<view class='lj' bindtap='gxrz'>历史版本更新日志</view>
 	</view>
 </view>

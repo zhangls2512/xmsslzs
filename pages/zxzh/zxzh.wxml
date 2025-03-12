@@ -1,7 +1,0 @@
-<page-meta root-font-size='system'></page-meta>
-<mp-msg type='{{type}}' title='{{title}}' data-weui-theme='{{theme}}'>
-	<view wx:if='{{type=="warn"}}' slot='desc'>{{desc}}</view>
-	<view wx:if='{{type=="warn"}}' slot='handle'>
-		<button class='button' bindtap='zx' type='warn'>注销账号</button>
-	</view>
-</mp-msg>

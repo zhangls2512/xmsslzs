@@ -1,0 +1,63 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{qx==false}}'>
+	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+	<button class='button' bindtap='sx'>刷新</button>
+	<view class='a'>域名/IP地址：
+		<text class='tag' wx:for='{{data.domains}}'>{{item}}</text>
+	</view>
+	<view class='a'>备注：{{data.desc}}</view>
+	<view class='a'>状态：
+		<text style='color:rgb(169,169,169)' wx:if='{{data.status=="pending"}}'>待授权</text>
+		<text style='color:rgb(169,169,169)' wx:if='{{data.status=="ready"}}'>待提交</text>
+		<text style='color:rgb(250,81,81)' wx:if='{{data.status=="invalid"}}'>已失效</text>
+		<text style='color:rgb(255,145,41)' wx:if='{{data.status=="processing"}}'>签发中</text>
+		<text style='color:rgb(26,173,25)' wx:if='{{data.status=="valid"}}'>已签发</text>
+		<text style='color:rgb(255,145,41)' wx:if='{{data.status=="expired"}}'>已过期</text>
+	</view>
+	<view wx:if='{{data.privateKey!=""}}' class='a'>私钥（下载链接有效期5分钟，刷新页面可获取新的下载链接）</view>
+	<button wx:if='{{data.privateKey!=""}}' class='button' type='primary' bindtap='download' data-url='{{data.privateKey}}'>下载</button>
+	<view wx:if='{{data.certificate.length > 0}}' class='a'>证书（下载链接有效期5分钟，刷新页面可获取新的下载链接）</view>
+	<button wx:if='{{data.certificate.length > 0}}' class='button' type='warn' bindtap='revoke'>吊销</button>
+	<view wx:for='{{data.certificate}}' wx:if='{{data.certificate.length > 0}}' class='kuang'>
+		<view class='a'>证书链：{{item.chain}}</view>
+		<button class='button' type='primary' bindtap='download' data-url='{{item.value}}'>下载</button>
+	</view>
+	<view class='a'>
+		<view class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{data.certificate.length == 0 && (data.status == "valid" || data.status=="expired" )}}'>证书已吊销</view>
+	</view>
+	<view wx:if='{{data.certificate.length > 0}}' class='a'>证书颁发时间：{{data.certificateStartDate}}</view>
+	<view wx:if='{{data.certificate.length > 0}}' class='a'>证书到期时间：{{data.certificateEndDate}}</view>
+	<view class='a'>自动新增续期订单：
+		<text wx:if='{{data.autoNewOrder=="ari"}}'>CA建议</text>
+		<text wx:if='{{data.autoNewOrder=="nearexpire"}}'>即将到期</text>
+		<text wx:if='{{data.autoNewOrder=="close"}}'>关闭</text>
+	</view>
+	<view class='listwz6'>——·——</view>
+	<view class='a'>订单ID：<text style='color:#576b95' bindtap='fz'>{{data._id}}</text></view>
+	<view class='a'>密钥类型：
+		<text wx:if='{{data.keyType=="rsa"}}'>RSA</text>
+		<text wx:if='{{data.keyType=="ecdsa"}}'>ECDSA</text>
+	</view>
+	<view wx:if='{{data.keyType=="rsa"}}' class='a'>密钥位数：{{data.keySize}}</view>
+	<view wx:if='{{data.keyType=="ecdsa"}}' class='a'>密钥曲线：{{data.keySize}}</view>
+	<view class='a'>环境类型：
+		<text wx:if='{{data.environmentType=="production"}}'>正式</text>
+		<text wx:if='{{data.environmentType=="staging"}}'>测试</text>
+	</view>
+	<view class='a'>证书类型：
+		<text wx:if='{{data.certificateType=="classic"}}'>经典</text>
+		<text wx:if='{{data.certificateType=="shortlived"}}'>短期</text>
+		<text wx:if='{{data.certificateType=="tlsserver"}}'>TLS服务器</text>
+	</view>
+	<view class='a'>订单创建时间：{{data.createDate}}</view>
+	<view class='a'>订单截止时间：{{data.orderEndDate}}</view>
+	<view wx:if='{{data.status=="valid"}}' class='a'>是否已自动新增订单：
+		<text wx:if='{{data.isAutoNewOrder==true}}'>是</text>
+		<text wx:if='{{data.isAutoNewOrder==false}}'>否</text>
+	</view>
+	<view wx:if='{{data.status=="valid"}}' class='a'>CA建议续期开始时间：{{data.ariStartDate}}</view>
+	<view wx:if='{{data.status=="valid"}}' class='a'>CA建议续期截止时间：{{data.ariEndDate}}</view>
+	<view class='listwz6'>——·——</view>
+</view>

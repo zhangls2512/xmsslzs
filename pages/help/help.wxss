@@ -8,7 +8,3 @@
 	flex-direction: column;
 	padding: 0 5px 0 5px;
 }
-
-.helpbutton {
-	margin-top: auto;
-}

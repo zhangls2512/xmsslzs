@@ -9,20 +9,15 @@ Page({
       theme: wx.getAppBaseInfo().theme,
       dl: false
     })
-    if (wx.getStorageSync('user').zt == true) {
+    if (wx.getStorageSync('user').accesstoken) {
       that.setData({
         dl: true
       })
     }
   },
-  xgmail() {
+  bdzh() {
     this.router.navigateTo({
-      url: '../xgmail/xgmail'
-    })
-  },
-  xgmm() {
-    this.router.navigateTo({
-      url: '../xgmm/xgmm'
+      url: '../bindaccount/bindaccount'
     })
   },
   qhzh() {
@@ -30,14 +25,14 @@ Page({
       url: '../login/login'
     })
   },
-  zxzh() {
+  noticeset() {
     this.router.navigateTo({
-      url: '../zxzh/zxzh'
+      url: '../noticeset/noticeset'
     })
   },
-  mailset() {
+  functionset() {
     this.router.navigateTo({
-      url: '../mailset/mailset'
+      url: '../functionset/functionset'
     })
   },
   qxgl() {
@@ -63,45 +58,6 @@ Page({
   help() {
     this.router.navigateTo({
       url: '../help/help'
-    })
-  },
-  dsfqd() {
-    this.pageRouter.navigateTo({
-      url: '../lj/lj?id=' + encodeURIComponent('https://docs.qq.com/doc/p/ae7950dad455853978e458d8a6fa4920db39b6af')
-    })
-  },
-  dsfsdk() {
-    this.pageRouter.navigateTo({
-      url: '../lj/lj?id=' + encodeURIComponent('https://docs.qq.com/doc/p/3f10d16c442bfe62564d8ba90e0b408f50e07956')
-    })
-  },
-  yszcwj() {
-    var that = this
-    wx.showActionSheet({
-      itemList: ['隐私保护指引摘要', '隐私保护指引（完整版）', '隐私保护指引（小程序通用版）'],
-      success(res) {
-        if (res.tapIndex == 0) {
-          that.pageRouter.navigateTo({
-            url: '../lj/lj?id=' + encodeURIComponent('https://docs.qq.com/doc/p/6a99249621620fc53bf1111bf2e04fade39f3083')
-          })
-        }
-        if (res.tapIndex == 1) {
-          that.pageRouter.navigateTo({
-            url: '../lj/lj?id=' + encodeURIComponent('https://docs.qq.com/doc/p/8729061cf62d78803bbc74c922973101d9c02fd5')
-          })
-        }
-        if (res.tapIndex == 2) {
-          var app = getApp()
-          if (app.globalData.network == 'none') {
-            wx.showToast({
-              title: '无网络',
-              icon: 'error'
-            })
-            return
-          }
-          wx.openPrivacyContract()
-        }
-      }
     })
   },
   tc() {

@@ -1,8 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='page-container'>
-  <view class='a'>ICP备案：<text bindtap='ck1' class='lj'>黑ICP备2024023054号-6X</text></view>
-  <view class='a'>产品备案：<text bindtap='myblj' data-id='铭懿博品备7WX号' class='lj'>铭懿博品备7WX号</text></view>
-  <view class='a'>发布版本备案（当前版本）：<text bindtap='myblj' data-id='铭懿博版备7WX号-7Z' class='lj'>铭懿博版备7WX号-7Z</text></view>
+  <view class='a'>ICP备案：<text class='lj' bindtap='icp'>黑ICP备2024023054号-6X</text></view>
+  <view class='a'>产品备案：<text class='lj' bindtap='xmbaxk' data-id='轩铭2512品备8号-WX'>轩铭2512品备8号-WX</text></view>
   <view class='small-title'>许可</view>
   <view class='table-container'>
     <view class='row'>
@@ -11,76 +10,49 @@
     </view>
     <view class='endrow'>
       <view class='cella'>敏感信息（账号密码）收集处理服务</view>
-      <view bindtap='myblj' data-id='铭懿博许7WX号-1M' class='cellb'>铭懿博许7WX号-1M</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512许8号-1M'>轩铭2512许8号-1M</view>
     </view>
   </view>
   <view class='small-title'>特殊场景适配备案</view>
   <view class='table-container'>
     <view class='row'>
-      <view class='cella'>特殊场景</view>
+      <view class='cella'>类型</view>
       <view class='cell'>备案号</view>
     </view>
     <view class='row'>
-      <view bindtap='ck3' class='cellc'>关怀模式</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-1E' class='cellb'>铭懿博适备7WX号-1E</view>
+      <view class='cellc' bindtap='tscj'>适老化</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512适备8号-1L'>轩铭2512适备8号-1L</view>
     </view>
     <view class='row'>
-      <view bindtap='ck3' class='cellc'>无障碍</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-2Z' class='cellb'>铭懿博适备7WX号-2Z</view>
+      <view class='cellc' bindtap='tscj'>无障碍</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512适备8号-2Z'>轩铭2512适备8号-2Z</view>
     </view>
     <view class='row'>
-      <view bindtap='ck3' class='cellc'>深色模式</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-3D' class='cellb'>铭懿博适备7WX号-3D</view>
+      <view class='cellc' bindtap='tscj'>大小屏</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512适备8号-3P'>轩铭2512适备8号-3P</view>
     </view>
     <view class='row'>
-      <view bindtap='ck3' class='cellc'>大小屏</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-4S' class='cellb'>铭懿博适备7WX号-4S</view>
+      <view class='cellc' bindtap='tscj'>特殊网络环境</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512适备8号-4W'>轩铭2512适备8号-4W</view>
     </view>
     <view class='row'>
-      <view bindtap='ck3' class='cellc'>多语言</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-5L' class='cellb'>铭懿博适备7WX号-5L</view>
-    </view>
-    <view class='row'>
-      <view bindtap='ck3' class='cellc'>无网环境</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-6W' class='cellb'>铭懿博适备7WX号-6W</view>
-    </view>
-    <view class='row'>
-      <view bindtap='ck3' class='cellc'>弱网环境</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-7W' class='cellb'>铭懿博适备7WX号-7W</view>
+      <view class='cellc' bindtap='tscj'>深色模式</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512适备8号-5S'>轩铭2512适备8号-5S</view>
     </view>
     <view class='endrow'>
-      <view bindtap='ck3' class='cellc'>移动数据（流量）网络环境</view>
-      <view bindtap='myblj' data-id='铭懿博适备7WX号-8W' class='cellb'>铭懿博适备7WX号-8W</view>
+      <view class='cellc' bindtap='tscj'>多语言</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512适备8号-6Y'>轩铭2512适备8号-6Y</view>
     </view>
   </view>
   <view class='small-title'>隐私安全备案</view>
   <view class='table-container'>
     <view class='row'>
-      <view class='cella'>内容</view>
+      <view class='cella'>描述</view>
       <view class='cell'>备案号</view>
     </view>
     <view class='endrow'>
-      <view class='cella'>有隐私相关功能，包括但不限于权限管理、权限使用清单、个人信息收集清单、第三方信息共享清单、接入第三方SDK目录、隐私政策文件</view>
-      <view bindtap='myblj' data-id='铭懿博私安备7WX号-1' class='cellb'>铭懿博私安备7WX号-1</view>
-    </view>
-  </view>
-  <view class='small-title'>更新日志备案</view>
-  <view class='table-container'>
-    <view class='row'>
-      <view class='cella'>内容</view>
-      <view class='cell'>备案号</view>
-    </view>
-    <view class='row'>
-      <view class='cella'>新增域名模板</view>
-      <view bindtap='myblj' data-id='铭懿博新备7WX号-10A' class='cellb'>铭懿博新备7WX号-10A</view>
-    </view>
-    <view class='row'>
-      <view class='cella'>支持域名搜索申请</view>
-      <view bindtap='myblj' data-id='铭懿博新备7WX号-11U' class='cellb'>铭懿博新备7WX号-11U</view>
-    </view>
-    <view class='endrow'>
-      <view class='cella'>支持修改“待提交”状态的申请</view>
-      <view bindtap='myblj' data-id='铭懿博新备7WX号-12U' class='cellb'>铭懿博新备7WX号-12U</view>
+      <view class='cella'>有隐私相关功能，包括但不限于权限管理、权限使用清单、个人信息收集清单、隐私保护指引</view>
+      <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512私安备8号-1'>轩铭2512私安备8号-1</view>
     </view>
   </view>
 </view>

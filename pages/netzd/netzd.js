@@ -30,12 +30,12 @@ Page({
       hsa: Date.now()
     })
     wx.request({
-      url: 'https://api.dqmybkj.com/test',
+      url: 'https://api.zhangls2512.cn/test',
       method: 'GET',
-      useHighPerformanceMode: true,
       enableHttp2: true,
-      enableProfile: true,
       enableQuic: true,
+      useHighPerformanceMode: true,
+      enableProfile: true,
       success(res) {
         that.setData({
           load: false,

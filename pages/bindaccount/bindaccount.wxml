@@ -1,0 +1,50 @@
+<page-meta root-font-size='system'>
+	<navigation-bar title='{{wz}}微信' />
+</page-meta>
+<view wx:if='{{qx==false}}'>
+	<mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
+		<view slot='handle'>
+			<button class='button' type='primary' bindtap='dl'>登录</button>
+		</view>
+	</mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+	<view class='weui-form' data-weui-theme='{{theme}}'>
+		<view class='weui-form__text-area'>
+			<view class='weui-form__title'>{{wz}}微信</view>
+		</view>
+		<view class='weui-form__control-area'>
+			<view class='weui-cells__group weui-cells__group_form'>
+				<view class='weui-cells weui-cells_form'>
+					<view class='weui-cell weui-cell_active weui-cell_select weui-cell_select-after'>
+						<view class='weui-cell__hd'>
+							<label class='weui-label'>方式</label>
+						</view>
+						<view class='weui-cell__bd'>
+							<picker range='{{types}}' bindchange='picker'>
+								<view class='weui-select'>{{typewz}}</view>
+							</picker>
+						</view>
+					</view>
+					<view wx-if='{{type=="mfa"}}' class='weui-cell weui-cell_active'>
+						<view class='weui-cell__hd'><label class='weui-label'>MFA</label></view>
+						<view class='weui-cell__bd'>
+							<input model:value='{{code}}' class='weui-input' type='number' maxlength='6' placeholder='请输入MFA' placeholder-class='weui-input__placeholder' />
+						</view>
+					</view>
+					<view wx-if='{{type=="emailcode"}}' class='weui-cell weui-cell_active'>
+						<view class='weui-cell__hd'><label class='weui-label'>验证码</label></view>
+						<view class='weui-cell__bd'>
+							<input model:value='{{code}}' class='weui-input' type='number' maxlength='8' placeholder='请输入验证码' placeholder-class='weui-input__placeholder' />
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class='weui-form__opr-area'>
+			<button wx-if='{{type=="emailcode"}}' class='button' disabled='{{yzmzt}}' bindtap='hqyzm'>获取验证码</button>
+			<button wx-if='{{wz=="绑定"}}' class='button' type='primary' bindtap='bd'>绑定</button>
+			<button wx-if='{{wz=="解绑"}}' class='button' type='warn' bindtap='jb'>解绑</button>
+		</view>
+	</view>
+</view>

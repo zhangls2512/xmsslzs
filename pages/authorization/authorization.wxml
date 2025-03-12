@@ -1,0 +1,41 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{qx==false}}'>
+	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+	<button class='button' bindtap='sx'>刷新</button>
+	<block wx:for='{{lb}}'>
+		<view class='kuang'>
+			<view class='a'>域名/IP地址：{{item.identifier}}</view>
+			<view class='a'>状态：
+				<text style='color:rgb(169,169,169)' wx:if='{{item.status=="pending"}}'>待完成</text>
+				<text style='color:rgb(26,173,25)' wx:if='{{item.status=="valid"}}'>已通过</text>
+				<text style='color:rgb(250,81,81)' wx:if='{{item.status=="invalid"}}'>不通过</text>
+				<text style='color:rgb(250,81,81)' wx:if='{{item.status=="revoked"}}'>被停用</text>
+				<text style='color:rgb(250,81,81)' wx:if='{{item.status=="deactivated"}}'>已停用</text>
+				<text style='color:rgb(255,145,41)' wx:if='{{item.status=="expired"}}'>已过期</text>
+			</view>
+			<button wx:if='{{item.status=="pending"||item.status=="valid"}}' class='button' type='warn' bindtap='stop' data-url='{{item.url}}'>停用</button>
+			<view class='a'>截止时间：{{item.expires}}</view>
+			<view class='a'>通配符域名：
+				<text wx:if='{{item.wildcard==true}}'>是</text>
+				<text wx:if='{{item.wildcard!=true}}'>否</text>
+			</view>
+			<block wx:for='{{item.challenges}}'>
+				<view class='kuang'>
+					<view class='a'>类型：{{item.type}}</view>
+					<view class='a'>验证值：<text style='color:#576b95' bindtap='fz' data-id='{{item.token}}'>{{item.token}}</text></view>
+					<view class='a'>状态：
+						<text style='color:rgb(169,169,169)' wx:if='{{item.status=="pending"}}'>待验证</text>
+						<text style='color:rgb(255,145,41)' wx:if='{{item.status=="processing"}}'>验证中</text>
+						<text style='color:rgb(26,173,25)' wx:if='{{item.status=="valid"}}'>已通过</text>
+						<text style='color:rgb(250,81,81)' wx:if='{{item.status=="invalid"}}'>不通过</text>
+					</view>
+					<button wx:if='{{item.status=="pending"}}' class='button' type='primary' bindtap='tj' data-url='{{item.url}}'>验证</button>
+					<button wx:if='{{item.status=="invalid"}}' class='button' bindtap='reason' data-reason='{{item.error.detail}}'>原因</button>
+				</view>
+			</block>
+		</view>
+	</block>
+	<view class='listwz6'>——·——</view>
+</view>
