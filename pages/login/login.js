@@ -301,7 +301,7 @@ Page({
 			}
 		})
 	},
-	zccz() {
+	zc() {
 		this.pageRouter.navigateTo({
 			url: '../lj/lj?id=' + encodeURIComponent('https://www.zhangls2512.cn/product/account/register')
 		})

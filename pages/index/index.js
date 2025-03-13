@@ -61,7 +61,6 @@ Page({
     var that = this
     that.setData({
       lb: [],
-      domain: '',
       qx: false,
       theme: wx.getAppBaseInfo().theme
     })
