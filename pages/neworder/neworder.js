@@ -15,7 +15,7 @@ Page({
     orderdesccount: 0,
     keytype: 'rsa',
     keytypewz: 'RSA',
-    keytypearray: ['RSA', 'RCDSA'],
+    keytypearray: ['RSA', 'ECDSA'],
     rsakeysize: 2048,
     rsakeysizearray: [2048, 3072, 4096],
     ecdsakeysize: 'prime256v1',

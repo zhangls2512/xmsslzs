@@ -61,7 +61,7 @@ Page({
               that.setData({
                 lb: res.data.authorization.map(item => ({
                   ...item,
-                  expires: moment(item.createDate).format('YYYY-MM-DD HH:mm:ss')
+                  expires: moment(item.expires).format('YYYY-MM-DD HH:mm:ss')
                 }))
               })
             } else {
