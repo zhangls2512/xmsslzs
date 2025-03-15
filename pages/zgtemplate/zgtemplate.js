@@ -2,11 +2,11 @@ Page({
   data: {
     xs: false,
     theme: '',
+    id: '',
     wz: '新增',
     domains: [],
     domain: '',
     desc: '',
-    id: '',
     count: 0,
     focus: true
   },

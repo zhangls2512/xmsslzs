@@ -7,6 +7,7 @@
     "pages/zzgs/zzgs",
     "pages/tscj/tscj",
     "pages/login/login",
+    "pages/bindaccount/bindaccount",
     "pages/setting/setting",
     "pages/qxgl/qxgl",
     "pages/grxxqd/grxxqd",
@@ -18,11 +19,10 @@
     "pages/functionset/functionset",
     "pages/neworder/neworder",
     "pages/orderinfo/orderinfo",
+    "pages/updateorder/updateorder",
     "pages/authorization/authorization",
-    "pages/templatelist/templatelist",
     "pages/zgtemplate/zgtemplate",
-    "pages/bindaccount/bindaccount",
-    "pages/updateorder/updateorder"
+    "pages/templatelist/templatelist"
   ],
   "window": {
     "backgroundTextStyle": "light",

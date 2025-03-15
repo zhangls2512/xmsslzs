@@ -1,14 +1,14 @@
 <page-meta root-font-size='system'></page-meta>
-<view wx:if='{{email!=""}}' class='a'>
-	<view class='tb-wz'>
-		<image bindtap='xsts' class='image' mode='widthFix' src='{{tx}}' show-menu-by-longpress />
-		<view class='nc'>{{email}}</view>
-	</view>
+<view class='tb-wz'>
+	<image class='image' src='/image/tx.png' mode='widthFix' lazy-load show-menu-by-longpress bindtap='xsts'></image>
+	<view class='nc'>{{email}}</view>
+</view>
+<button wx:if='{{email=="未登录"}}' class='button' type='primary' bindtap='dl'>登录</button>
+<view wx:if='{{email!="未登录"}}'>
 	<view class='d'>当前剩余额度</view>
 	<view class='a'>正式：{{production}}</view>
 	<view class='a'>测试：{{staging}}</view>
 </view>
-<button wx:if='{{email==""}}' class='button' type='primary' bindtap='dl'>登录</button>
 <mp-cells data-weui-theme='{{theme}}'>
 	<mp-cell value='设置' link hover bindtap='setting'>
 		<mp-icon style='margin-right:15px' slot='icon' icon='setting' size='{{30}}' color='rgb(169,169,169)'></mp-icon>

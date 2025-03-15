@@ -3,17 +3,12 @@ Page({
     xs: false,
     theme: '',
     id: '',
-    desc: '',
-    count: 0,
     autoneworder: 'ari',
     autoneworderwz: 'CA建议',
     value: 0,
-    array: ['CA建议', '即将到期', '关闭']
-  },
-  desc(e) {
-    this.setData({
-      count: e.detail.value.length
-    })
+    array: ['CA建议', '即将到期', '关闭'],
+    desc: '',
+    count: 0
   },
   picker(e) {
     var t = e.detail.value
@@ -35,6 +30,11 @@ Page({
         autoneworderwz: '关闭'
       })
     }
+  },
+  desc(e) {
+    this.setData({
+      count: e.detail.value.length
+    })
   },
   onLoad(e) {
     if (e.id !== undefined) {

@@ -12,7 +12,7 @@
 		<view class='xz'><button class='xzbutton' style='width:100%' type='primary' bindtap='add'>新增</button></view>
 		<picker class='sx' model:value='{{value}}' range='{{options}}' bindchange='sx'>
 			<view class='sx'>
-				<image src='/image/sx.svg' class='tb'></image>
+				<image class='tb' src='/image/sx.svg'></image>
 			</view>
 		</picker>
 	</view>

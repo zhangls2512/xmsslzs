@@ -5,8 +5,8 @@ Page({
     fs: '经典',
     fsarray: ['经典', 'CSR'],
     lb: [],
-    domain: '',
     domains: [],
+    domain: '',
     csr: '',
     xzmb: false,
     mbdesc: '',
@@ -284,9 +284,8 @@ Page({
       title: '新增中',
       mask: true
     })
-    wx.request({
-      url: 'https://api.zhangls2512.cn/ssl/newOrder',
-      method: 'POST',
+    wx.cloud.callFunction({
+      name: 'newSslOrder',
       data: {
         accessToken: wx.getStorageSync('user').accesstoken,
         csr: t.csr,
@@ -298,48 +297,30 @@ Page({
         certificateType: t.certificatetype,
         autoNewOrder: t.autoneworder
       },
-      enableHttp2: true,
-      enableQuic: true,
-      useHighPerformanceMode: true,
-      enableProfile: false,
       success(res) {
         wx.hideLoading()
-        if (res.statusCode == 200) {
-          if (res.data.errCode == 0) {
-            wx.showToast({
-              title: '新增成功'
-            })
-            setTimeout(() => {
-              that.router.navigateBack({
-                delta: 1,
-                fail() {
-                  wx.showToast({
-                    title: '错误',
-                    icon: 'error'
-                  })
-                }
-              })
-            }, 1500)
-          } else {
-            wx.showModal({
-              title: '接口调用失败',
-              content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
-              showCancel: false
-            })
-          }
-        } else {
+        if (res.result.errCode == 0) {
           wx.showToast({
-            title: '请求失败，错误码：' + res.statusCode,
-            icon: 'none'
+            title: '新增成功'
+          })
+          setTimeout(() => {
+            that.router.navigateBack({
+              delta: 1,
+              fail() {
+                wx.showToast({
+                  title: '错误',
+                  icon: 'error'
+                })
+              }
+            })
+          }, 1500)
+        } else {
+          wx.showModal({
+            title: '接口调用失败',
+            content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+            showCancel: false
           })
         }
-      },
-      fail(res) {
-        wx.hideLoading()
-        wx.showToast({
-          title: '请求失败，错误信息：' + res.errMsg,
-          icon: 'none'
-        })
       }
     })
     if (t.xzmb == true && t.fs == '经典') {

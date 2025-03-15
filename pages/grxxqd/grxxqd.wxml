@@ -1,14 +1,6 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='page-container'>
 	<view class='kuang'>
-		<view class='small-title'>设置信息</view>
-		<view class='a'><text style='font-weight:bold'>内容：</text>进入首页，依次点击右下角“个人中心”-设置-通知设置/功能设置，在通知设置/功能设置页面查看</view>
-		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-通知设置/功能设置，在通知设置/功能设置页面管理</view>
-		<view class='d'>场景、目的</view>
-		<view class='a'>通知设置：上传通知设置信息并将其存储在服务器</view>
-		<view class='a'>功能设置：上传功能设置信息并将其存储在服务器</view>
-	</view>
-	<view class='kuang'>
 		<view class='small-title'>订单信息</view>
 		<view class='a'><text style='font-weight:bold'>内容：</text>在首页查看</view>
 		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页（，点击修改），在首页、修改订单页面管理</view>
@@ -23,5 +15,20 @@
 		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击下方“模板”-新增/修改，在新增/修改模板页面管理</view>
 		<view class='d'>场景、目的</view>
 		<view class='a'>新增/修改模板：上传新增/修改的模板信息并将其存储在服务器</view>
+	</view>
+	<view class='kuang'>
+		<view class='small-title'>openid</view>
+		<view class='a'><text style='font-weight:bold'>内容：</text><text style='color:#576b95' bindtap='tz'>点此</text>进入账号基本信息页面，在其底部“外部账号”表格中查看</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-绑定微信，在解绑微信页面管理</view>
+		<view class='d'>场景、目的</view>
+		<view class='a'>绑定微信：让服务器知晓账号绑定的微信用户</view>
+	</view>
+	<view class='kuang'>
+		<view class='small-title'>设置信息</view>
+		<view class='a'><text style='font-weight:bold'>内容：</text>进入首页，依次点击右下角“个人中心”-设置-通知设置/功能设置，在通知设置/功能设置页面查看</view>
+		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-通知设置/功能设置，在通知设置/功能设置页面管理</view>
+		<view class='d'>场景、目的</view>
+		<view class='a'>通知设置：上传通知设置信息并将其存储在服务器</view>
+		<view class='a'>功能设置：上传功能设置信息并将其存储在服务器</view>
 	</view>
 </view>

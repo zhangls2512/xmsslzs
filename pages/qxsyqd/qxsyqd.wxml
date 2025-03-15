@@ -5,6 +5,6 @@
 		<view class='a'><text style='font-weight:bold'>描述：</text>开启此权限，将允许程序写入数据到剪贴板</view>
 		<view class='a'><text style='font-weight:bold'>管理：</text>进入首页，依次点击右下角“个人中心”-设置-权限管理，在权限管理页面管理</view>
 		<view class='d'>场景、目的</view>
-		<view class='a'>写入数据到剪贴板：写入订单ID、备案号查验链接等数据到剪贴板，便于在外部环境（如浏览器）使用数据（如粘贴到浏览器地址栏查验备案号）</view>
+		<view class='a'>写入数据到剪贴板：写入订单ID、挑战验证值、备案号查验链接、错误信息等数据到剪贴板，便于在外部环境（如浏览器）使用数据（如粘贴到浏览器地址栏查验备案号）</view>
 	</view>
 </view>

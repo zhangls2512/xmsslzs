@@ -249,47 +249,28 @@ Page({
       title: '提交中',
       mask: true
     })
-    wx.request({
-      url: 'https://api.zhangls2512.cn/ssl/submitOrder',
-      method: 'POST',
+    wx.cloud.callFunction({
+      name: 'submitSslOrder',
       data: {
         accessToken: wx.getStorageSync('user').accesstoken,
         id: id
       },
-      enableHttp2: true,
-      enableQuic: true,
-      useHighPerformanceMode: true,
-      enableProfile: false,
       success(res) {
         wx.hideLoading()
-        if (res.statusCode == 200) {
-          if (res.data.errCode == 0) {
-            wx.showToast({
-              title: '提交成功'
-            })
-            setTimeout(() => {
-              that.onShow()
-            }, 1500)
-          } else {
-            wx.showModal({
-              title: '接口调用失败',
-              content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
-              showCancel: false
-            })
-          }
-        } else {
+        if (res.result.errCode == 0) {
           wx.showToast({
-            title: '请求失败，错误码：' + res.statusCode,
-            icon: 'none'
+            title: '提交成功'
+          })
+          setTimeout(() => {
+            that.onShow()
+          }, 1500)
+        } else {
+          wx.showModal({
+            title: '接口调用失败',
+            content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+            showCancel: false
           })
         }
-      },
-      fail(res) {
-        wx.hideLoading()
-        wx.showToast({
-          title: '请求失败，错误信息：' + res.errMsg,
-          icon: 'none'
-        })
       }
     })
   },

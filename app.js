@@ -154,13 +154,27 @@ App({
   },
   onError: function (res) {
     wx.showModal({
-      title: '提示',
-      content: '发生错误，错误信息：' + res,
-      confirmText: '反馈',
+      title: '错误',
+      content: '可复制下面的错误信息，联系客服反馈\n' + res,
+      confirmText: '复制',
       success(resa) {
         if (resa.confirm) {
-          wx.navigateTo({
-            url: '/pages/help/help'
+          if (wx.getStorageSync('qxsetting').xrjtb != true) {
+            wx.showModal({
+              title: '提示',
+              content: '“写入数据到剪贴板”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“写入数据到剪贴板”权限。',
+              success(res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '../qxgl/qxgl'
+                  })
+                }
+              }
+            })
+            return
+          }
+          wx.setClipboardData({
+            data: res
           })
         }
       }

@@ -1,10 +1,9 @@
 Page({
     data: {
-        tx: '/image/tx.png',
         theme: '',
-        email: '',
-        production: '',
-        staging: '',
+        email: '未登录',
+        production: 0,
+        staging: 0,
         tsa: '',
         tsb: '',
         tsc: '',
@@ -40,7 +39,9 @@ Page({
         var that = this
         that.setData({
             theme: wx.getAppBaseInfo().theme,
-            email: '',
+            email: '未登录',
+            production: 0,
+            staging: 0,
             tsa: wx.getSystemSetting(),
             tsb: wx.getDeviceInfo(),
             tsd: wx.getWindowInfo(),

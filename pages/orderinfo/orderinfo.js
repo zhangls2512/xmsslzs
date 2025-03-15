@@ -3,7 +3,9 @@ Page({
     qx: false,
     theme: '',
     id: '',
-    data: {}
+    data: {
+      privateKey: ''
+    }
   },
   onLoad(e) {
     if (e.id !== undefined) {
@@ -27,42 +29,23 @@ Page({
         title: '刷新中',
         mask: true
       })
-      wx.request({
-        url: 'https://api.zhangls2512.cn/ssl/refreshOrder',
-        method: 'POST',
+      wx.cloud.callFunction({
+        name: 'refreshSslOrder',
         data: {
           accessToken: wx.getStorageSync('user').accesstoken,
           id: that.data.id
         },
-        enableHttp2: true,
-        enableQuic: true,
-        useHighPerformanceMode: true,
-        enableProfile: false,
         success(res) {
           wx.hideLoading()
-          if (res.statusCode == 200) {
-            if (res.data.errCode == 0) {
-              that.onShow()
-            } else {
-              wx.showModal({
-                title: '接口调用失败',
-                content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
-                showCancel: false
-              })
-            }
+          if (res.result.errCode == 0) {
+            that.onShow()
           } else {
-            wx.showToast({
-              title: '请求失败，错误码：' + res.statusCode,
-              icon: 'none'
+            wx.showModal({
+              title: '接口调用失败',
+              content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+              showCancel: false
             })
           }
-        },
-        fail(res) {
-          wx.hideLoading()
-          wx.showToast({
-            title: '请求失败，错误信息：' + res.errMsg,
-            icon: 'none'
-          })
         }
       })
       return
@@ -74,7 +57,9 @@ Page({
     that.setData({
       qx: false,
       theme: wx.getAppBaseInfo().theme,
-      data: {}
+      data: {
+        privateKey: ''
+      }
     })
     if (that.data.id == '') {
       wx.showToast({
@@ -255,48 +240,29 @@ Page({
           title: '加载中',
           mask: true
         })
-        wx.request({
-          url: 'https://api.zhangls2512.cn/ssl/revokeCertificate',
-          method: 'POST',
+        wx.cloud.callFunction({
+          name: 'revokeSslCertificate',
           data: {
             accessToken: wx.getStorageSync('user').accesstoken,
             orderId: that.data.id,
             reason: reason
           },
-          enableHttp2: true,
-          enableQuic: true,
-          useHighPerformanceMode: true,
-          enableProfile: false,
           success(res) {
             wx.hideLoading()
-            if (res.statusCode == 200) {
-              if (res.data.errCode == 0) {
-                wx.showToast({
-                  title: '吊销成功'
-                })
-                setTimeout(() => {
-                  that.onShow()
-                }, 1500)
-              } else {
-                wx.showModal({
-                  title: '接口调用失败',
-                  content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
-                  showCancel: false
-                })
-              }
-            } else {
+            if (res.result.errCode == 0) {
               wx.showToast({
-                title: '请求失败，错误码：' + res.statusCode,
-                icon: 'none'
+                title: '吊销成功'
+              })
+              setTimeout(() => {
+                that.onShow()
+              }, 1500)
+            } else {
+              wx.showModal({
+                title: '接口调用失败',
+                content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+                showCancel: false
               })
             }
-          },
-          fail(res) {
-            wx.hideLoading()
-            wx.showToast({
-              title: '请求失败，错误信息：' + res.errMsg,
-              icon: 'none'
-            })
           }
         })
       }
