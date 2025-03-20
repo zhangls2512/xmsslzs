@@ -1,12 +1,35 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='page-container'>
   <view class='a'>ICP备案：<text class='lj' bindtap='icp'>黑ICP备2024023054号-6X</text></view>
+  <view class='small-title'>公安备案</view>
+  <view class='table-container'>
+    <view class='row'>
+      <view class='cella' style='font-weight:bold'>名称</view>
+      <view class='cell'>轩铭SSL证书</view>
+    </view>
+    <view class='row'>
+      <view class='cella' style='font-weight:bold'>主体类型</view>
+      <view class='cell'>个人</view>
+    </view>
+    <view class='row'>
+      <view class='cella' style='font-weight:bold'>开办者名称</view>
+      <view class='cell'>张**</view>
+    </view>
+    <view class='row'>
+      <view class='cella' style='font-weight:bold'>注册地公安机关</view>
+      <view class='cell'>萨尔图区网安大队</view>
+    </view>
+    <view class='endrow'>
+      <view class='cella' style='font-weight:bold'>注册时间</view>
+      <view class='cell'>2025-03-20</view>
+    </view>
+  </view>
   <view class='a'>产品备案：<text class='lj' bindtap='xmbaxk' data-id='轩铭2512品备8号-WX'>轩铭2512品备8号-WX</text></view>
   <view class='small-title'>许可</view>
   <view class='table-container'>
     <view class='row'>
-      <view class='cella'>类型</view>
-      <view class='cell'>许可号</view>
+      <view class='cella' style='font-weight:bold'>类型</view>
+      <view class='cell' style='font-weight:bold'>许可号</view>
     </view>
     <view class='endrow'>
       <view class='cella'>敏感信息（账号密码）收集处理服务</view>
@@ -16,8 +39,8 @@
   <view class='small-title'>特殊场景适配备案</view>
   <view class='table-container'>
     <view class='row'>
-      <view class='cella'>类型</view>
-      <view class='cell'>备案号</view>
+      <view class='cella' style='font-weight:bold'>类型</view>
+      <view class='cell' style='font-weight:bold'>备案号</view>
     </view>
     <view class='row'>
       <view class='cellc' bindtap='tscj'>适老化</view>
@@ -47,8 +70,8 @@
   <view class='small-title'>隐私安全备案</view>
   <view class='table-container'>
     <view class='row'>
-      <view class='cella'>描述</view>
-      <view class='cell'>备案号</view>
+      <view class='cella' style='font-weight:bold'>描述</view>
+      <view class='cell' style='font-weight:bold'>备案号</view>
     </view>
     <view class='endrow'>
       <view class='cella'>有隐私相关功能，包括但不限于权限管理、权限使用清单、个人信息收集清单、隐私保护指引</view>

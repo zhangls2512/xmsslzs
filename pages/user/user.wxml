@@ -4,7 +4,7 @@
 	<view class='nc'>{{email}}</view>
 </view>
 <button wx:if='{{email=="未登录"}}' class='button' type='primary' bindtap='dl'>登录</button>
-<view wx:if='{{email!="未登录"}}'>
+<view wx:if='{{email!="未登录"}}' class='a'>
 	<view class='d'>当前剩余额度</view>
 	<view class='a'>正式：{{production}}</view>
 	<view class='a'>测试：{{staging}}</view>
