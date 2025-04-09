@@ -78,11 +78,11 @@ App({
       })
     })
     if (wx.getStorageSync('user').accesstoken) {
-      if (wx.getStorageSync('user').enddate <= Date.now()) {
+      if (wx.getStorageSync('user').enddate < Date.now()) {
         wx.removeStorageSync('user')
         wx.showToast({
           title: '登录态过期，请重新登录',
-          mask: true
+          icon: 'none'
         })
         setTimeout(() => {
           wx.navigateTo({
