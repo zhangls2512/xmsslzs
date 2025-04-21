@@ -1,7 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='page-container'>
   <view class='a'>ICP备案：<text class='lj' bindtap='icp'>黑ICP备2024023054号-6X</text></view>
-  <view class='small-title'>公安备案</view>
+  <view class='small-title' style='color:#576b95' bindtap='ga'>公安备案</view>
   <view class='table-container'>
     <view class='row'>
       <view class='cella' style='font-weight:bold'>名称</view>
@@ -32,7 +32,7 @@
       <view class='cell' style='font-weight:bold'>许可号</view>
     </view>
     <view class='endrow'>
-      <view class='cella'>敏感信息（账号密码）收集处理服务</view>
+      <view class='cella'>敏感信息收集处理服务</view>
       <view class='cellb' bindtap='xmbaxk' data-id='轩铭2512许8号-1M'>轩铭2512许8号-1M</view>
     </view>
   </view>

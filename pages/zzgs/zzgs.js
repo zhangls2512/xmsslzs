@@ -4,6 +4,11 @@ Page({
 			url: '../lj/lj?id=' + encodeURIComponent('https://beian.miit.gov.cn/#/Integrated/recordQuery')
 		})
 	},
+	ga() {
+		this.pageRouter.navigateTo({
+			url: '../lj/lj?id=' + encodeURIComponent('https://beian.mps.gov.cn/#/query/appletSearch')
+		})
+	},
 	tscj() {
 		this.pageRouter.navigateTo({
 			url: '../tscj/tscj'
