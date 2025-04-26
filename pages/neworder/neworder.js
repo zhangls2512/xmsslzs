@@ -25,7 +25,7 @@ Page({
     environmenttypearray: ['正式', '测试'],
     certificatetype: 'classic',
     certificatetypewz: '经典',
-    certificatetypearray: ['经典'],
+    certificatetypearray: ['经典', 'TLS服务器'],
     autoneworder: 'ari',
     autoneworderwz: 'CA建议',
     autoneworderarray: ['CA建议', '即将到期', '关闭']
@@ -225,6 +225,12 @@ Page({
       this.setData({
         certificatetype: 'classic',
         certificatetypewz: '经典'
+      })
+    }
+    if (t == 1) {
+      this.setData({
+        certificatetype: 'tlsserver',
+        certificatetypewz: 'TLS服务器'
       })
     }
   },
