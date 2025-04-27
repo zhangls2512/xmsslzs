@@ -271,6 +271,13 @@ Page({
       })
       return
     }
+    if (t.fs != '经典' && t.domains.length > 25) {
+      wx.showToast({
+        title: '非经典证书类型最多仅支持添加25个域名/IP地址',
+        icon: 'none'
+      })
+      return
+    }
     var app = getApp()
     if (app.globalData.network == 'none') {
       wx.showToast({
