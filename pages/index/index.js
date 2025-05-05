@@ -3,6 +3,7 @@ Page({
     lb: [],
     qx: false,
     theme: '',
+    time: Date.now(),
     domain: '',
     options: ['全部', '待授权', '待提交', '已失效', '签发中', '已签发', '已过期'],
     status: '全部',

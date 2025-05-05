@@ -35,7 +35,7 @@
 			</view>
 			<view class='bpbutton'>
 				<view class='item' bindtap='info' data-id='{{item._id}}'>详情</view>
-				<view wx:if='{{item.orderEndDate<=Date.now()}}' class='item' bindtap='auth' data-id='{{item._id}}'>授权</view>
+				<view wx:if='{{item.orderEndDate>time}}' class='item' bindtap='auth' data-id='{{item._id}}'>授权</view>
 				<view wx:if='{{item.status=="ready"}}' class='item' style='color:rgb(26,173,25)' bindtap='tj' data-id='{{item._id}}'>提交</view>
 				<view wx:if='{{item.status!="invalid"&&item.status!="expired"&&item.isAutoNewOrder==false}}' class='item' bindtap='xg' data-id='{{item._id}}'>修改</view>
 				<view wx:if='{{item.status!="processing"}}' class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item._id}}'>删除</view>
