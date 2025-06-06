@@ -25,7 +25,7 @@
 		<button class='button' type='primary' bindtap='download' data-url='{{item.value}}'>下载</button>
 	</view>
 	<view class='a'>
-		<view class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{data.certificate.length==0&&(data.status=="valid"||data.status=="expired" )}}'>证书已吊销</view>
+		<view class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{data.certificate.length==0&&data.status=="valid"}}'>证书已吊销</view>
 	</view>
 	<view wx:if='{{data.certificate.length > 0}}' class='a'>证书颁发时间：{{data.certificateStartDate}}</view>
 	<view wx:if='{{data.certificate.length > 0}}' class='a'>证书到期时间：{{data.certificateEndDate}}</view>
