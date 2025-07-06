@@ -25,7 +25,7 @@ Page({
     environmenttypearray: ['正式', '测试'],
     certificatetype: 'classic',
     certificatetypewz: '经典',
-    certificatetypearray: ['经典', 'TLS服务器'],
+    certificatetypearray: ['经典', '短期', 'TLS服务器', 'TLS客户端'],
     autoneworder: 'ari',
     autoneworderwz: 'CA建议',
     autoneworderarray: ['CA建议', '即将到期', '关闭']
@@ -229,8 +229,20 @@ Page({
     }
     if (t == 1) {
       this.setData({
+        certificatetype: 'shortlived',
+        certificatetypewz: '短期'
+      })
+    }
+    if (t == 2) {
+      this.setData({
         certificatetype: 'tlsserver',
         certificatetypewz: 'TLS服务器'
+      })
+    }
+    if (t == 3) {
+      this.setData({
+        certificatetype: 'tlsclient',
+        certificatetypewz: 'TLS客户端'
       })
     }
   },

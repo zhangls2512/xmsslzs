@@ -190,14 +190,14 @@ Page({
             url: '../login/login'
         })
     },
-    netzd() {
-        this.pageRouter.navigateTo({
-            url: '../netzd/netzd'
-        })
-    },
     setting() {
         this.pageRouter.navigateTo({
             url: '../setting/setting'
+        })
+    },
+    netzd() {
+        this.pageRouter.navigateTo({
+            url: '../netzd/netzd'
         })
     },
     qchc() {
@@ -254,7 +254,7 @@ Page({
         }
         wx.updateWeChatApp()
     },
-    ts() {
+    dkts() {
         wx.setEnableDebug({
             enableDebug: true,
             complete(res) {
@@ -278,14 +278,14 @@ Page({
             }
         })
     },
+    xs() {
+        this.setData({
+            tsxs: true
+        })
+    },
     yc() {
         this.setData({
             tsxs: false
-        })
-    },
-    xsts() {
-        this.setData({
-            tsxs: true
         })
     }
 })

@@ -2,7 +2,7 @@
 <view wx:if='{{qx==false}}'>
 	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
 </view>
-<view wx:if='{{qx==true}}'>
+<view wx:if='{{qx==true}}' class='container'>
 	<button class='button' bindtap='sx'>刷新</button>
 	<view class='a'>域名/IP地址：
 		<text class='tag' wx:for='{{data.domains}}'>{{item}}</text>
@@ -50,6 +50,7 @@
 		<text wx:if='{{data.certificateType=="classic"}}'>经典</text>
 		<text wx:if='{{data.certificateType=="shortlived"}}'>短期</text>
 		<text wx:if='{{data.certificateType=="tlsserver"}}'>TLS服务器</text>
+		<text wx:if='{{data.certificateType=="tlsclient"}}'>TLS客户端</text>
 	</view>
 	<view class='a'>订单创建时间：{{data.createDate}}</view>
 	<view class='a'>订单截止时间：{{data.orderEndDate}}</view>

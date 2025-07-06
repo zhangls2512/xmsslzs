@@ -1,6 +1,6 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='tb-wz'>
-	<image class='image' src='/image/tx.png' mode='widthFix' lazy-load show-menu-by-longpress bindtap='xsts'></image>
+	<image class='image' src='/image/tx.png' mode='widthFix' lazy-load show-menu-by-longpress bindtap='xs'></image>
 	<view class='nc'>{{email}}</view>
 </view>
 <button wx:if='{{email=="未登录"}}' class='button' type='primary' bindtap='dl'>登录</button>
@@ -15,7 +15,7 @@
 	</mp-cell>
 </mp-cells>
 <view class='listwz6'>——·——</view>
-<view wx:if='{{tsxs==true}}'>
+<view wx:if='{{tsxs==true}}' class='container'>
 	<view class='small-title'>调试选项与信息</view>
 	<button class='button' bindtap='yc' type='warn'>隐藏调试选项与信息</button>
 	<button class='button' bindtap='qchc' type='warn'>清除缓存</button>
@@ -70,7 +70,7 @@
 	<view class='a'>是否添加到我的小程序：{{wdxcx}}</view>
 	<view class='a'>UserAgent：{{ua}}</view>
 	<view class='a'>是否已打开调试：{{tse.enableDebug}}</view>
-	<button class='button' type='primary' bindtap='ts'>打开调试</button>
+	<button class='button' type='primary' bindtap='dkts'>打开调试</button>
 	<button class='button' type='warn' bindtap='gbts'>关闭调试</button>
 	<view class='listwz6'>——·——</view>
 </view>

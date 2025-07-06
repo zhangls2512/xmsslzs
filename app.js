@@ -7,6 +7,12 @@ App({
     wx.cloud.init({
       env: 'zhangls2512-5ggbio7hc46f4036'
     })
+    wx.onMemoryWarning(function () {
+      wx.showToast({
+        title: '内存不足告警',
+        icon: 'error'
+      })
+    })
     wx.getNetworkType({
       success(res) {
         that.globalData.network = res.networkType
@@ -29,12 +35,6 @@ App({
           })
         }
       }
-    })
-    wx.onMemoryWarning(function () {
-      wx.showToast({
-        title: '内存不足告警',
-        icon: 'error'
-      })
     })
     wx.onNetworkStatusChange((res) => {
       that.globalData.network = res.networkType

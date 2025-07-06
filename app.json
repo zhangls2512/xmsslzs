@@ -25,10 +25,9 @@
     "pages/templatelist/templatelist"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00B42A",
     "navigationBarTitleText": "轩铭SSL证书",
-    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light",
     "initialRenderingCache": "static"
   },
   "tabBar": {

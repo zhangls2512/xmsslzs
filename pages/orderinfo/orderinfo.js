@@ -213,6 +213,7 @@ Page({
   revoke() {
     var that = this
     wx.showActionSheet({
+      alertText: '选择吊销原因',
       itemList: ['不指定', '私钥泄露', '被新证书取代', '不再使用'],
       success(res) {
         let reason = 0
