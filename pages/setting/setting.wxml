@@ -1,28 +1,28 @@
 <page-meta root-font-size='system'></page-meta>
 
 <mp-cells wx:if='{{dl==true}}' data-weui-theme='{{theme}}' title='账号'>
-	<mp-cell value='切换账号' link hover bindtap='qhzh'></mp-cell>
-	<mp-cell value='绑定微信' link hover bindtap='bdzh'></mp-cell>
+  <mp-cell value='切换账号' link hover bindtap='qhzh'></mp-cell>
+  <mp-cell value='绑定微信' link hover bindtap='bdzh'></mp-cell>
 </mp-cells>
 
 <mp-cells wx:if='{{dl==true}}' data-weui-theme='{{theme}}' title='设置'>
-	<mp-cell value='通知设置' link hover bindtap='noticeset'></mp-cell>
-	<mp-cell value='功能设置' link hover bindtap='functionset'></mp-cell>
+  <mp-cell value='通知设置' link hover bindtap='noticeset'></mp-cell>
+  <mp-cell value='功能设置' link hover bindtap='functionset'></mp-cell>
 </mp-cells>
 
 <mp-cells data-weui-theme='{{theme}}' title='隐私'>
-	<mp-cell value='权限管理' link hover bindtap='qxgl'></mp-cell>
-	<mp-cell value='权限使用清单' link hover bindtap='qxsyqd'></mp-cell>
-	<mp-cell value='个人信息收集清单' link hover bindtap='grxxqd'></mp-cell>
+  <mp-cell value='权限管理' link hover bindtap='qxgl'></mp-cell>
+  <mp-cell value='权限使用清单' link hover bindtap='qxsyqd'></mp-cell>
+  <mp-cell value='个人信息收集清单' link hover bindtap='grxxqd'></mp-cell>
 </mp-cells>
 
 <mp-cells data-weui-theme='{{theme}}'>
-	<mp-cell value='关于轩铭SSL证书' link hover bindtap='guanyu'></mp-cell>
-	<mp-cell value='帮助与反馈' link hover bindtap='help'></mp-cell>
+  <mp-cell value='关于轩铭SSL证书' link hover bindtap='guanyu'></mp-cell>
+  <mp-cell value='帮助与反馈' link hover bindtap='help'></mp-cell>
 </mp-cells>
 
 <mp-cells data-weui-theme='{{theme}}'>
-	<mp-cell value='退出' style='text-align:center' hover bindtap='tc'></mp-cell>
+  <mp-cell value='退出' style='text-align:center' hover bindtap='tc'></mp-cell>
 </mp-cells>
 
 <view class='listwz6'>——·——</view>

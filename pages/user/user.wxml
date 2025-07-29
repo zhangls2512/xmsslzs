@@ -1,76 +1,76 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='tb-wz'>
-	<image class='image' src='/image/tx.png' mode='widthFix' lazy-load show-menu-by-longpress bindtap='xs'></image>
-	<view class='nc'>{{email}}</view>
+  <image class='image' src='/image/tx.png' mode='widthFix' lazy-load show-menu-by-longpress bindtap='xs'></image>
+  <view class='nc'>{{email}}</view>
 </view>
 <button wx:if='{{email=="未登录"}}' class='button' type='primary' bindtap='dl'>登录</button>
 <view wx:if='{{email!="未登录"}}' class='a'>
-	<view class='d'>当前剩余额度</view>
-	<view class='a'>正式：{{production}}</view>
-	<view class='a'>测试：{{staging}}</view>
+  <view class='d'>当前剩余额度</view>
+  <view class='a'>正式：{{production}}</view>
+  <view class='a'>测试：{{staging}}</view>
 </view>
 <mp-cells data-weui-theme='{{theme}}'>
-	<mp-cell value='设置' link hover bindtap='setting'>
-		<mp-icon style='margin-right:15px' slot='icon' icon='setting' size='{{30}}' color='rgb(169,169,169)'></mp-icon>
-	</mp-cell>
+  <mp-cell value='设置' link hover bindtap='setting'>
+    <mp-icon style='margin-right:15px' slot='icon' icon='setting' size='{{30}}' color='rgb(169,169,169)'></mp-icon>
+  </mp-cell>
 </mp-cells>
 <view class='listwz6'>——·——</view>
 <view wx:if='{{tsxs==true}}' class='container'>
-	<view class='small-title'>调试选项与信息</view>
-	<button class='button' bindtap='yc' type='warn'>隐藏调试选项与信息</button>
-	<button class='button' bindtap='qchc' type='warn'>清除缓存</button>
-	<view class='a'>设备方向：{{tsa.deviceOrientation}}</view>
-	<view class='a'>应用（微信APP）二进制接口类型：{{tsb.abi}}</view>
-	<view class='a'>设备二进制接口类型：{{tsb.deviceAbi}}</view>
-	<view class='a'>设备品牌：{{tsb.brand}}</view>
-	<view class='a'>设备型号：{{tsb.model}}</view>
-	<view class='a'>操作系统及版本：{{tsb.system}}</view>
-	<view class='a'>客户端平台：{{tsb.platform}}</view>
-	<view class='a'>设备CPU型号：{{tsb.cpuType}}</view>
-	<view class='a'>设备内存大小：{{tsb.memorySize}}MB</view>
-	<view class='a'>设备性能等级：{{tsc.benchmarkLevel}}</view>
-	<view class='a'>设备机型档位：{{tsc.modelLevel}}</view>
-	<view class='a'>设备是否支持H.265编码：{{hevc}}</view>
-	<view class='a'>是否开启视觉无障碍功能（iOS辅助功能旁白，安卓talkback）：{{wza}}</view>
-	<view class='a'>电量：{{dl}}</view>
-	<view class='a'>是否正在充电中：{{cd}}</view>
-	<view class='a'>是否处于省电模式：{{sd}}</view>
-	<view class='a'>网络类型：{{wllx}}</view>
-	<view class='a'>信号强弱：{{xhqr}}dbm</view>
-	<view class='a'>设备是否使用了网络代理：{{wldl}}</view>
-	<view class='a'>是否处于弱网环境：{{rw}}</view>
-	<button class='button' bindtap='netzd'>网络检测</button>
-	<view class='a'>设备像素比：{{tsd.pixelRatio}}</view>
-	<view class='a'>屏幕宽度：{{tsd.screenWidth}}px</view>
-	<view class='a'>屏幕高度：{{tsd.screenHeight}}px</view>
-	<view class='a'>屏幕亮度：{{ld}}</view>
-	<view class='a'>可使用窗口宽度：{{tsd.windowWidth}}px</view>
-	<view class='a'>可使用窗口高度：{{tsd.windowHeight}}px</view>
-	<view class='a'>状态栏的高度：{{tsd.statusBarHeight}}px</view>
-	<view class='a'>窗口上边缘的y值：{{tsd.screenTop}}</view>
-	<view class='a'>胶囊宽度：{{jnw}}px</view>
-	<view class='a'>胶囊高度：{{jnh}}px</view>
-	<view class='a'>胶囊上边界坐标：{{jnt}}px</view>
-	<view class='a'>胶囊右边界坐标：{{jnr}}px</view>
-	<view class='a'>胶囊下边界坐标：{{jnb}}px</view>
-	<view class='a'>胶囊左边界坐标：{{jnl}}px</view>
-	<view class='a'>客户端基础库版本：{{tse.SDKVersion}}</view>
-	<view class='a'>微信设置的语言：{{tse.language}}</view>
-	<view class='a'>微信版本号：{{tse.version}}</view>
-	<button class='button' type='primary' bindtap='gxwx'>更新微信</button>
-	<view class='a'>系统当前主题：{{tse.theme}}</view>
-	<view class='a'>微信字体大小缩放比例：{{tse.fontSizeScaleFactor}}</view>
-	<view class='a'>微信字体大小：{{tse.fontSizeSetting}}px</view>
-	<view class='a'>小程序appId：{{xcx1}}</view>
-	<view class='a'>小程序版本：{{xcx2}}</view>
-	<view class='a'>线上小程序版本号：{{xcx3}}</view>
-	<view class='a'>当前运行环境是否支持Skyline渲染引擎：{{isSupported}}</view>
-	<view class='a'>当前运行环境Skyline渲染引擎的版本号：{{version}}</view>
-	<view class='a'>当前运行环境不支持Skyline渲染引擎的原因：{{reason}}</view>
-	<view class='a'>是否添加到我的小程序：{{wdxcx}}</view>
-	<view class='a'>UserAgent：{{ua}}</view>
-	<view class='a'>是否已打开调试：{{tse.enableDebug}}</view>
-	<button class='button' type='primary' bindtap='dkts'>打开调试</button>
-	<button class='button' type='warn' bindtap='gbts'>关闭调试</button>
-	<view class='listwz6'>——·——</view>
+  <view class='small-title'>调试选项与信息</view>
+  <button class='button' bindtap='yc' type='warn'>隐藏调试选项与信息</button>
+  <button class='button' bindtap='qchc' type='warn'>清除缓存</button>
+  <view class='a'>设备方向：{{tsa.deviceOrientation}}</view>
+  <view class='a'>应用（微信APP）二进制接口类型：{{tsb.abi}}</view>
+  <view class='a'>设备二进制接口类型：{{tsb.deviceAbi}}</view>
+  <view class='a'>设备品牌：{{tsb.brand}}</view>
+  <view class='a'>设备型号：{{tsb.model}}</view>
+  <view class='a'>操作系统及版本：{{tsb.system}}</view>
+  <view class='a'>客户端平台：{{tsb.platform}}</view>
+  <view class='a'>设备CPU型号：{{tsb.cpuType}}</view>
+  <view class='a'>设备内存大小：{{tsb.memorySize}}MB</view>
+  <view class='a'>设备性能等级：{{tsc.benchmarkLevel}}</view>
+  <view class='a'>设备机型档位：{{tsc.modelLevel}}</view>
+  <view class='a'>设备是否支持H.265编码：{{hevc}}</view>
+  <view class='a'>是否开启视觉无障碍功能（iOS辅助功能旁白，安卓talkback）：{{wza}}</view>
+  <view class='a'>电量：{{dl}}</view>
+  <view class='a'>是否正在充电中：{{cd}}</view>
+  <view class='a'>是否处于省电模式：{{sd}}</view>
+  <view class='a'>网络类型：{{wllx}}</view>
+  <view class='a'>信号强弱：{{xhqr}}dbm</view>
+  <view class='a'>设备是否使用了网络代理：{{wldl}}</view>
+  <view class='a'>是否处于弱网环境：{{rw}}</view>
+  <button class='button' bindtap='netzd'>网络检测</button>
+  <view class='a'>设备像素比：{{tsd.pixelRatio}}</view>
+  <view class='a'>屏幕宽度：{{tsd.screenWidth}}px</view>
+  <view class='a'>屏幕高度：{{tsd.screenHeight}}px</view>
+  <view class='a'>屏幕亮度：{{ld}}</view>
+  <view class='a'>可使用窗口宽度：{{tsd.windowWidth}}px</view>
+  <view class='a'>可使用窗口高度：{{tsd.windowHeight}}px</view>
+  <view class='a'>状态栏的高度：{{tsd.statusBarHeight}}px</view>
+  <view class='a'>窗口上边缘的y值：{{tsd.screenTop}}</view>
+  <view class='a'>胶囊宽度：{{jnw}}px</view>
+  <view class='a'>胶囊高度：{{jnh}}px</view>
+  <view class='a'>胶囊上边界坐标：{{jnt}}px</view>
+  <view class='a'>胶囊右边界坐标：{{jnr}}px</view>
+  <view class='a'>胶囊下边界坐标：{{jnb}}px</view>
+  <view class='a'>胶囊左边界坐标：{{jnl}}px</view>
+  <view class='a'>客户端基础库版本：{{tse.SDKVersion}}</view>
+  <view class='a'>微信设置的语言：{{tse.language}}</view>
+  <view class='a'>微信版本号：{{tse.version}}</view>
+  <button class='button' type='primary' bindtap='gxwx'>更新微信</button>
+  <view class='a'>系统当前主题：{{tse.theme}}</view>
+  <view class='a'>微信字体大小缩放比例：{{tse.fontSizeScaleFactor}}</view>
+  <view class='a'>微信字体大小：{{tse.fontSizeSetting}}px</view>
+  <view class='a'>小程序appId：{{xcx1}}</view>
+  <view class='a'>小程序版本：{{xcx2}}</view>
+  <view class='a'>线上小程序版本号：{{xcx3}}</view>
+  <view class='a'>当前运行环境是否支持Skyline渲染引擎：{{isSupported}}</view>
+  <view class='a'>当前运行环境Skyline渲染引擎的版本号：{{version}}</view>
+  <view class='a'>当前运行环境不支持Skyline渲染引擎的原因：{{reason}}</view>
+  <view class='a'>是否添加到我的小程序：{{wdxcx}}</view>
+  <view class='a'>UserAgent：{{ua}}</view>
+  <view class='a'>是否已打开调试：{{tse.enableDebug}}</view>
+  <button class='button' type='primary' bindtap='dkts'>打开调试</button>
+  <button class='button' type='warn' bindtap='gbts'>关闭调试</button>
+  <view class='listwz6'>——·——</view>
 </view>

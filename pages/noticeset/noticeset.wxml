@@ -1,41 +1,43 @@
 <page-meta root-font-size='system'></page-meta>
 <view wx:if='{{xs==false}}'>
-	<mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
+  <mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
 </view>
 <view wx:if='{{xs==true}}' class='page-container'>
-	<view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
-		<view class='weui-cells__title'>邮箱</view>
-		<view class='weui-cells weui-cells_form'>
-			<view wx:for='{{notices}}' class='weui-cell weui-cell_active weui-cell_switch'>
-				<view class='weui-cell__bd'>{{item.name}}</view>
-				<view class='weui-cell__ft'>
-					<label class='weui-switch-cp'>
-						<switch bindchange='change' data-name='{{item.emailname}}' class='weui-switch-cp__input' checked='{{item.emailzt}}' />
-						<view class='weui-switch-cp__box'></view>
-					</label>
-				</view>
-			</view>
-		</view>
-	</view>
-	<view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
-		<view class='weui-cells__title'>Webhook</view>
-		<view class='weui-cells weui-cells_form'>
-			<view wx:for='{{notices}}' class='weui-cell weui-cell_active weui-cell_switch'>
-				<view class='weui-cell__bd'>{{item.name}}</view>
-				<view class='weui-cell__ft'>
-					<label class='weui-switch-cp'>
-						<switch bindchange='change' data-name='{{item.webhookname}}' class='weui-switch-cp__input' checked='{{item.webhookzt}}' />
-						<view class='weui-switch-cp__box'></view>
-					</label>
-				</view>
-			</view>
-		</view>
-		<view class='weui-form__extra-area'>
-			<view class='weui-footer'>
-				<view class='weui-footer__links'>
-					<view class='weui-footer__link' style='color:#576b95' bindtap='more'>更多选项</view>
-				</view>
-			</view>
-		</view>
-	</view>
+  <view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
+    <view class='weui-cells__title'>邮箱</view>
+    <view class='weui-cells weui-cells_form'>
+      <view wx:for='{{notices}}' class='weui-cell weui-cell_active weui-cell_switch'>
+        <view class='weui-cell__bd'>{{item.name}}</view>
+        <view class='weui-cell__ft'>
+          <label class='weui-switch-cp'>
+            <switch bindchange='change' data-name='{{item.emailname}}' class='weui-switch-cp__input'
+              checked='{{item.emailzt}}'></switch>
+            <view class='weui-switch-cp__box'></view>
+          </label>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
+    <view class='weui-cells__title'>Webhook</view>
+    <view class='weui-cells weui-cells_form'>
+      <view wx:for='{{notices}}' class='weui-cell weui-cell_active weui-cell_switch'>
+        <view class='weui-cell__bd'>{{item.name}}</view>
+        <view class='weui-cell__ft'>
+          <label class='weui-switch-cp'>
+            <switch bindchange='change' data-name='{{item.webhookname}}' class='weui-switch-cp__input'
+              checked='{{item.webhookzt}}'></switch>
+            <view class='weui-switch-cp__box'></view>
+          </label>
+        </view>
+      </view>
+    </view>
+    <view class='weui-form__extra-area'>
+      <view class='weui-footer'>
+        <view class='weui-footer__links'>
+          <view class='weui-footer__link' style='color:#576b95' bindtap='more'>更多选项</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

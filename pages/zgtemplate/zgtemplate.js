@@ -10,11 +10,11 @@ Page({
     count: 0,
     focus: true
   },
-  onLoad(t) {
+  onLoad(e) {
     var that = this
-    if (t.id !== undefined) {
+    if (e.id !== undefined) {
       that.setData({
-        id: t.id,
+        id: e.id,
         wz: '修改',
         focus: false
       })
@@ -36,7 +36,7 @@ Page({
           method: 'POST',
           data: {
             accessToken: wx.getStorageSync('user').accesstoken,
-            id: t.id
+            id: e.id
           },
           enableHttp2: true,
           enableQuic: true,
