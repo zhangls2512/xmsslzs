@@ -29,13 +29,15 @@
           <view wx-if='{{type=="mfa"}}' class='weui-cell weui-cell_active'>
             <view class='weui-cell__hd'><label class='weui-label'>MFA</label></view>
             <view class='weui-cell__bd'>
-              <input model:value='{{code}}' class='weui-input' type='number' maxlength='6' placeholder='请输入MFA' placeholder-class='weui-input__placeholder'></input>
+              <input model:value='{{code}}' class='weui-input' type='number' maxlength='6' placeholder='请输入MFA'
+                placeholder-class='weui-input__placeholder'></input>
             </view>
           </view>
           <view wx-if='{{type=="emailcode"}}' class='weui-cell weui-cell_active'>
             <view class='weui-cell__hd'><label class='weui-label'>验证码</label></view>
             <view class='weui-cell__bd'>
-              <input model:value='{{code}}' class='weui-input' type='number' maxlength='8' placeholder='请输入验证码' placeholder-class='weui-input__placeholder'></input>
+              <input model:value='{{code}}' class='weui-input' type='number' maxlength='8' placeholder='请输入验证码'
+                placeholder-class='weui-input__placeholder'></input>
             </view>
           </view>
         </view>

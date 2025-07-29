@@ -1,6 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
-  <image class='tx' style='margin-left:{{jl}}px;margin-right:{{jl}}px' src='/image/tx.png' mode='widthFix' lazy-load show-menu-by-longpress bindtap='xs'></image>
+  <image class='tx' style='margin-left:{{jl}}px;margin-right:{{jl}}px' src='/image/tx.png' mode='widthFix' lazy-load
+    show-menu-by-longpress bindtap='xs'></image>
   <view class='max-title'>轩铭SSL证书</view>
   <view class='medium-title'>Version 2.0.9<text wx:if='{{xs==true}}'>.0</text></view>
   <mp-cells class='cell' data-weui-theme='{{theme}}'>
