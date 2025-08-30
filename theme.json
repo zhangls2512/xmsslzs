@@ -1,10 +1,10 @@
 {
   "light": {
     "default": "#000000",
-    "background": "#ffffff"
+    "background": "#FFFFFF"
   },
   "dark": {
-    "default": "#ffffff",
+    "default": "#FFFFFF",
     "background": "#000000"
   }
 }

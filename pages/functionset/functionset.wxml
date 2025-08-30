@@ -29,7 +29,7 @@
     <view class='weui-form__extra-area'>
       <view class='weui-footer'>
         <view class='weui-footer__links'>
-          <view class='weui-footer__link' style='color:#576b95' bindtap='more'>更多选项</view>
+          <view class='weui-footer__link' style='color:#576B95' bindtap='more'>更多选项</view>
         </view>
       </view>
     </view>

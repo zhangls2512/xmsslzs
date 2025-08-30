@@ -37,7 +37,7 @@
     <text wx:if='{{data.autoNewOrder=="close"}}'>关闭</text>
   </view>
   <view class='listwz6'>——·——</view>
-  <view class='a'>订单ID：<text style='color:#576b95' bindtap='fz'>{{data._id}}</text></view>
+  <view class='a'>订单ID：<text style='color:#576B95' bindtap='fz'>{{data._id}}</text></view>
   <view class='a'>密钥类型：
     <text wx:if='{{data.keyType=="rsa"}}'>RSA</text>
     <text wx:if='{{data.keyType=="ecdsa"}}'>ECDSA</text>

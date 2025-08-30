@@ -1,6 +1,6 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='zyzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)'>当你开启以下权限时，即代表你已阅读并同意<text
-    style='color:#576b95' bindtap='ysbhzy'>《隐私保护指引》</text>。如果你不同意<text style='color:#576b95'
+    style='color:#576B95' bindtap='ysbhzy'>《隐私保护指引》</text>。如果你不同意<text style='color:#576B95'
     bindtap='ysbhzy'>《隐私保护指引》</text>，请关闭以下权限。</view>
 <view class='weui-cells__group weui-cells__group_form' data-weui-theme='{{theme}}'>
   <view class='weui-cells__title'>写入数据到剪贴板</view>

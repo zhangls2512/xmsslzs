@@ -9,13 +9,13 @@
 }
 
 .lj {
-  color: #576b95;
+  color: #576B95;
   margin: 5px;
   text-align: center;
 }
 
 .lj-end {
-  color: #576b95;
+  color: #576B95;
   margin: 5px 5px 10px 5px;
   text-align: center;
 }
