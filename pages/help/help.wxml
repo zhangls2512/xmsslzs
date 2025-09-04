@@ -3,6 +3,7 @@
   <view class='kuang'>
     <view class='a'>获取客服帮助</view>
     <button class='helpbutton' style='width:100%' type='primary' open-type='contact'>客服会话</button>
+    <button class='helpbutton' style='width:100%' type='default' bindtap='gzh'>公众号会话</button>
   </view>
   <view class='kuang'>
     <view class='a'>反馈功能异常、产品建议</view>
