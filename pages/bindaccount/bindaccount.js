@@ -319,5 +319,10 @@ Page({
         }
       }
     })
+  },
+  dl() {
+    this.pageRouter.navigateTo({
+      url: '../login/login'
+    })
   }
 })

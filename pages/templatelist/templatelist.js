@@ -95,7 +95,7 @@ Page({
     var id = e.currentTarget.dataset.id, that = this;
     wx.showModal({
       title: '提示',
-      content: '删除后无法恢复，确定删除？',
+      content: '删除成功后无法恢复，确定删除？',
       success(res) {
         if (res.confirm) {
           var app = getApp()

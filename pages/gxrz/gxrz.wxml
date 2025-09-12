@@ -1,7 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
-  <view class='dd'>特性更新</view>
-  <view class='a'>1.“获取客服帮助”新增“公众号会话”。</view>
+  <view class='ee'>修订补丁</view>
+  <view class='a'>1.修复了一些已知的问题。</view>
   <view class='middle'></view>
   <view>
     <view class='lj' bindtap='gxrz'>历史版本更新日志</view>

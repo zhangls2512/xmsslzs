@@ -152,7 +152,7 @@ Page({
     var url = e.currentTarget.dataset.url, that = this;
     wx.showModal({
       title: '提示',
-      content: '停用后无法恢复，确定停用？',
+      content: '停用成功后无法恢复，确定停用？',
       success(res) {
         if (res.confirm) {
           var app = getApp()
