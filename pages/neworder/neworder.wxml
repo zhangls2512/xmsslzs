@@ -22,8 +22,8 @@
     <view class='weui-cells weui-cells_form'>
       <view class='weui-cell'>
         <view class='weui-cell__bd'>
-          <textarea model:value='{{csr}}' class='weui-textarea' auto-height bindinput='mbdesc' placeholder='请输入CSR'
-            placeholder-class='weui-input__placeholder'></textarea>
+          <textarea model:value='{{csr}}' class='weui-textarea' auto-height maxlength='-1' bindinput='mbdesc'
+            placeholder='请输入CSR' placeholder-class='weui-input__placeholder'></textarea>
         </view>
       </view>
     </view>
