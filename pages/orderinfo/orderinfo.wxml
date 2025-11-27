@@ -16,21 +16,25 @@
     <text style='color:rgb(26,173,25)' wx:if='{{data.status=="valid"}}'>已签发</text>
     <text style='color:rgb(255,145,41)' wx:if='{{data.status=="expired"}}'>已过期</text>
   </view>
-  <view wx:if='{{data.privateKey!=""}}' class='a'>私钥（下载链接有效期5分钟，刷新页面可获取新的下载链接）</view>
-  <button wx:if='{{data.privateKey!=""}}' class='button' type='primary' bindtap='download'
-    data-url='{{data.privateKey}}'>下载</button>
-  <view wx:if='{{data.certificate.length > 0}}' class='a'>证书（下载链接有效期5分钟，刷新页面可获取新的下载链接）</view>
-  <button wx:if='{{data.certificate.length > 0}}' class='button' type='warn' bindtap='revoke'>吊销</button>
-  <view wx:for='{{data.certificate}}' wx:if='{{data.certificate.length > 0}}' class='kuang'>
-    <view class='a'>证书链：{{item.chain}}</view>
-    <button class='button' type='primary' bindtap='download' data-url='{{item.value}}'>下载</button>
+  <view wx:if='{{data.privateKey!=""}}'>
+    <view class='a'>私钥（下载链接有效期5分钟，刷新页面可获取新的下载链接）</view>
+    <button class='button' type='primary' bindtap='download' data-url='{{data.privateKey}}'>下载</button>
+    <button class='button' type='warn' bindtap='deleteprivatekey'>删除</button>
+  </view>
+  <view wx:if='{{data.certificate.length > 0}}'>
+    <view class='a'>证书（下载链接有效期5分钟，刷新页面可获取新的下载链接）</view>
+    <button class='button' type='warn' bindtap='revoke'>吊销</button>
+    <view wx:for='{{data.certificate}}' class='kuang'>
+      <view class='a'>证书链：{{item.chain}}</view>
+      <button class='button' type='primary' bindtap='download' data-url='{{item.value}}'>下载</button>
+    </view>
+    <view class='a'>证书颁发时间：{{data.certificateStartDate}}</view>
+    <view class='a'>证书到期时间：{{data.certificateEndDate}}</view>
   </view>
   <view class='a'>
-    <view class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)'
-      wx:if='{{data.certificate.length==0&&data.status=="valid"}}'>证书已吊销</view>
+    <view wx:if='{{data.certificate.length==0&&data.status=="valid"}}' class='syzt'
+      style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)'>证书已吊销</view>
   </view>
-  <view wx:if='{{data.certificate.length > 0}}' class='a'>证书颁发时间：{{data.certificateStartDate}}</view>
-  <view wx:if='{{data.certificate.length > 0}}' class='a'>证书到期时间：{{data.certificateEndDate}}</view>
   <view class='a'>自动新增续期订单：
     <text wx:if='{{data.autoNewOrder=="ari"}}'>CA建议</text>
     <text wx:if='{{data.autoNewOrder=="nearexpire"}}'>即将到期</text>

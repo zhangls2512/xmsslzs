@@ -1,0 +1,14 @@
+{
+  "setting": {
+    "condition": true,
+    "enhance": true,
+    "es6": true,
+    "swc": true,
+    "disableSWC": false,
+    "compileWorklet": true,
+    "minified": true,
+    "postcss": true,
+    "ignoreUploadUnusedFiles": true,
+    "uglifyFileName": true
+  }
+}

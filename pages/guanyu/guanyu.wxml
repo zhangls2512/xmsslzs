@@ -3,7 +3,7 @@
   <image class='tx' style='margin-left:{{jl}}px;margin-right:{{jl}}px' src='/image/tx.png' mode='widthFix' lazy-load
     show-menu-by-longpress bindtap='xs'></image>
   <view class='max-title'>轩铭SSL证书</view>
-  <view class='medium-title'>Version 2.0.12<text wx:if='{{xs==true}}'>.0</text></view>
+  <view class='medium-title'>Version 2.0.13<text wx:if='{{xs==true}}'>.0</text></view>
   <mp-cells class='cell' data-weui-theme='{{theme}}'>
     <mp-cell value='更新介绍' link hover bindtap='gxrz'></mp-cell>
     <mp-cell value='证照信息' link hover bindtap='zzgs'></mp-cell>
