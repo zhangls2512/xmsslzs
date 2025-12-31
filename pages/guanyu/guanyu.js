@@ -2,7 +2,8 @@ Page({
   data: {
     jl: 0,
     theme: '',
-    xs: false
+    xs: false,
+    endyear: 0
   },
   xs() {
     var that = this
@@ -22,7 +23,8 @@ Page({
     var that = this
     that.setData({
       jl: (wx.getWindowInfo().windowWidth - 100) / 2,
-      theme: wx.getAppBaseInfo().theme
+      theme: wx.getAppBaseInfo().theme,
+      endyear: new Date().getFullYear()
     })
   },
   gxrz() {

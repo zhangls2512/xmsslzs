@@ -1,7 +1,6 @@
 {
-  "libVersion": "3.12.0",
+  "libVersion": "3.13.1",
   "setting": {
-    "preloadBackgroundData": true,
     "lazyloadPlaceholderEnable": true
   }
 }

@@ -8,7 +8,6 @@
     "compileWorklet": true,
     "minified": true,
     "postcss": true,
-    "ignoreUploadUnusedFiles": true,
     "uglifyFileName": true
   }
 }

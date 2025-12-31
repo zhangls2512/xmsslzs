@@ -1,7 +1,7 @@
 <page-meta root-font-size='system'></page-meta>
 <view class='container'>
   <view class='dd'>特性更新</view>
-  <view class='a'>1.“订单详情”页面支持删除私钥。</view>
+  <view class='a'>1.优化了一些页面的细节体验。</view>
   <view class='middle'></view>
   <view>
     <view class='lj' bindtap='gxrz'>历史版本更新日志</view>

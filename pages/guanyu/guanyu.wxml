@@ -3,7 +3,7 @@
   <image class='tx' style='margin-left:{{jl}}px;margin-right:{{jl}}px' src='/image/tx.png' mode='widthFix' lazy-load
     show-menu-by-longpress bindtap='xs'></image>
   <view class='max-title'>轩铭SSL证书</view>
-  <view class='medium-title'>Version 2.0.13<text wx:if='{{xs==true}}'>.0</text></view>
+  <view class='medium-title'>Version 2.0.14<text wx:if='{{xs==true}}'>.0</text></view>
   <mp-cells class='cell' data-weui-theme='{{theme}}'>
     <mp-cell value='更新介绍' link hover bindtap='gxrz'></mp-cell>
     <mp-cell value='证照信息' link hover bindtap='zzgs'></mp-cell>
@@ -14,7 +14,7 @@
     <view class='lj' bindtap='yinsi'>《隐私保护指引》</view>
     <view class='c' bindtap='beian'>ICP备案号：黑ICP备2024023054号-6X ></view>
     <view class='c'>张轩铭 版权所有</view>
-    <view class='c'>Copyright © 2024-2025 ZhangXuanming. All Rights Reserved.</view>
+    <view class='c'>Copyright © 2024-{{endyear}} ZhangXuanming. All Rights Reserved.</view>
     <view class='lj-end' bindtap='gitcode'>Gitcode上查看此项目</view>
   </view>
 </view>
