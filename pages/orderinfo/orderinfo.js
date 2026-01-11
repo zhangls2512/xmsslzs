@@ -43,6 +43,7 @@ Page({
             wx.showModal({
               title: '接口调用失败',
               content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+              confirmText: '确定',
               showCancel: false
             })
           }
@@ -114,6 +115,7 @@ Page({
               wx.showModal({
                 title: '接口调用失败',
                 content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                confirmText: '确定',
                 showCancel: false
               })
             }
@@ -215,6 +217,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '删除成功后无法恢复，确定删除？',
+      confirmText: '确定',
       success(res) {
         if (res.confirm) {
           var app = getApp()
@@ -254,6 +257,7 @@ Page({
                   wx.showModal({
                     title: '接口调用失败',
                     content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                    confirmText: '确定',
                     showCancel: false
                   })
                 }
@@ -327,6 +331,7 @@ Page({
               wx.showModal({
                 title: '接口调用失败',
                 content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+                confirmText: '确定',
                 showCancel: false
               })
             }
@@ -341,6 +346,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '“写入数据到剪贴板”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“写入数据到剪贴板”权限。',
+        confirmText: '确定',
         success(res) {
           if (res.confirm) {
             that.router.navigateTo({

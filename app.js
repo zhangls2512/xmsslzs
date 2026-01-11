@@ -107,6 +107,7 @@ App({
             wx.showModal({
               title: '提示',
               content: '“写入数据到剪贴板”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“写入数据到剪贴板”权限。',
+              confirmText: '确定',
               success(res) {
                 if (res.confirm) {
                   wx.navigateTo({

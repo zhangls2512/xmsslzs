@@ -60,6 +60,7 @@ Page({
               wx.showModal({
                 title: '接口调用失败',
                 content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                confirmText: '确定',
                 showCancel: false
               })
             }
@@ -138,6 +139,7 @@ Page({
             wx.showModal({
               title: '接口调用失败',
               content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+              confirmText: '确定',
               showCancel: false
             })
           }
@@ -216,6 +218,7 @@ Page({
                 wx.showModal({
                   title: '接口调用失败',
                   content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                  confirmText: '确定',
                   showCancel: false
                 })
               }
@@ -242,6 +245,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '解绑后需重新绑定才可微信一键登录账号，确定解绑？',
+      confirmText: '确定',
       success(res) {
         if (res.confirm) {
           if (t.type == 'mfa' && t.code.length != 6) {
@@ -305,6 +309,7 @@ Page({
                   wx.showModal({
                     title: '接口调用失败',
                     content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                    confirmText: '确定',
                     showCancel: false
                   })
                 }

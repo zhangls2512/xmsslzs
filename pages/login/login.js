@@ -93,6 +93,7 @@ Page({
             wx.showModal({
               title: '接口调用失败',
               content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+              confirmText: '确定',
               showCancel: false
             })
           }
@@ -184,6 +185,7 @@ Page({
           wx.showModal({
             title: '接口调用失败',
             content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+            confirmText: '确定',
             showCancel: false
           })
         }
@@ -255,6 +257,7 @@ Page({
                       wx.showModal({
                         title: '接口调用失败',
                         content: '错误码：' + userres.data.errCode + '；错误信息：' + userres.data.errMsg + '；修复方法：' + userres.data.errFix,
+                        confirmText: '确定',
                         showCancel: false
                       })
                     }
@@ -271,6 +274,7 @@ Page({
               wx.showModal({
                 title: '接口调用失败',
                 content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+                confirmText: '确定',
                 showCancel: false
               })
             }

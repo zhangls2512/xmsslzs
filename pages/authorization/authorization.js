@@ -62,6 +62,7 @@ Page({
             wx.showModal({
               title: '接口调用失败',
               content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+              confirmText: '确定',
               showCancel: false
             })
           }
@@ -78,6 +79,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '“写入数据到剪贴板”权限未开启，无法使用此功能。如需使用此功能，请点击“确定”进入权限管理页面开启“写入数据到剪贴板”权限。',
+        confirmText: '确定',
         success(res) {
           if (res.confirm) {
             that.router.navigateTo({
@@ -97,6 +99,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '只有一次验证机会，确定验证？',
+      confirmText: '确定',
       success(res) {
         if (res.confirm) {
           var app = getApp()
@@ -131,6 +134,7 @@ Page({
                 wx.showModal({
                   title: '接口调用失败',
                   content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+                  confirmText: '确定',
                   showCancel: false
                 })
               }
@@ -145,6 +149,7 @@ Page({
     wx.showModal({
       title: '不通过原因',
       content: id,
+      confirmText: '确定',
       showCancel: false
     })
   },
@@ -153,6 +158,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '停用成功后无法恢复，确定停用？',
+      confirmText: '确定',
       success(res) {
         if (res.confirm) {
           var app = getApp()
@@ -187,6 +193,7 @@ Page({
                 wx.showModal({
                   title: '接口调用失败',
                   content: '错误码：' + res.result.errCode + '；错误信息：' + res.result.errMsg + '；修复方法：' + res.result.errFix,
+                  confirmText: '确定',
                   showCancel: false
                 })
               }

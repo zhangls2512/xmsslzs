@@ -9,6 +9,11 @@
   <view class='a'>正式：{{production}}</view>
   <view class='a'>测试：{{staging}}</view>
 </view>
+<mp-cells wx:if='{{email!="未登录"}}' data-weui-theme='{{theme}}'>
+  <mp-cell value='扫码登录' link hover bindtap='scan'>
+    <mp-icon style='margin-right:15px' slot='icon' icon='qr-code' size='{{30}}' color='rgb(26,173,25)'></mp-icon>
+  </mp-cell>
+</mp-cells>
 <mp-cells data-weui-theme='{{theme}}'>
   <mp-cell value='设置' link hover bindtap='setting'>
     <mp-icon style='margin-right:15px' slot='icon' icon='setting' size='{{30}}' color='rgb(169,169,169)'></mp-icon>
