@@ -62,6 +62,7 @@
   <view class='a'>客户端基础库版本：{{tse.SDKVersion}}</view>
   <view class='a'>微信设置的语言：{{tse.language}}</view>
   <view class='a'>微信版本号：{{tse.version}}</view>
+  <view class='a'>PC内核版本号：{{tse.PCKernelVersion}}</view>
   <button class='button' type='primary' bindtap='gxwx'>更新微信</button>
   <view class='a'>系统当前主题：{{tse.theme}}</view>
   <view class='a'>微信字体大小缩放比例：{{tse.fontSizeScaleFactor}}</view>
