@@ -7,7 +7,8 @@ Page({
     types: ['密码', 'MFA', '邮箱验证码'],
     code: '',
     yzmzt: false,
-    ua: ''
+    ua: '',
+    timeoutid: -1
   },
   onShow() {
     var that = this
@@ -21,6 +22,11 @@ Page({
         })
       }
     })
+  },
+  onUnload() {
+    if (this.data.timeoutid != -1) {
+      clearTimeout(this.data.timeoutid)
+    }
   },
   picker(e) {
     var t = e.detail.value
@@ -84,11 +90,14 @@ Page({
             that.setData({
               yzmzt: true
             })
-            setTimeout(() => {
+            const timeoutid = setTimeout(() => {
               that.setData({
                 yzmzt: false
               })
             }, 60000)
+            this.setData({
+              timeoutid: timeoutid
+            })
           } else {
             wx.showModal({
               title: '接口调用失败',
