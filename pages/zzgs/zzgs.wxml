@@ -21,7 +21,7 @@
     </view>
     <view class='endrow'>
       <view class='cella' style='font-weight:bold'>注册时间</view>
-      <view class='cell'>2025-03-20</view>
+      <view class='cell'>2026-02-11</view>
     </view>
   </view>
   <view class='a'>产品备案：<text class='lj' bindtap='xmbaxk' data-id='轩铭2512品备8号-WX'>轩铭2512品备8号-WX</text></view>
