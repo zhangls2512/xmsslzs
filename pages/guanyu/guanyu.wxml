@@ -11,7 +11,7 @@
   <view class='middle'></view>
   <view>
     <view class='lj' bindtap='yinsi'>《隐私保护指引》</view>
-    <view class='c' bindtap='beian'>ICP备案号：黑ICP备2024023054号-6X</view>
+    <view class='c' bindtap='beian'>ICP备案号：黑ICP备2024023054号-6X ></view>
     <view class='c'>张轩铭 版权所有</view>
     <view class='c'>Copyright © 2024-{{endyear}} ZhangXuanming. All Rights Reserved.</view>
     <view class='lj-end' bindtap='gitcode'>Gitcode上查看此项目</view>
