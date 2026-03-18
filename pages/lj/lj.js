@@ -12,7 +12,7 @@ Page({
   },
   fz() {
     var that = this
-    if (that.data.lj == '') {
+    if (!that.data.lj) {
       wx.showToast({
         title: '进入场景错误',
         icon: 'error'

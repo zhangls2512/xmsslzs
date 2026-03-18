@@ -28,7 +28,8 @@
     "navigationBarBackgroundColor": "#00B42A",
     "navigationBarTitleText": "轩铭SSL证书",
     "backgroundTextStyle": "light",
-    "initialRenderingCache": "static"
+    "initialRenderingCache": "static",
+    "handleWebviewPreload": "auto"
   },
   "tabBar": {
     "color": "@default",
@@ -56,10 +57,10 @@
     ]
   },
   "style": "v2",
-  "darkmode": true,
-  "themeLocation": "theme.json",
   "useExtendedLib": {
     "weui": true
   },
+  "darkmode": true,
+  "themeLocation": "theme.json",
   "lazyCodeLoading": "requiredComponents"
 }

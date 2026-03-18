@@ -96,10 +96,17 @@ Page({
   },
   tj() {
     var t = this.data
-    if (t.domain != '') {
+    if (t.domain) {
       if (t.domains.length >= 100) {
         wx.showToast({
           title: '最多只能添加100个域名/IP地址',
+          icon: 'none'
+        })
+        return
+      }
+      if (t.domains.includes(t.domain)) {
+        wx.showToast({
+          title: '域名/IP地址已存在',
           icon: 'none'
         })
         return
@@ -139,7 +146,7 @@ Page({
       title: t.wz + '中',
       mask: true
     })
-    if (t.id == '') {
+    if (!t.id) {
       wx.request({
         url: 'https://api.zhangls2512.cn/ssl/newTemplate',
         method: 'POST',

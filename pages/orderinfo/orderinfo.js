@@ -62,7 +62,7 @@ Page({
         privateKey: ''
       }
     })
-    if (that.data.id == '') {
+    if (!that.data.id) {
       wx.showToast({
         title: '参数未传递',
         icon: 'error'

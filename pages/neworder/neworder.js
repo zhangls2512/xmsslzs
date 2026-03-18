@@ -124,10 +124,17 @@ Page({
   },
   domain() {
     var t = this.data
-    if (t.domain != '') {
+    if (t.domain) {
       if (t.domains.length >= 100) {
         wx.showToast({
           title: '最多只能添加100个域名/IP地址',
+          icon: 'none'
+        })
+        return
+      }
+      if (t.domains.includes(t.domain)) {
+        wx.showToast({
+          title: '域名/IP地址已存在',
           icon: 'none'
         })
         return

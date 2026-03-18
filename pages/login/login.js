@@ -51,7 +51,7 @@ Page({
   },
   hqyzm() {
     var t = this.data, that = this;
-    if (t.email == '') {
+    if (!t.email) {
       wx.showToast({
         title: '请填写邮箱',
         icon: 'error'
@@ -117,7 +117,7 @@ Page({
   },
   dl() {
     var t = this.data, that = this;
-    if (t.email == '') {
+    if (!t.email) {
       wx.showToast({
         title: '请填写邮箱',
         icon: 'error'
