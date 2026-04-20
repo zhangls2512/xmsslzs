@@ -51,11 +51,10 @@ Page({
         success(res) {
           wx.hideLoading()
           if (res.result.errCode == 0) {
-            const moment = require('moment-timezone')
             that.setData({
               lb: res.result.authorization.map(item => ({
                 ...item,
-                expires: moment(item.expires).format('YYYY-MM-DD HH:mm:ss')
+                expires: that.time(item.expires)
               }))
             })
           } else {
@@ -69,6 +68,10 @@ Page({
         }
       })
     }
+  },
+  time(time) {
+    const date = new Date(time)
+    return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0') + ' ' + String(date.getHours()).padStart(2, '0') + ':' + String(date.getMinutes()).padStart(2, '0') + ':' + String(date.getSeconds()).padStart(2, '0')
   },
   sx() {
     this.onShow()

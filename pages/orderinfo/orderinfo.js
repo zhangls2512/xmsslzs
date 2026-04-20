@@ -14,6 +14,10 @@ Page({
       })
     }
   },
+  time(time) {
+    const date = new Date(time)
+    return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0') + ' ' + String(date.getHours()).padStart(2, '0') + ':' + String(date.getMinutes()).padStart(2, '0') + ':' + String(date.getSeconds()).padStart(2, '0')
+  },
   sx() {
     var status = this.data.data.status, that = this;
     if (status == 'pending' || status == 'ready' || status == 'processing' || status == 'valid') {
@@ -100,14 +104,13 @@ Page({
           wx.hideLoading()
           if (res.statusCode == 200) {
             if (res.data.errCode == 0) {
-              const moment = require('moment-timezone')
               let data = res.data.data
-              data.ariEndDate = moment(res.data.data.ariEndDate).format('YYYY-MM-DD HH:mm:ss')
-              data.ariStartDate = moment(res.data.data.ariStartDate).format('YYYY-MM-DD HH:mm:ss')
-              data.certificateEndDate = moment(res.data.data.certificateEndDate).format('YYYY-MM-DD HH:mm:ss')
-              data.certificateStartDate = moment(res.data.data.certificateStartDate).format('YYYY-MM-DD HH:mm:ss')
-              data.createDate = moment(res.data.data.createDate).format('YYYY-MM-DD HH:mm:ss')
-              data.orderEndDate = moment(res.data.data.orderEndDate).format('YYYY-MM-DD HH:mm:ss')
+              data.ariEndDate = that.time(res.data.data.ariEndDate)
+              data.ariStartDate = that.time(res.data.data.ariStartDate)
+              data.certificateEndDate = that.time(res.data.data.certificateEndDate)
+              data.certificateStartDate = that.time(res.data.data.certificateStartDate)
+              data.createDate = that.time(res.data.data.createDate)
+              data.orderEndDate = that.time(res.data.data.orderEndDate)
               that.setData({
                 data: data
               })

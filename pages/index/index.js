@@ -9,6 +9,10 @@ Page({
     status: '全部',
     value: 0
   },
+  time(time) {
+    const date = new Date(time)
+    return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0') + ' ' + String(date.getHours()).padStart(2, '0') + ':' + String(date.getMinutes()).padStart(2, '0') + ':' + String(date.getSeconds()).padStart(2, '0')
+  },
   sr(e) {
     this.setData({
       domain: e.detail.value
@@ -111,11 +115,10 @@ Page({
               })
               return
             }
-            const moment = require('moment-timezone')
             that.setData({
               lb: res.data.data.map(item => ({
                 ...item,
-                createDate: moment(item.createDate).format('YYYY-MM-DD HH:mm:ss')
+                createDate: that.time(item.createDate)
               }))
             })
           } else {
@@ -183,7 +186,7 @@ Page({
             that.setData({
               lb: that.data.lb.concat(res.data.data.map(item => ({
                 ...item,
-                createDate: moment(item.createDate).format('YYYY-MM-DD HH:mm:ss')
+                createDate: that.time(item.createDate)
               })))
             })
           } else {
