@@ -56,7 +56,6 @@
     <text wx:if='{{data.certificateType=="classic"}}'>经典</text>
     <text wx:if='{{data.certificateType=="shortlived"}}'>短期</text>
     <text wx:if='{{data.certificateType=="tlsserver"}}'>TLS服务器</text>
-    <text wx:if='{{data.certificateType=="tlsclient"}}'>TLS客户端</text>
   </view>
   <view class='a'>订单创建时间：{{data.createDate}}</view>
   <view class='a'>订单截止时间：{{data.orderEndDate}}</view>
