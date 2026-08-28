@@ -27,7 +27,6 @@
   "window": {
     "navigationBarBackgroundColor": "#00B42A",
     "navigationBarTitleText": "轩铭SSL证书",
-    "backgroundTextStyle": "light",
     "initialRenderingCache": "static",
     "handleWebviewPreload": "auto"
   },

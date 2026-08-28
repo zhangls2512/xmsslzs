@@ -12,7 +12,7 @@ Page({
   },
   onLoad(e) {
     var that = this
-    if (e.id !== undefined) {
+    if (e.id) {
       that.setData({
         id: e.id,
         wz: '修改',

@@ -6,7 +6,7 @@ Page({
     id: ''
   },
   onLoad(e) {
-    if (e.id !== undefined) {
+    if (e.id) {
       this.setData({
         id: e.id
       })
