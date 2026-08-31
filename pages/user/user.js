@@ -270,6 +270,16 @@ Page({
       }
     })
   },
+  dnstasklist() {
+    this.pageRouter.navigateTo({
+      url: '../dnstasklist/dnstasklist'
+    })
+  },
+  limitchangelist() {
+    this.pageRouter.navigateTo({
+      url: '../limitchangelist/limitchangelist'
+    })
+  },
   setting() {
     this.pageRouter.navigateTo({
       url: '../setting/setting'

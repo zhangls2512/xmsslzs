@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "额度变更记录",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "mp-msg": "weui-miniprogram/msg/msg"
+  }
+}

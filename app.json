@@ -22,7 +22,9 @@
     "pages/updateorder/updateorder",
     "pages/authorization/authorization",
     "pages/zgtemplate/zgtemplate",
-    "pages/templatelist/templatelist"
+    "pages/templatelist/templatelist",
+    "pages/dnstasklist/dnstasklist",
+    "pages/limitchangelist/limitchangelist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#00B42A",

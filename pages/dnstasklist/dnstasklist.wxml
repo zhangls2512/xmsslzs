@@ -1,0 +1,33 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{qx==false}}'>
+  <mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
+    <view slot='handle'>
+      <button class='button' type='primary' bindtap='dl'>登录</button>
+    </view>
+  </mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+  <block wx:for='{{lb}}'>
+    <view class='kuang'>
+      <view class='a'>ID：{{item._id}}</view>
+      <view class='a'>域名：{{item.domain}}</view>
+      <view class='a'>更新时间：{{item.updateDate}}</view>
+      <view wx:if='{{item.error}}' class='a'>原因：{{item.error}}</view>
+      <view class='a'>
+        <text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.status=="setpending"}}'>待配置解析记录</text>
+        <text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.status=="submitpending"}}'>待提交挑战验证</text>
+        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="setfail"}}'>配置解析记录失败</text>
+        <text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.status=="submitsuccess"}}'>已提交挑战验证</text>
+        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="submitfail"}}'>提交挑战验证失败</text>
+        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="manualend"}}'>手动结束</text>
+        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="autoend"}}'>自动结束</text>
+        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="timeoutend"}}'>超时结束</text>
+      </view>
+      <view class='bpbutton'>
+        <view class='item' bindtap='order' data-id='{{item.orderId}}'>订单</view>
+        <view class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item._id}}'>删除</view>
+      </view>
+    </view>
+  </block>
+  <view class='listwz6'>——·——</view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "DNS自动配置任务",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "mp-msg": "weui-miniprogram/msg/msg"
+  }
+}
