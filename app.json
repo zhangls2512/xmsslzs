@@ -24,7 +24,8 @@
     "pages/zgtemplate/zgtemplate",
     "pages/templatelist/templatelist",
     "pages/dnstasklist/dnstasklist",
-    "pages/limitchangelist/limitchangelist"
+    "pages/limitchangelist/limitchangelist",
+    "pages/payorderlist/payorderlist"
   ],
   "window": {
     "navigationBarBackgroundColor": "#00B42A",

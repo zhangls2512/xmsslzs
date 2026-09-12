@@ -1,0 +1,30 @@
+<page-meta root-font-size='system'></page-meta>
+<view wx:if='{{qx==false}}'>
+  <mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
+    <view slot='handle'>
+      <button class='button' type='primary' bindtap='dl'>登录</button>
+    </view>
+  </mp-msg>
+</view>
+<view wx:if='{{qx==true}}'>
+  <block wx:for='{{lb}}'>
+    <view class='kuang'>
+      <view class='a'>订单ID：{{item.orderId}}</view>
+      <view class='a'>商品ID：{{item.productId}}</view>
+      <view class='a'>商品名称：{{item.productName}}</view>
+      <view class='a'>购买数量：{{item.count}}</view>
+      <view class='a'>创建时间：{{item.createTime}}</view>
+      <view wx:if='{{item.finished}}' class='a'>微信订单ID：{{item.wxOrderId}}</view>
+      <view wx:if='{{item.finished}}' class='a'>完成时间：{{item.finishTime}}</view>
+      <view class='a'>
+        <text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{!item.finished}}'>待完成</text>
+        <text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.finished}}'>已完成</text>
+      </view>
+      <view wx:if='{{!item.finished}}' class='bpbutton'>
+        <view class='item' style='color:rgb(26,173,25)' bindtap='buy' data-id='{{item.orderId}}'>支付</view>
+        <view class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item.orderId}}'>删除</view>
+      </view>
+    </view>
+  </block>
+  <view class='listwz6'>——·——</view>
+</view>

@@ -126,9 +126,10 @@ Page({
         })
       }
     })
-    if (wx.getStorageSync('user').accesstoken) {
+    const user = wx.getStorageSync('user')
+    if (user.accesstoken) {
       that.setData({
-        email: wx.getStorageSync('user').email
+        email: user.email
       })
       var app = getApp()
       if (app.globalData.network == 'none') {
@@ -146,7 +147,7 @@ Page({
         url: 'https://api.zhangls2512.cn/product/getUserInfo',
         method: 'POST',
         data: {
-          accessToken: wx.getStorageSync('user').accesstoken,
+          accessToken: user.accesstoken,
           product: 'ssl'
         },
         enableHttp2: true,
@@ -278,6 +279,136 @@ Page({
   limitchangelist() {
     this.pageRouter.navigateTo({
       url: '../limitchangelist/limitchangelist'
+    })
+  },
+  buy() {
+    wx.showModal({
+      title: '购买数量',
+      editable: true,
+      placeholderText: '请输入购买数量（正整数）',
+      success(res) {
+        if (res.confirm) {
+          const count = Number(res.content)
+          if (!Number.isInteger(count) || count <= 0) {
+            wx.showToast({
+              title: '请填写正整数',
+              icon: 'error'
+            })
+            return
+          }
+          const user = wx.getStorageSync('user')
+          var app = getApp()
+          if (app.globalData.network == 'none') {
+            wx.showToast({
+              title: '无网络',
+              icon: 'error'
+            })
+            return
+          }
+          wx.showLoading({
+            title: '加载中',
+            mask: true
+          })
+          wx.request({
+            url: 'https://api.zhangls2512.cn/ssl/newPayOrder',
+            method: 'POST',
+            data: {
+              accessToken: user.accesstoken,
+              count: count
+            },
+            enableHttp2: true,
+            enableQuic: true,
+            useHighPerformanceMode: true,
+            enableProfile: false,
+            success(res) {
+              if (res.statusCode == 200) {
+                if (res.data.errCode == 0) {
+                  wx.request({
+                    url: 'https://api.zhangls2512.cn/ssl/getPayOrderPayData',
+                    method: 'POST',
+                    data: {
+                      accessToken: user.accesstoken,
+                      id: res.data.id
+                    },
+                    enableHttp2: true,
+                    enableQuic: true,
+                    useHighPerformanceMode: true,
+                    enableProfile: false,
+                    success(data) {
+                      wx.hideLoading()
+                      if (data.statusCode == 200) {
+                        if (data.data.errCode == 0) {
+                          wx.requestVirtualPayment({
+                            signData: data.data.signData,
+                            mode: 'short_series_goods',
+                            paySig: data.data.paySignature,
+                            signature: data.data.sessionSignature,
+                            fail(res) {
+                              wx.showModal({
+                                title: '购买失败',
+                                content: '错误码：' + res.errCode + '；错误信息：' + res.errMsg,
+                                confirmText: '确定',
+                                showCancel: false
+                              })
+                            }
+                          })
+                        } else {
+                          wx.hideLoading()
+                          wx.showModal({
+                            title: '接口调用失败',
+                            content: '错误码：' + data.data.errCode + '；错误信息：' + data.data.errMsg + '；修复方法：' + data.data.errFix,
+                            confirmText: '确定',
+                            showCancel: false
+                          })
+                        }
+                      } else {
+                        wx.hideLoading()
+                        wx.showToast({
+                          title: '请求失败，错误码：' + data.statusCode,
+                          icon: 'none'
+                        })
+                      }
+                    },
+                    fail(res) {
+                      wx.hideLoading()
+                      wx.showToast({
+                        title: '请求失败，错误信息：' + res.errMsg,
+                        icon: 'none'
+                      })
+                    }
+                  })
+                } else {
+                  wx.hideLoading()
+                  wx.showModal({
+                    title: '接口调用失败',
+                    content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+                    confirmText: '确定',
+                    showCancel: false
+                  })
+                }
+              } else {
+                wx.hideLoading()
+                wx.showToast({
+                  title: '请求失败，错误码：' + res.statusCode,
+                  icon: 'none'
+                })
+              }
+            },
+            fail(res) {
+              wx.hideLoading()
+              wx.showToast({
+                title: '请求失败，错误信息：' + res.errMsg,
+                icon: 'none'
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  payorderlist() {
+    this.pageRouter.navigateTo({
+      url: '../payorderlist/payorderlist'
     })
   },
   setting() {

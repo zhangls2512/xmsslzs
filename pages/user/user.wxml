@@ -21,6 +21,12 @@
   <mp-cell value='额度变更记录' link hover bindtap='limitchangelist'>
     <mp-icon style='margin-right:15px' slot='icon' icon='more' size='{{30}}' color='rgb(169,169,169)'></mp-icon>
   </mp-cell>
+  <mp-cell value='1元购买4个正式额度' link hover bindtap='buy'>
+    <mp-icon style='margin-right:15px' slot='icon' icon='shop' size='{{30}}' color='rgb(250,81,81)'></mp-icon>
+  </mp-cell>
+  <mp-cell value='支付订单记录' link hover bindtap='payorderlist'>
+    <mp-icon style='margin-right:15px' slot='icon' icon='more' size='{{30}}' color='rgb(169,169,169)'></mp-icon>
+  </mp-cell>
 </mp-cells>
 <mp-cells data-weui-theme='{{theme}}'>
   <mp-cell value='设置' link hover bindtap='setting'>

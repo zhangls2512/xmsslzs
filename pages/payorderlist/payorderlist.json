@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "支付订单记录",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "mp-msg": "weui-miniprogram/msg/msg"
+  }
+}
