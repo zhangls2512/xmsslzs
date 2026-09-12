@@ -21,7 +21,6 @@
         <text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.finished}}'>已完成</text>
       </view>
       <view wx:if='{{!item.finished}}' class='bpbutton'>
-        <view class='item' style='color:rgb(26,173,25)' bindtap='buy' data-id='{{item.orderId}}'>支付</view>
         <view class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item.orderId}}'>删除</view>
       </view>
     </view>
