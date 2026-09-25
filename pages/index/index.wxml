@@ -26,28 +26,19 @@
       <view class='a'>备注：{{item.desc}}</view>
       <view class='a'>创建时间：{{item.createDate}}</view>
       <view class='a'>
-        <text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)'
-          wx:if='{{item.status=="pending"}}'>待授权</text>
-        <text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)'
-          wx:if='{{item.status=="ready"}}'>待提交</text>
-        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)'
-          wx:if='{{item.status=="invalid"}}'>已失效</text>
-        <text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)'
-          wx:if='{{item.status=="processing"}}'>签发中</text>
-        <text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)'
-          wx:if='{{item.status=="valid"}}'>已签发</text>
-        <text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)'
-          wx:if='{{item.status=="expired"}}'>已过期</text>
+        <text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.status=="pending"}}'>待授权</text>
+        <text class='syzt' style='background-color:rgba(169,169,169,0.1);color:rgb(169,169,169)' wx:if='{{item.status=="ready"}}'>待提交</text>
+        <text class='syzt' style='background-color:rgba(250,81,81,0.1);color:rgb(250,81,81)' wx:if='{{item.status=="invalid"}}'>已失效</text>
+        <text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.status=="processing"}}'>签发中</text>
+        <text class='syzt' style='background-color:rgba(26,173,25,0.1);color:rgb(26,173,25)' wx:if='{{item.status=="valid"}}'>已签发</text>
+        <text class='syzt' style='background-color:rgba(255,145,41,0.1);color:rgb(255,145,41)' wx:if='{{item.status=="expired"}}'>已过期</text>
       </view>
       <view class='bpbutton'>
         <view class='item' bindtap='info' data-id='{{item._id}}'>详情</view>
         <view wx:if='{{item.orderEndDate>time}}' class='item' bindtap='auth' data-id='{{item._id}}'>授权</view>
-        <view wx:if='{{item.status=="ready"}}' class='item' style='color:rgb(26,173,25)' bindtap='tj'
-          data-id='{{item._id}}'>提交</view>
-        <view wx:if='{{item.status!="invalid"&&item.status!="expired"&&item.isAutoNewOrder==false}}' class='item'
-          bindtap='xg' data-id='{{item._id}}'>修改</view>
-        <view wx:if='{{item.status!="processing"}}' class='item1' style='color:rgb(250,81,81)' bindtap='sc'
-          data-id='{{item._id}}'>删除</view>
+        <view wx:if='{{item.status=="ready"}}' class='item' style='color:rgb(26,173,25)' bindtap='tj' data-id='{{item._id}}'>提交</view>
+        <view wx:if='{{item.status!="invalid"&&item.status!="expired"&&item.isAutoNewOrder==false}}' class='item' bindtap='xg' data-id='{{item._id}}'>修改</view>
+        <view wx:if='{{item.status!="pending"&&item.status!="ready"&&item.status!="processing"}}' class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item._id}}'>删除</view>
       </view>
     </view>
   </block>
