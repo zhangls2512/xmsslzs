@@ -1,13 +1,13 @@
 <page-meta root-font-size='system'></page-meta>
 <official-account></official-account>
-<view wx:if='{{qx==false}}'>
+<view wx:if='{{!qx}}'>
   <mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
     <view slot='handle'>
       <button class='button' type='primary' bindtap='dl'>登录</button>
     </view>
   </mp-msg>
 </view>
-<view wx:if='{{qx==true}}'>
+<view wx:if='{{qx}}'>
   <view class='xzsx'>
     <view class='xz'><button class='xzbutton' style='width:100%' type='primary' bindtap='add'>新增</button></view>
     <picker class='sx' model:value='{{value}}' range='{{options}}' bindchange='sx'>
@@ -37,7 +37,7 @@
         <view class='item' bindtap='info' data-id='{{item._id}}'>详情</view>
         <view wx:if='{{item.orderEndDate>time}}' class='item' bindtap='auth' data-id='{{item._id}}'>授权</view>
         <view wx:if='{{item.status=="ready"}}' class='item' style='color:rgb(26,173,25)' bindtap='tj' data-id='{{item._id}}'>提交</view>
-        <view wx:if='{{item.status!="invalid"&&item.status!="expired"&&item.isAutoNewOrder==false}}' class='item' bindtap='xg' data-id='{{item._id}}'>修改</view>
+        <view wx:if='{{item.status!="invalid"&&item.status!="expired"&&!item.isAutoNewOrder}}' class='item' bindtap='xg' data-id='{{item._id}}'>修改</view>
         <view wx:if='{{item.status!="pending"&&item.status!="ready"&&item.status!="processing"}}' class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item._id}}'>删除</view>
       </view>
     </view>

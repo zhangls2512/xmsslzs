@@ -34,7 +34,7 @@
   </mp-cell>
 </mp-cells>
 <view class='listwz6'>——·——</view>
-<view wx:if='{{tsxs==true}}' class='container'>
+<view wx:if='{{tsxs}}' class='container'>
   <view class='small-title'>调试选项与信息</view>
   <button class='button' bindtap='yc' type='warn'>隐藏调试选项与信息</button>
   <button class='button' bindtap='qchc' type='warn'>清除缓存</button>

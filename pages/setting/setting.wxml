@@ -1,11 +1,11 @@
 <page-meta root-font-size='system'></page-meta>
 
-<mp-cells wx:if='{{dl==true}}' data-weui-theme='{{theme}}' title='账号'>
+<mp-cells wx:if='{{dl}}' data-weui-theme='{{theme}}' title='账号'>
   <mp-cell value='切换账号' link hover bindtap='qhzh'></mp-cell>
   <mp-cell value='绑定微信' link hover bindtap='bdzh'></mp-cell>
 </mp-cells>
 
-<mp-cells wx:if='{{dl==true}}' data-weui-theme='{{theme}}' title='设置'>
+<mp-cells wx:if='{{dl}}' data-weui-theme='{{theme}}' title='设置'>
   <mp-cell value='通知设置' link hover bindtap='noticeset'></mp-cell>
   <mp-cell value='功能设置' link hover bindtap='functionset'></mp-cell>
 </mp-cells>

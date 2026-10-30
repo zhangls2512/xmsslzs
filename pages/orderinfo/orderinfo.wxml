@@ -1,8 +1,8 @@
 <page-meta root-font-size='system'></page-meta>
-<view wx:if='{{qx==false}}'>
+<view wx:if='{{!qx}}'>
   <mp-msg type='info' title='请登录账号' data-weui-theme='{{theme}}'></mp-msg>
 </view>
-<view wx:if='{{qx==true}}' class='container'>
+<view wx:if='{{qx}}' class='container'>
   <button class='button' bindtap='sx'>刷新</button>
   <view class='a'>域名/IP地址：
     <text class='tag' wx:for='{{data.domains}}'>{{item}}</text>
@@ -60,8 +60,8 @@
   <view class='a'>订单创建时间：{{data.createDate}}</view>
   <view class='a'>订单截止时间：{{data.orderEndDate}}</view>
   <view wx:if='{{data.status=="valid"}}' class='a'>是否已自动新增订单：
-    <text wx:if='{{data.isAutoNewOrder==true}}'>是</text>
-    <text wx:if='{{data.isAutoNewOrder==false}}'>否</text>
+    <text wx:if='{{data.isAutoNewOrder}}'>是</text>
+    <text wx:if='{{!data.isAutoNewOrder}}'>否</text>
   </view>
   <view wx:if='{{data.status=="valid"}}' class='a'>CA建议续期开始时间：{{data.ariStartDate}}</view>
   <view wx:if='{{data.status=="valid"}}' class='a'>CA建议续期截止时间：{{data.ariEndDate}}</view>

@@ -1,14 +1,14 @@
 <page-meta root-font-size='system'>
   <navigation-bar title='{{wz}}微信'></navigation-bar>
 </page-meta>
-<view wx:if='{{qx==false}}'>
+<view wx:if='{{!qx}}'>
   <mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
     <view slot='handle'>
       <button class='button' type='primary' bindtap='dl'>登录</button>
     </view>
   </mp-msg>
 </view>
-<view wx:if='{{qx==true}}'>
+<view wx:if='{{qx}}'>
   <view class='weui-form' data-weui-theme='{{theme}}'>
     <view class='weui-form__text-area'>
       <view class='weui-form__title'>{{wz}}微信</view>

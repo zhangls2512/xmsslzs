@@ -1,12 +1,12 @@
 <page-meta root-font-size='system'></page-meta>
-<view wx:if='{{qx==false}}'>
+<view wx:if='{{!qx}}'>
   <mp-msg type='info' title='请先登录' data-weui-theme='{{theme}}'>
     <view slot='handle'>
       <button class='button' type='primary' bindtap='dl'>登录</button>
     </view>
   </mp-msg>
 </view>
-<view wx:if='{{qx==true}}'>
+<view wx:if='{{qx}}'>
   <button class='button' type='primary' bindtap='add'>新增</button>
   <block wx:for='{{lb}}'>
     <view class='kuang'>
