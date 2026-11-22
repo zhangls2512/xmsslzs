@@ -148,10 +148,10 @@ Page({
     })
   },
   reason(e) {
-    var id = e.currentTarget.dataset.reason
+    var reason = e.currentTarget.dataset.reason
     wx.showModal({
       title: '不通过原因',
-      content: id,
+      content: reason,
       confirmText: '确定',
       showCancel: false
     })

@@ -25,7 +25,9 @@
       </view>
       <view class='bpbutton'>
         <view class='item' bindtap='order' data-id='{{item.orderId}}'>订单</view>
-        <view class='item1' style='color:rgb(250,81,81)' bindtap='sc' data-id='{{item._id}}'>删除</view>
+        <view class='item' wx:if='{{item.status=="setfail"||item.status=="submitfail"}}' type='info' bindtap='reason' data-reason='{{item.error}}'>原因</view>
+        <view class='item' wx:if='{{item.status=="setpending"||item.status=="submitpending"}}' type='info' bindtap='end' data-id='{{item._id}}'>结束</view>
+        <view class='item1' style='color:rgb(250,81,81)' wx:if='{{item.status!="setpending"&&item.status!="submitpending"}}' bindtap='sc' data-id='{{item._id}}'>删除</view>
       </view>
     </view>
   </block>

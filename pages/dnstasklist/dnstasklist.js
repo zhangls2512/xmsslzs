@@ -176,6 +176,74 @@ Page({
       url: '../orderinfo/orderinfo?id=' + id
     })
   },
+  reason(e) {
+    var reason = e.currentTarget.dataset.reason
+    wx.showModal({
+      title: '失败原因',
+      content: reason,
+      confirmText: '确定',
+      showCancel: false
+    })
+  },
+  end(e) {
+    var id = e.currentTarget.dataset.id, that = this;
+    var app = getApp()
+    if (app.globalData.network == 'none') {
+      wx.showToast({
+        title: '无网络',
+        icon: 'error'
+      })
+      return
+    }
+    wx.showLoading({
+      title: '结束中',
+      mask: true
+    })
+    wx.request({
+      url: 'https://api.zhangls2512.cn/ssl/endDnsTask',
+      method: 'POST',
+      data: {
+        accessToken: wx.getStorageSync('user').accesstoken,
+        id: id
+      },
+      enableHttp2: true,
+      enableQuic: true,
+      useHighPerformanceMode: true,
+      enableProfile: false,
+      success(res) {
+        wx.hideLoading()
+        if (res.statusCode == 200) {
+          if (res.data.errCode == 0) {
+            wx.showToast({
+              title: '结束成功'
+            })
+            setTimeout(() => {
+              that.onShow()
+            }, 1500)
+          } else {
+            wx.showModal({
+              title: '接口调用失败',
+              content: '错误码：' + res.data.errCode + '；错误信息：' + res.data.errMsg + '；修复方法：' + res.data.errFix,
+              confirmText: '确定',
+              showCancel: false
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '请求失败，错误码：' + res.statusCode,
+            icon: 'none'
+          })
+        }
+      },
+      fail(res) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败，错误信息：' + res.errMsg,
+          icon: 'none'
+        })
+      }
+    })
+  },
   sc(e) {
     var id = e.currentTarget.dataset.id, that = this;
     var app = getApp()
